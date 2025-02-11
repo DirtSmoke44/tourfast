@@ -1,0 +1,156 @@
+
+/* Основной стиль для страницы */
+.navbar {
+    position: fixed; /* Закрепляем в верхней части страницы */
+    top: 0;
+    left: 0;
+    width: 100%; /* Растягиваем по ширине страницы */
+    z-index: 1000; /* Устанавливаем высокий приоритет */
+}
+/* Основной стиль для страницы */
+body {
+    background-color: #080710;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105vh;
+}
+
+/* Фоновые фигуры */
+.background {
+    position: absolute;
+    width: 430px;
+    height: 520px;
+}
+
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape:first-child {
+    background: linear-gradient(to left, #4B0082, #FF7F50);
+    left: -80px;
+    top: -90px;
+}
+
+.shape:last-child {
+    background: linear-gradient(to right, #9370DB,	#F4A460);
+    right: -90px;
+    bottom: -80px;
+    top: 400px;
+}
+
+/* Стиль формы */
+form {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #ffffff;
+}
+
+label {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #e5e5e5;
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: #e5e5e5;
+}
+
+.btn-register2 {
+    margin-top: 5px;
+    width: 100%;
+    background-color: #9370DB; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: true; /* Убираем обводку */
+    border: 1px;  /* Убираем границу */
+    box-shadow: none; /* Убираем тени */
+}
+
+.btn-register2:hover {
+    background-color: #8A2BE2; /* Цвет при наведении */
+}
+
+.btn-register2:focus {
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+/* Текст ссылки */
+.register-text {
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.register-text a {
+    color: #f0f0f0;
+    text-decoration: trues;
+    font-weight: bold;
+}
+
+.register-text a:hover {
+    color: Violet;
+    text-decoration: underline;
+}
+
+/* Контейнер для иконки и текста */
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 25px;
+}
+

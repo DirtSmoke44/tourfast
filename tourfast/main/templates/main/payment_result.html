@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Результат оплаты{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Результат оплаты</h1>
+
+    <div class="order-confirmation">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="transaction-details">
+            <h2>Информация о транзакции</h2>
+            <p><strong>Номер карты:</strong> **** **** **** {{ transaction.card_number|slice:"-4:" }}</p>
+            <p><strong>Сумма:</strong> {{ transaction.amount }} руб.</p>
+            <p><strong>Статус:</strong> {{ transaction.status|capfirst }}</p>
+            <p><strong>Дата создания:</strong> {{ transaction.created_at }}</p>
+        </div>
+
+        <div class="retry-section">
+            {% if transaction.status == "failed" %}
+                <p>Попробуйте снова или свяжитесь с нашей службой поддержки.</p>
+                <a href="{% url 'order_accept_page' %}" class="retry-button">Попробовать еще раз</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %} Профиль пользователя {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="profile-container">
+    <div class="profile-avatar">
+        <img src="{% static 'main/img/avatarpanda.png' %}" alt="Аватар пользователя">
+        <p class="profile-email">{{ user.email }}</p>
+        <p class="data-title">Учётная запись</p>
+    </div>
+
+    <div class="container">
+     <div class="video-background">
+        <video class="bg-video-profile" autoplay muted loop>
+                <source src="{% static 'main/videos/closeup-colorful-animation-art-in-motion-.mp4' %}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <div class="profile-details">
+        <p>Имя: {{ clients.first_name }}</p>
+        <p>Фамилия: {{ clients.last_name }}</p>
+        <p>Адрес: {{ clients.address }}</p>
+        <p>Телефон: {{ clients.phone_number }}</p>
+    </div>
+    <div class="edit-profile">
+        <button class="edit-profile-btn">Редактировать профиль</button>
+    </div>
+
+    <div class="view-delivery">
+        <a href="{% url 'delivery_page' %}" class="view-delivery-btn">
+        Просмотреть заказы
+    </a>
+    </div>
+    <div class="exit-profile">
+    <button class="exit-profile-btn" onclick="location.href='{% url 'logout1' %}?next=/profile'">Выход</button>
+</div>
+</div>
+    </div>
+{% endblock %}

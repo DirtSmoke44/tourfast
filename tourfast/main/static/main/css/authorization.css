@@ -1,0 +1,185 @@
+/* Основной стиль для страницы */
+.navbar {
+    position: fixed; /* Закрепляем в верхней части страницы */
+    top: 0;
+    left: 0;
+    width: 100%; /* Растягиваем по ширине страницы */
+    z-index: 1000; /* Устанавливаем высокий приоритет */
+}
+
+body {
+    background-color: #080710;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Фоновые фигуры */
+.background {
+    position: absolute;
+    width: 430px;
+    height: 520px;
+}
+
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape:first-child {
+    background: linear-gradient(#F08080, #B22222); /* Новый цвет */
+    left: -80px;
+    top: -90px;
+}
+
+.shape:last-child {
+    background: linear-gradient(to right, #FFA07A, 	#F4A460); /* Новый цвет */
+    right: -90px;
+    bottom: -80px;
+    top: 400px;
+}
+
+/* Стиль формы */
+form {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #ffffff;
+}
+
+label {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #e5e5e5;
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: #e5e5e5;
+}
+
+/* Кнопка входа */
+.btn-login2 {
+    margin-top: 5px;
+    width: 100%;
+    background-color: #FF7F50; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: true; /* Убираем обводку */
+    border: 1px;  /* Убираем границу */
+    box-shadow: none; /* Убираем тени */
+}
+
+.btn-login2:hover {
+    background-color: #FF6347; /* Цвет при наведении */
+}
+
+.btn-login2:focus {
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+.register-text {
+    color: white; /* Белый цвет текста */
+    text-align: center; /* Центрирование текста */
+    font-size: 14px; /* Размер шрифта */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+.register-text a {
+    color: #f0f0f0; /* Белый цвет ссылки */
+    text-decoration: true; /* Убираем подчеркивание */
+    font-weight: bold; /* Полужирный шрифт */
+}
+
+.register-text a:hover {
+    color: OrangeRed; /* Красный цвет при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Контейнер для иконки и текста */
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+    margin-top: 25px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Стили для поля ввода */
+input {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #e5e5e5;
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: #e5e5e5;
+}
+
+
+
+
+
+

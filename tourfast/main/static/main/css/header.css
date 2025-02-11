@@ -1,0 +1,129 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Убираем лишние отступы */
+    background-color: #f8f9fa;
+}
+
+.nav-link {
+    font-family: 'Arial', serif;
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff8c00;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: center;  /* Центрируем контейнер */
+    align-items: center;
+}
+
+.btn-login {
+    background-color: #FF8C00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #FF4500;
+}
+
+.btn-register {
+    background-color: #9370DB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #8A2BE2;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial Black', serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF8C00;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.cookie-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 35px;
+    margin-right: 10px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-collapse {
+    flex-grow: unset; /* Убираем растяжение навигации */
+}
+
+.logo-text {
+    font-size: 20px;
+    color: #FF8C00;
+    text-transform: uppercase;
+    font-family: 'Arial', serif;
+}
+
+.nav-link.active {
+    color: #FF8C00; /* Оранжевый цвет для активной ссылки */
+}
+
+/* Hover эффект для ссылок */
+.nav-link:hover {
+    color: #FF8C00;
+}
+
+.basket-icon {
+    width: 25px;
+    height: 25px;
+    max-height: 25px;
+    margin-right: 15px;
+}
+
+.telegram-icon {
+    width: 30px;
+    height: 30px;
+    max-height: 30px;
+    margin-right: 15px;
+}
+
+.profile-icon {
+    width: 27px;
+    height: 27px;
+    max-height: 27px;
+    margin-right: 15px;
+}

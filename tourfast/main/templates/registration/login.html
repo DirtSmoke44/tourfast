@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block links %}
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{% static 'main/css/authorization.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <!-- Внешние шрифты и иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form method="POST">
+    {% csrf_token %}
+    <h3>Авторизация</h3>
+    <div class="form-group">
+        <div class="icon-text">
+            <img src="{% static 'main/img/usericon2.png' %}" alt="username icon" class="icon">
+            <label for="username">Имя пользователя</label>
+        </div>
+        <input type="text" placeholder="Введите имя" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+        <div class="icon-text">
+            <img src="{% static 'main/img/mailauth.png' %}" alt="password icon" class="icon">
+            <label for="password">Пароль</label>
+        </div>
+        <input type="password" placeholder="Введите пароль" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn-login2">Войти</button>
+    <p class="register-text">Нет аккаунта? <a href="{% url 'registration_page' %}">Зарегистрироваться</a></p>
+</form>
+{% endblock %}
