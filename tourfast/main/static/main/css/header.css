@@ -1,22 +1,24 @@
-.navbar {
+/* Navbar с закругленными углами */
+.navbar-custom {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Убираем лишние отступы */
+    padding: 10px 20px; /* Паддинг для улучшения внешнего вида */
     background-color: #f8f9fa;
+    border-radius: 15px; /* Закругленные углы */
 }
 
 .nav-link {
     font-family: 'Arial', serif;
     font-size: 18px;
-    color: #222;
+    color: #000; /* Черный цвет текста */
     text-decoration: none;
     padding: 10px 20px;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #ff8c00;
+    color: #00BFFF; /* Голубой цвет при наведении */
 }
 
 .navbar-nav {
@@ -27,7 +29,7 @@
 
 .navbar .container-fluid {
     display: flex;
-    justify-content: center;  /* Центрируем контейнер */
+    justify-content: center;
     align-items: center;
 }
 
@@ -73,22 +75,12 @@
     margin-left: 20px;
 }
 
-.cookie-logo {
+.TourFast-Logo {
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 35px;
     margin-right: 10px;
-}
-
-.container-fluid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-collapse {
-    flex-grow: unset; /* Убираем растяжение навигации */
 }
 
 .logo-text {
@@ -102,12 +94,10 @@
     color: #FF8C00; /* Оранжевый цвет для активной ссылки */
 }
 
-/* Hover эффект для ссылок */
-.nav-link:hover {
-    color: #FF8C00;
-}
-
-.basket-icon {
+/* Иконки */
+.cart-icon,
+.telegram-icon,
+.profile-icon {
     width: 25px;
     height: 25px;
     max-height: 25px;
