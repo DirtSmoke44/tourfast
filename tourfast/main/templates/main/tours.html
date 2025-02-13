@@ -10,92 +10,19 @@
 
 {% endblock %}
 {% block body %}
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("JavaScript подключен и работает!");
-    });
-</script>
-<div class="container">
+{% csrf_token %}
+    <h1>Взрывного тура</h1>
+    {% for el in tour %}
+        <img src="{{ el.photo.url }}" alt="{{ el }}" class="product-image">
+        <div class="alert alert-success">
+            <h3> {{ el.title }} </h3>
+            <p> {{ el.country }} </p>
+            <p> {{ el.hotel }} </p>
+            <p> {{ el.start_date }} </p>
+            <p> {{ el.end_date }} </p>
+            <p> {{ el.price }} руб </p>
 
-    <!-- Видео фон -->
-    <div class="video-background">
-        <video class="bg-video" autoplay muted loop>
-                <source src="{% static 'main/videos/closeup-colorful-animation-art-in-motion-.mp4' %}" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-    </div>
-
-    <aside class="filters">
-        <h1>Фильтры:</h1>
-
-        <h4>Цена</h4>
-        <ul>
-            <li><input type="checkbox" name="price" id="price3"> До 30 Руб</li>
-            <li><input type="checkbox" name="price" id="price4"> До 40 Руб</li>
-            <li><input type="checkbox" name="price" id="price5"> До 50 Руб</li>
-        </ul>
-
-        <h4>Формы</h4>
-        <ul>
-            <li><input type="checkbox" id="allForms"> Все формы</li>
-            <li><input type="checkbox" id="mostsalesForms"> Самые продаваемые</li>
-            <li><input type="checkbox" id="newForms"> Новые</li>
-            <li><input type="checkbox" id="popularForms"> Популярные</li>
-        </ul>
-
-        <h4>Начинки</h4>
-        <ul>
-            <li><input type="checkbox" id="allFillings"> Все начинки</li>
-            <li><input type="checkbox" id="bestFillings"> Самые продаваемые</li>
-            <li><input type="checkbox" id="popularFillings"> Популярные</li>
-            <li><input type="checkbox" id="newFillings"> Новые</li>
-        </ul>
-
-    </aside>
-    <main class="cookie-grid">
-        {% if step == 'form' %}
-
-        <div class="cookie-grid">
-            {% for form in cookie_forms %}
-            <div class="cookie-item" data-price="{{ form.price }}">
-    <img class="cookie-image" src="{{ form.photo.url }}" alt="Форма '{{ form.title }}'">
-    <h3>{{ form.title }}</h3>
-    <p>{{ form.description }}</p>
-    <p class="price">Цена: <span>{{ form.price }}</span> Руб</p>
-    <a href="{% url 'constructor_page' %}?step=filling&selected_form={{ form.id }}" class="select-button">
-        <img src="{% static 'main/img/iconbuttoncart.png' %}" alt="Иконка корзины" class="button-icon"> Выбрать
-    </a>
-</div>
-            {% endfor %}
         </div>
-
-    {% elif step == 'filling' %}
-
-        <div class="cookie-grid">
-    {% for filling in fillings %}
-   <div class="cookie-item" data-price="{{ filling.price }}">
-    <img class="cookie-image" src="{{ filling.photo.url }}" alt="Начинка '{{ filling.title }}'">
-    <h3>{{ filling.title }}</h3>
-    <p>{{ filling.description }}</p>
-    <p class="price">Цена: <span>{{ filling.price }}</span> Руб</p>
-    <a href="{% url 'constructor_page' %}?step=save&selected_filling={{ filling.id }}" class="select-button2">
-        <img src="{% static 'main/img/iconbuttoncart.png' %}" alt="Иконка корзины" class="button-icon2"> Добавить
-    </a>
-</div>
     {% endfor %}
-</div>
-        <div class="back-button-container">
-        <a href="{% url 'constructor_page' %}?step=form" class="back-button">
-            Изменить форму
-        </a>
-    </div>
-
-    {% else %}
-        <p>Произошла ошибка. Пожалуйста, попробуйте снова.</p>
-    {% endif %}
-    </main>
-<script src="{% static 'main/js/constructor_filters.js' %}"></script>
-
-</div>
 {% endblock %}
 

@@ -1,12 +1,18 @@
 from django.shortcuts import render
 
+from main.models import Hotel, Country, Tour
+
+
 # Create your views here.
 
 def start(request):
     return render(request, 'main/start.html')
 
 def tours(request):
-    return render(request, 'main/tours.html')
+    hotel = Hotel.objects.all()
+    tour = Tour.objects.all()
+    country = Country.objects.all()
+    return render(request, 'main/tours.html', {'hotel': hotel, 'tour': tour, 'country': country})
 
 def registration(request):
     return render(request, 'main/registration.html')
