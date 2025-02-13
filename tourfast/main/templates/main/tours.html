@@ -10,7 +10,7 @@
 {% endblock %}
 {% block body %}
 {% csrf_token %}
-    <h1>Взрывного тура</h1>
+    <h1>Список доступных туров</h1>
     {% for el in tour %}
         <img src="{{ el.photo.url }}" alt="{{ el }}" class="product-image">
         <div class="alert alert-success">

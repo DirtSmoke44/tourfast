@@ -5,23 +5,14 @@
 
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
-<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
 {% endblock %}
 
 {% block body %}
 <div class="profile-container">
     <div class="profile-avatar">
-        <img src="{% static 'main/img/avatarpanda.png' %}" alt="Аватар пользователя">
+        <img src="{% static 'main/icons/user.png' %}" alt="Аватар пользователя">
         <p class="profile-email">{{ user.email }}</p>
         <p class="data-title">Учётная запись</p>
-    </div>
-
-    <div class="container">
-     <div class="video-background">
-        <video class="bg-video-profile" autoplay muted loop>
-                <source src="{% static 'main/videos/closeup-colorful-animation-art-in-motion-.mp4' %}" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
     </div>
 
     <div class="profile-details">
@@ -35,7 +26,7 @@
     </div>
 
     <div class="view-delivery">
-        <a href="{% url 'delivery_page' %}" class="view-delivery-btn">
+        <a href="{% url 'cart_page' %}" class="view-delivery-btn">
         Просмотреть заказы
     </a>
     </div>

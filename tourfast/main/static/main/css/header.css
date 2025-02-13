@@ -14,7 +14,7 @@
     text-decoration: none;
     padding: 10px 20px;
     transition: color 0.3s ease;
-    font-family: 'franklin gothic medium', serif;
+    font-family: 'helvetica', sans-serif;
 }
 
 .nav-link:hover {
@@ -34,33 +34,33 @@
 }
 
 .btn-login {
-    background-color: #00FA9A;
-    color: white;
+    background-color: #3CB371;
+    color: black;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
     margin-left: 10px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .btn-login:hover {
-    background-color: #FF4500;
+    background-color: #00FA9A;
 }
 
 .btn-register {
-    background-color: #AFEEEE;
-    color: white;
+    background-color: #00BFFF;
+    color: black;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
     margin-left: 10px;
     transition: background-color 0.3s ease;
 }
 
 .btn-register:hover {
-    background-color: #8A2BE2;
+    background-color: #00FFFF;
 }
 
 .navbar-brand {
@@ -85,8 +85,9 @@
 
 .logo-text {
     font-size: 22px;
-    color: #20B2AA;
-    font-family: 'comic sans ms', serif;
+    color: #3CB371;
+    font-family: 'courier', serif;
+
 }
 
 .nav-link.active {

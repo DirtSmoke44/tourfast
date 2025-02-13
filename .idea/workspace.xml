@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
-      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/gif/travel_14193980.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/img/newlogogreenfirst.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/authorization.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/authorization.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" afterDir="false" />
     </list>
