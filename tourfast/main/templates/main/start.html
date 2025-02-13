@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %} Главная {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/start.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="image-background">
+    <img src="{% static 'main/img/eb5a64f8ef6bf898962c0766e506d6e6.jpg' %}"
+         alt="Travel Adventure" id="background-image">
+
+    <!--{% include 'main/search_input.html' %}-->
+
+    <!-- Поле поиска -->
+    <div class="search-container">
+        <input type="text" placeholder="Куда вы хотите?" class="search-input">
+        <input type="text" placeholder="Месяц или даты" class="search-input">
+        <button class="search-button">Найти</button>
+    </div>
+
+    <!-- Заголовок -->
+    <div class="text-overlay">
+        <h1 class="meeting-service">Авторские туры — новый формат <span class="highlight">насыщенных</span> путешествий</h1>
+    </div>
+
+    <!-- Кнопка "Смотреть все туры" -->
+    <div class="button-container">
+        <a class="btn watch-all-tours" href="{% url 'tours_page' %}" title="Смотреть туры">
+            Смотреть все туры
+        </a>
+    </div>
+</div>
+
+{% endblock %}

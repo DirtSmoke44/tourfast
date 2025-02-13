@@ -1,156 +1,137 @@
-
-/* Основной стиль для страницы */
-.navbar {
-    position: fixed; /* Закрепляем в верхней части страницы */
-    top: 0;
-    left: 0;
-    width: 100%; /* Растягиваем по ширине страницы */
-    z-index: 1000; /* Устанавливаем высокий приоритет */
-}
-/* Основной стиль для страницы */
-body {
-    background-color: #080710;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 105vh;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
 
-/* Фоновые фигуры */
-.background {
-    position: absolute;
-    width: 430px;
-    height: 520px;
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #00bfff;
 }
 
-.background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+.title::before {
+  width: 18px;
+  height: 18px;
 }
 
-.shape:first-child {
-    background: linear-gradient(to left, #4B0082, #FF7F50);
-    left: -80px;
-    top: -90px;
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
 }
 
-.shape:last-child {
-    background: linear-gradient(to right, #9370DB,	#F4A460);
-    right: -90px;
-    bottom: -80px;
-    top: 400px;
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #00bfff;
 }
 
-/* Стиль формы */
-form {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.message, 
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    color: #ffffff;
+.signin {
+  text-align: center;
 }
 
-label {
-    width: 100%;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
+.signin a:hover {
+  text-decoration: underline royalblue;
 }
 
-input {
-    width: 100%;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-    color: #e5e5e5;
-    border: none;
-    outline: none;
+.signin a {
+  color: #00bfff;
 }
 
-input::placeholder {
-    color: #e5e5e5;
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
 }
 
-.btn-register2 {
-    margin-top: 5px;
-    width: 100%;
-    background-color: #9370DB; /* Цвет фона */
-    color: white; /* Цвет текста */
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    outline: true; /* Убираем обводку */
-    border: 1px;  /* Убираем границу */
-    box-shadow: none; /* Убираем тени */
+.form label {
+  position: relative;
 }
 
-.btn-register2:hover {
-    background-color: #8A2BE2; /* Цвет при наведении */
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
 }
 
-.btn-register2:focus {
-    outline: none; /* Убираем обводку при фокусе */
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
 }
 
-/* Текст ссылки */
-.register-text {
-    color: white;
-    text-align: center;
-    font-size: 14px;
-    margin-top: 10px;
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
 }
 
-.register-text a {
-    color: #f0f0f0;
-    text-decoration: trues;
-    font-weight: bold;
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
 }
 
-.register-text a:hover {
-    color: Violet;
-    text-decoration: underline;
+.input {
+  font-size: medium;
 }
 
-/* Контейнер для иконки и текста */
-.form-group {
-    width: 100%;
-    margin-bottom: 20px;
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #00bfff;
 }
 
-.icon-text {
-    display: flex;
-    align-items: center;
+.submit:hover {
+  background-color: #00bfff96;
 }
 
-.icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    margin-top: 25px;
-}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
 
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}

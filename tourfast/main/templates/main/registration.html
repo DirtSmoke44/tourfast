@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %} Регистрация {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/registration.css' %}">
+{% endblock %}
+
+{% block body %}
+<form class="form">
+    <p class="title">Регистрация </p>
+    <p class="message">Зарегиструйтесь, чтобы получить полный доступ к путешествиям!. </p>
+        <div class="flex">
+        <label>
+            <input class="input" type="text" placeholder="" required="">
+            <span>Имя</span>
+        </label>
+
+        <label>
+            <input class="input" type="text" placeholder="" required="">
+            <span>Фамилия</span>
+        </label>
+    </div>
+
+    <label>
+        <input class="input" type="email" placeholder="" required="">
+        <span>E-mail</span>
+    </label>
+
+    <label>
+        <input class="input" type="password" placeholder="" required="">
+        <span>Пароль</span>
+    </label>
+    <label>
+        <input class="input" type="password" placeholder="" required="">
+        <span>Подтвердите пароль</span>
+    </label>
+    <button class="submit">Зарегистрироваться</button>
+    <p class="signin">Уже есть аккаунт ? <a href="{% url 'login_page' %}">Авторизация</a> </p>
+</form>
+
+{% endblock %}

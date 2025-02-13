@@ -42,34 +42,6 @@ class Country(models.Model):
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны'
 
-class Branch(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=15)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Филиал'
-        verbose_name_plural = 'Филиалы'
-
-class Employee(models.Model):
-    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, related_name="employees")
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    position = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=15)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.position}"
-
-    class Meta:
-        verbose_name = 'Сотрудник'
-        verbose_name_plural = 'Сотрудники'
-
-
 class Hotel(models.Model):
     name = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name="hotels")
@@ -77,7 +49,7 @@ class Hotel(models.Model):
     address = models.CharField(max_length=255)
     stars = models.PositiveSmallIntegerField()
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
-    photo = models.ImageField('Фото отеля', upload_to='main/img/', null=True, blank=True)
+    photo = models.ImageField('Фото отеля', upload_to='main/hotelphotos/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} ({self.city}, {self.country.name})"
@@ -90,11 +62,10 @@ class Tour(models.Model):
     title = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name="tours")
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="tours")
-    departure_city = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    photo = models.ImageField('Фото тура', upload_to='main/img/', null=True, blank=True)
+    photo = models.ImageField('Фото тура', upload_to='main/tourphotos/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.title} ({self.start_date} - {self.end_date})"
@@ -133,3 +104,17 @@ class Review(models.Model):
     class Meta:
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
+
+class Employee(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    position = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.position}"
+
+    class Meta:
+        verbose_name = 'Сотрудник'
+        verbose_name_plural = 'Сотрудники'

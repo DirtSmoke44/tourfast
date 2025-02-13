@@ -2,11 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'main/index.html')
-
-def about(request):
-    return render(request, 'main/about.html')
+def start(request):
+    return render(request, 'main/start.html')
 
 def tours(request):
     return render(request, 'main/tours.html')
@@ -16,6 +13,9 @@ def registration(request):
 
 def authorization(request):
     return render(request, 'main/authorization.html')
+
+def hottours(request):
+    return render(request, 'main/hottours.html')
 
 def cart(request):
     return render(request, 'main/cart.html')

@@ -1,185 +1,137 @@
-/* Основной стиль для страницы */
-.navbar {
-    position: fixed; /* Закрепляем в верхней части страницы */
-    top: 0;
-    left: 0;
-    width: 100%; /* Растягиваем по ширине страницы */
-    z-index: 1000; /* Устанавливаем высокий приоритет */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
 
-body {
-    background-color: #080710;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #00bfff;
 }
 
-/* Фоновые фигуры */
-.background {
-    position: absolute;
-    width: 430px;
-    height: 520px;
+.title::before {
+  width: 18px;
+  height: 18px;
 }
 
-.background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
 }
 
-.shape:first-child {
-    background: linear-gradient(#F08080, #B22222); /* Новый цвет */
-    left: -80px;
-    top: -90px;
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #00bfff;
 }
 
-.shape:last-child {
-    background: linear-gradient(to right, #FFA07A, 	#F4A460); /* Новый цвет */
-    right: -90px;
-    bottom: -80px;
-    top: 400px;
+.message, 
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Стиль формы */
-form {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.signin {
+  text-align: center;
 }
 
-form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    color: #ffffff;
+.signin a:hover {
+  text-decoration: underline royalblue;
 }
 
-label {
-    width: 100%;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
+.signin a {
+  color: #00bfff;
 }
 
-input {
-    width: 100%;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-    color: #e5e5e5;
-    border: none;
-    outline: none;
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
 }
 
-input::placeholder {
-    color: #e5e5e5;
+.form label {
+  position: relative;
 }
 
-/* Кнопка входа */
-.btn-login2 {
-    margin-top: 5px;
-    width: 100%;
-    background-color: #FF7F50; /* Цвет фона */
-    color: white; /* Цвет текста */
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    outline: true; /* Убираем обводку */
-    border: 1px;  /* Убираем границу */
-    box-shadow: none; /* Убираем тени */
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
 }
 
-.btn-login2:hover {
-    background-color: #FF6347; /* Цвет при наведении */
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
 }
 
-.btn-login2:focus {
-    outline: none; /* Убираем обводку при фокусе */
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
 }
 
-.register-text {
-    color: white; /* Белый цвет текста */
-    text-align: center; /* Центрирование текста */
-    font-size: 14px; /* Размер шрифта */
-    margin-top: 10px; /* Отступ сверху */
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
 }
 
-.register-text a {
-    color: #f0f0f0; /* Белый цвет ссылки */
-    text-decoration: true; /* Убираем подчеркивание */
-    font-weight: bold; /* Полужирный шрифт */
+.input {
+  font-size: medium;
 }
 
-.register-text a:hover {
-    color: OrangeRed; /* Красный цвет при наведении */
-    text-decoration: underline; /* Подчеркивание при наведении */
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #00bfff;
 }
 
-/* Контейнер для иконки и текста */
-.form-group {
-    width: 100%;
-    margin-bottom: 20px;
+.submit:hover {
+  background-color: #00bfff96;
 }
 
-.icon-text {
-    display: flex;
-    align-items: center; /* Выравнивание по вертикали */
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
-
-.icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px; /* Отступ между иконкой и текстом */
-    margin-top: 25px;
-}
-
-label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-/* Стили для поля ввода */
-input {
-    width: 100%;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 15px;
-    font-size: 14px;
-    font-weight: 300;
-    color: #e5e5e5;
-    border: none;
-    outline: none;
-}
-
-input::placeholder {
-    color: #e5e5e5;
-}
-
-
-
-
-
-

@@ -1,0 +1,79 @@
+/* Контейнер для фонового изображения */
+.image-background {
+    background: url('{% static "main/img/b8b4ed993f0b59a1b1bc3b01b6c78c35.jpg" %}') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Заголовок с жирным выделением */
+.meeting-service {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #a4b400;
+    font-weight: 900;
+}
+
+/* Поле поиска */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-input {
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.search-button {
+    background: #a4b400;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: #8a9a00;
+}
+
+/* Кнопка "Смотреть все туры" */
+.button-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.watch-all-tours {
+    background: #ff7f00;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.watch-all-tours:hover {
+    background: #6aa84f;
+}
