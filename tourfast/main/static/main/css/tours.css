@@ -1,0 +1,123 @@
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.tour-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 70%;
+}
+
+.text-title {
+ font-weight: 900;
+ font-size: 1.2em;
+ line-height: 1.5;
+}
+
+.card {
+    width: 190px;
+    height: 254px;
+    padding: .8em;
+    background: #f5f5f5;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 20px; /* Добавлено пространство между карточками */
+}
+
+.card-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Скругление углов изображений */
+}
+
+.tour-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 32%;
+    text-align: center;
+    min-height: 400px;
+}
+
+
+.tour-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card-info {
+ padding-top: 10%;
+}
+
+
+.filters {
+    width: 250px;
+    padding: 1em;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filters h3 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.filters label {
+    font-size: 1em;
+    display: block;
+    margin-bottom: .5em;
+}
+
+.filters select,
+.filters input {
+    width: 100%;
+    padding: .5em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.filters button {
+    width: 100%;
+    padding: .6em;
+    background: #252525;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background: #444;
+}
+
+/* Сброс фильтров */
+.reset-filters {
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+    color: #252525;
+    font-size: .9em;
+    text-decoration: none;
+}
+
+.reset-filters:hover {
+    text-decoration: underline;
+}

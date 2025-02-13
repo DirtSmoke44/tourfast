@@ -3,7 +3,12 @@ from django.shortcuts import render
 from main.models import Hotel, Country, Tour
 
 
-# Create your views here.
+from django.shortcuts import render
+from .models import Tour, Country
+
+from django.shortcuts import render
+from .models import Tour
+
 
 def start(request):
     return render(request, 'main/start.html')

@@ -1,27 +1,67 @@
 {% extends 'main/layout.html' %}
-
 {% load static %}
+
 {% block title %}Все туры{% endblock %}
+
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/tours.css' %}">
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
-
 {% endblock %}
+
 {% block body %}
 {% csrf_token %}
-    <h1>Список доступных туров</h1>
-    {% for el in tour %}
-        <img src="{{ el.photo.url }}" alt="{{ el }}" class="product-image">
-        <div class="alert alert-success">
-            <h3>Тур: {{ el.title }} </h3>
-            <p>Страна: {{ el.country }} </p>
-            <p>Отель: {{ el.hotel }} </p>
-            <p>Дата начала: {{ el.start_date }} </p>
-            <p>Дата окончания: {{ el.end_date }} </p>
-            <p>Цена: {{ el.price }} Рублей </p>
 
-        </div>
-    {% endfor %}
+<div class="header">
+    <form method="GET" class="search-form">
+        <input type="text" name="search" placeholder="Поиск тура..." value="{{ request.GET.search }}">
+        <button type="submit">Искать</button>
+    </form>
+</div>
+
+<div class="container">
+    <aside class="filters">
+        <h3>Фильтры</h3>
+        <form method="GET">
+            <label for="country">Страна</label>
+            <select name="country" id="country">
+                <option value="">Все</option>
+                {% for country in countries %}
+                    <option value="{{ country.id }}" {% if request.GET.country|slugify == country.id|slugify %}selected{% endif %}>{{ country.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="price_min">Цена от</label>
+            <input type="number" name="price_min" id="price_min" value="{{ request.GET.price_min }}">
+
+            <label for="price_max">Цена до</label>
+            <input type="number" name="price_max" id="price_max" value="{{ request.GET.price_max }}">
+
+            <button type="submit">Применить</button>
+            <a href="?" class="reset-filters">Сбросить</a>
+        </form>
+    </aside>
+
+    <section class="tour-list">
+        {% for el in tour %}
+            <div class="tour-card card">
+                <div class="card-img">
+                    <img src="{{ el.photo.url }}" alt="{{ el.title }}">
+                </div>
+                <div class="card-info">
+                    <h3 class="text-title">{{ el.title }}</h3>
+                    <p class="text-body">Страна: {{ el.country.name }}</p>
+                    <p class="text-body">Отель: {{ el.hotel.name }}</p>
+                    <p class="text-body">Дата: {{ el.start_date }} - {{ el.end_date }}</p>
+                    <p class="text-body">Цена: {{ el.price }} ₽</p>
+                </div>
+                <div class="card-footer">
+                    <button class="card-button">Подробнее</button>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+</div>
+
 {% endblock %}
-
