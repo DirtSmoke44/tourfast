@@ -19,7 +19,12 @@ class Clients(models.Model):
         verbose_name_plural = 'Клиенты'
 
 class Buyer(AbstractUser):
-    username = models.CharField('Имя', max_length=50)
+    first_name = models.CharField('Имя', max_length=50, null=True)
+    last_name = models.CharField('Фамилия', max_length=50, null=True)
+    phone_number = models.CharField('Номер телефона', max_length=11, null=True)
+    address = models.TextField('Адрес', null=True)
+    date_of_birth = models.DateField('Дата рождения', null=True)
+    passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
     email = models.EmailField('Email', max_length=50)
     password1 = models.CharField('Пароль', max_length=50)
     password2 = models.CharField('Пароль', max_length=50)
