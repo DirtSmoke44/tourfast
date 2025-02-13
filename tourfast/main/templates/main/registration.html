@@ -8,32 +8,34 @@
 {% endblock %}
 
 {% block body %}
-<form class="form">
+<form class="form" method="POST">
+    {% csrf_token %}
+
     <p class="title">Регистрация </p>
     <p class="message">Зарегиструйтесь, чтобы получить полный доступ к путешествиям!. </p>
         <div class="flex">
         <label>
-            <input class="input" type="text" placeholder="" required="">
+            <input class="input" type="text" placeholder="" name="first_name" required>
             <span>Имя</span>
         </label>
 
         <label>
-            <input class="input" type="text" placeholder="" required="">
+            <input class="input" type="text" placeholder="" name="last_name" required>
             <span>Фамилия</span>
         </label>
     </div>
 
     <label>
-        <input class="input" type="email" placeholder="" required="">
+        <input class="input" type="email" placeholder="" name="email" required>
         <span>E-mail</span>
     </label>
 
     <label>
-        <input class="input" type="password" placeholder="" required="">
+        <input class="input" type="password" placeholder="" name="password1" required>
         <span>Пароль</span>
     </label>
     <label>
-        <input class="input" type="password" placeholder="" required="">
+        <input class="input" type="password" placeholder=""  name="password2" required>
         <span>Подтвердите пароль</span>
     </label>
     <button class="submit">Зарегистрироваться</button>
