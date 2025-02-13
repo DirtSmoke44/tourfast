@@ -15,12 +15,12 @@
     {% for el in tour %}
         <img src="{{ el.photo.url }}" alt="{{ el }}" class="product-image">
         <div class="alert alert-success">
-            <h3> {{ el.title }} </h3>
-            <p> {{ el.country }} </p>
-            <p> {{ el.hotel }} </p>
-            <p> {{ el.start_date }} </p>
-            <p> {{ el.end_date }} </p>
-            <p> {{ el.price }} руб </p>
+            <h3>Тур: {{ el.title }} </h3>
+            <p>Страна: {{ el.country }} </p>
+            <p>Отель: {{ el.hotel }} </p>
+            <p>Дата начала: {{ el.start_date }} </p>
+            <p>Дата окончания: {{ el.end_date }} </p>
+            <p>Цена: {{ el.price }} Рублей </p>
 
         </div>
     {% endfor %}
