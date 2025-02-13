@@ -53,7 +53,7 @@
 }
 
 .search-button {
-    background: #3CB371 ;
+    background: #3CB371;
     color: black;
     border: none;
     padding: 10px 30px;
@@ -83,13 +83,11 @@
 
 .text-overlay .meeting-service {
     color: white;
-
 }
 
 .text-overlay .highlight {
     color: #90EE90; /* Светло-зеленый цвет */
     text-decoration: underline;
-
 }
 
 /* Кнопка "Смотреть все туры" */
