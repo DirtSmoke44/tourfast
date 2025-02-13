@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header" />
+    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/gif/airplane_16121567.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/img/boat_mountains_lake_135258_1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/img/stones_snow_mountains_413015_1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/img/tree_mountains_lake_418797_1920x1080.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DirtSmoke44"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DirtSmoke44/tourfast.git",
+    "accountId": "9b240e01-400d-4ea8-aecf-34bb2c8f249c"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -27,9 +49,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\gif" />
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\img" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

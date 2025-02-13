@@ -84,10 +84,10 @@
 }
 
 .logo-text {
-    font-size: 20px;
-    color: #FF8C00;
+    font-size: 24px;
+    color: #556B2F;
     text-transform: uppercase;
-    font-family: 'Arial', serif;
+    font-family: 'Impact', sans-serif;
 }
 
 .nav-link.active {
