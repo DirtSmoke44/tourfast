@@ -5,10 +5,11 @@
 
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/start.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 {% endblock %}
 
 {% block body %}
-
 <div class="image-background">
     <img src="{% static 'main/img/eb5a64f8ef6bf898962c0766e506d6e6.jpg' %}"
          alt="Travel Adventure" id="background-image">
@@ -22,17 +23,45 @@
         <button class="search-button">Найти</button>
     </div>
 
-    <!-- Заголовок -->
+<div class="main-container">
     <div class="text-overlay">
-        <h1 class="meeting-service">Авторские туры — новый формат <span class="highlight">насыщенных</span> путешествий</h1>
+        <h1 class="meeting-service">Добро пожаловать в CookieTaste!</h1>
+        <h1 class="better-service">Почему мы?</h1>
     </div>
 
-    <!-- Кнопка "Смотреть все туры" -->
-    <div class="button-container">
-        <a class="btn watch-all-tours" href="{% url 'tours_page' %}" title="Смотреть туры">
-            Смотреть все туры
-        </a>
+    <div class="block-section">
+        <div class="card first">
+            <div class="icon">
+                <img src="{% static 'main/icons/customization.png' %}" alt="Популярные направления" />
+            </div>
+            <h2>Популярные направления</h2>
+            <p>Мы предлагаем туры в самые востребованные и живописные места. Найдите идеальное путешествие для себя!</p>
+        </div>
+
+        <div class="card orange">
+            <div class="icon">
+                <img src="{% static 'main/icons/telegramlogo.png' %}" alt="Горящие туры" />
+            </div>
+            <h2>Выгодные предложения</h2>
+            <p>Эксклюзивные скидки, горящие туры и специальные акции помогут вам путешествовать по лучшим ценам</p>
+        </div>
+
+        <div class="card purple">
+            <div class="icon">
+                <img src="{% static 'main/icons/coupons.png' %}" alt="Безопасность" />
+            </div>
+            <h2>Комфорт и безопасность</h2>
+            <p>Работаем только с проверенными туроператорами и отелями, чтобы ваш отдых был беззаботным и приятным</p>
+        </div>
     </div>
+
+  <div class="button-container">
+  <a class="btn create-design-button" href="{% url 'tours_page' %}" title="Перейти в конструктор">
+    Купить туры
+  </a>
 </div>
+    <a> <br> </a>
 
+</a>
+</div>
 {% endblock %}

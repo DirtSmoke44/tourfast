@@ -4,15 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header" />
+    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/add-to-cart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/telegram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TourWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TourWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GitHub/TourWeb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/authorization.css.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DirtSmoke44&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DirtSmoke44/tourfast.git",
+    "accountId": "9b240e01-400d-4ea8-aecf-34bb2c8f249c"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -26,10 +60,32 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "il",
+    "last_opened_file_path": "D:/PythonProjects/TourWeb/tourfast/main/static/main/img",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="TourWeb" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="TourWeb" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\img" />
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\css" />
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\templates\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\icons" />
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\img" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -57,7 +113,21 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/tourfast" />
+    </ignored-roots>
     <MESSAGE value="header" />
     <option name="LAST_COMMIT_MESSAGE" value="header" />
   </component>
