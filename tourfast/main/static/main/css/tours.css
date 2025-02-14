@@ -9,13 +9,17 @@
 
 /* Карточка тура */
 .tour-card {
-    width: 320px; /* Немного увеличил для гармонии */
+    width: 320px; /* Ширина карточки */
     background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     padding-bottom: 10px;
+    min-height: 500px; /* Фиксированная высота карточки */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Равномерное распределение контента */
 }
 
 .tour-card:hover {
@@ -41,6 +45,7 @@
 .card-info {
     padding: 15px;
     text-align: center;
+    flex-grow: 1; /* Растягиваем контейнер с текстом */
 }
 
 /* Заголовок тура */
@@ -95,6 +100,7 @@
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto; /* Автоматическая высота по содержимому */
 }
 
 .filter-sidebar h2 {
@@ -154,4 +160,15 @@
     .filter-sidebar {
         width: 100%;
     }
+
+    .tour-card {
+        min-height: auto; /* Убираем фиксированную высоту на мобильных */
+    }
+}
+
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start; /* Выравнивание элемента по верхнему краю */
 }

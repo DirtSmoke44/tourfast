@@ -1,6 +1,5 @@
 
 from django.shortcuts import render, get_object_or_404
-
 from main.models import Hotel, Country, Tour
 
 
@@ -34,7 +33,6 @@ def cart(request, tour_id):
     tour = get_object_or_404(Tour, id=tour_id)
     # Здесь логика работы с корзиной
     return render(request, 'cart.html', {'tour': tour})
-
 
 def tours(request):
     hotel = Hotel.objects.all()
