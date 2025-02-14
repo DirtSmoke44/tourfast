@@ -32,6 +32,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .country-card:hover {
@@ -61,18 +64,27 @@ body {
 .text-title {
     font-size: 20px;
     font-weight: 700;
-    margin: 0;
+    margin-bottom: 10px;
     color: #333;
 }
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-    .country-card {
-        width: 100%;
-        max-width: 300px;
-    }
+/* Кнопка "Выбрать" */
+.select-btn {
+    background-color: #6B8E23;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 15px;
+    cursor: pointer;
 
-    .page-title {
-        font-size: 28px;
-    }
 }
+
+.select-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
