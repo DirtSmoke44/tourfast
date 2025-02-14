@@ -1,159 +1,157 @@
-/* Общие стили для текста и элементов */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Основной шрифт для всех элементов */
-body {
-    font-family: 'Verdana', sans-serif;
-    background-color: #FFDEAD;
-    position: relative;
-}
-
-/* Стили для видео на фон */
-video.bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-/* Стили для контейнера фильтров */
-.filters {
-    width: 20%;
-    background-color: rgba(29, 29, 29, 0.7);
+/* Общие стили для списка туров */
+.tour-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
-/* Стили для текста в фильтрах */
-.filters h1, .filters h2, .filters h3, .filters h4 {
-    color: white;
+/* Карточка тура */
+.tour-card {
+    width: 320px; /* Немного увеличил для гармонии */
+    background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    padding-bottom: 10px;
+}
+
+.tour-card:hover {
+    transform: scale(1.05);
+}
+
+/* Фото внутри карточки */
+.card-img {
+    width: 90%; /* Уменьшил размер фото внутри карточки */
+    margin: 10px auto 0 auto; /* Центрируем фото */
+    border-radius: 15px; /* Закругленные края */
+    overflow: hidden; /* Обрезаем углы */
+}
+
+.card-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px; /* Делаем закругления */
+}
+
+/* Контейнер с текстом */
+.card-info {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Заголовок тура */
+.text-title {
+    font-size: 20px;
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
-.filters h4 {
-    font-weight: bold;
+/* Описание тура */
+.text-body {
+    font-size: 16px;
+    margin: 5px 0;
 }
 
-/* Стили для карточек туров */
-.cookie-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    width: 70%;
-    padding: 20px;
-    min-height: 400px;
+/* Выделение ключевых слов жирным */
+.text-body strong {
+    font-weight: 700;
 }
 
-.cookie-item {
-    background-color: rgba(250, 250, 250, 0.7);
-    padding: 20px;
+/* Кнопка оформления */
+.order-btn {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background: #50c878; /* Мятный цвет */
+    color: white;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cookie-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cookie-item h3 {
-    font-style: italic;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Стили для изображений туров */
-.cookie-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-/* Кнопка выбора */
-.select-button {
-    align-items: center;
-    background-color: #ffffff;
-    color: black;
-    width: 300px;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 35px;
-    cursor: pointer;
+    border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
-.select-button:hover {
-    background-color: #e83b42;
+.order-btn:hover {
+    background: #3ba768;
 }
 
-.select-button .button-icon {
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
+/* Контейнер для фильтров и карточек */
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Стили для кнопок */
-button {
-    padding: 10px 20px;
-    background-color: #FF8C00;
+/* Боковая панель с фильтрами */
+.filter-sidebar {
+    width: 250px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filter-section label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.filter-section input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-section input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.apply-filters-btn {
+    width: 100%;
+    padding: 10px;
+    background: #50c878;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
-button:hover {
-    background-color: #2c8a43;
+.apply-filters-btn:hover {
+    background: #3ba768;
 }
 
-/* Стили для фильтров */
-.colors {
-    display: flex;
-    gap: 10px;
-}
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .filter-tour-container {
+        flex-direction: column;
+    }
 
-.color {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
+    .filter-sidebar {
+        width: 100%;
+    }
 }
-
-.color:hover {
-    opacity: 0.7;
-}
-
-/* Кнопка назад */
-.back-button {
-    position: fixed;
-    bottom: 196px;
-    left: 85px;
-    background-color: #FF8C00;
-    color: black;
-    padding: 5px 10px;
-    border: 1px solid #000;
-    border-radius: 16px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-    background-color: #DC143C;
-}
-
