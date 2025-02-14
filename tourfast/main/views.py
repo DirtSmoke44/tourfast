@@ -19,7 +19,7 @@ def tours(request):
     country = Country.objects.all()
     return render(request, 'main/tours.html', {'hotel': hotel, 'tour': tour, 'country': country})
 
-def registration (request):
+def registration (request): #функция айра
 
     first_name= Buyer.first_name
     last_name= Buyer.last_name
