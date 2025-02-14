@@ -7,7 +7,7 @@
     <a class="navbar-brand" href="{% url 'start_page' %}">
       <img src="{% static 'main/gif/travel_14193980.gif' %}" alt="TourFastLogo" class="TourFast-Logo">
 
-       <span class="logo-text">Tour Fast</span>
+       <span class="logo-text">TourFast</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,10 +19,13 @@
           <a class="nav-link" aria-current="page" href="/">Главная</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'countries_page' %}">Страны</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'tours_page' %}">Все туры</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="{% url 'hottours_page' %}">Горящие Туры</a>
+          <a class="nav-link" href="{% url 'hottours_page' %}">Горящие туры</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'hotels_page' %}">Отели</a>

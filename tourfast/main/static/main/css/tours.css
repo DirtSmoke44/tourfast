@@ -170,5 +170,5 @@
     display: flex;
     gap: 20px;
     padding: 20px;
-    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    align-items: flex-start; /* Выравнивание элемента по верхнему краю */
 }

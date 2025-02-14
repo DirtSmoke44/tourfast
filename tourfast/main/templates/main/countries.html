@@ -1,0 +1,60 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Страны{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/countries.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% csrf_token %}
+
+<!-- Заголовок страницы -->
+<h1 class="page-title">Список стран для путешествий:</h1>
+
+<!-- Контейнер для карточек стран -->
+<section class="country-list">
+
+    <div class="country-card">
+        <div class="card-img">
+            <img src="{% static 'main/img/countryphotoandgifs/germany1.jpg' %}" alt="Германия">
+        </div>
+        <div class="card-info">
+            <h3 class="text-title">Германия</h3>
+        </div>
+    </div>
+
+
+    <div class="country-card">
+        <div class="card-img">
+            <img src="{% static 'main/img/countryphotoandgifs/russia1.jpg' %}" alt="Россия">
+        </div>
+        <div class="card-info">
+            <h3 class="text-title">Россия</h3>
+        </div>
+    </div>
+
+
+    <div class="country-card">
+        <div class="card-img">
+            <img src="{% static 'main/img/countryphotoandgifs/usa1.jpg' %}" alt="США">
+        </div>
+        <div class="card-info">
+            <h3 class="text-title">США</h3>
+        </div>
+    </div>
+
+
+    <div class="country-card">
+        <div class="card-img">
+            <img src="{% static 'main/img/countryphotoandgifs/italy1.jpg' %}" alt="Италия">
+        </div>
+        <div class="card-info">
+            <h3 class="text-title">Италия</h3>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

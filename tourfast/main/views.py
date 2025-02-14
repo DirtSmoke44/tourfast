@@ -18,7 +18,6 @@ def cart(request, tour_id):
     # Здесь логика работы с корзиной
     return render(request, 'cart.html', {'tour': tour})
 
-
 def tours(request):
     hotel = Hotel.objects.all()
     tour = Tour.objects.all()
@@ -45,3 +44,6 @@ def hotels(request):
 
 def sales(request):
     return render(request, 'main/sales.html')
+
+def countries(request):
+    return render(request, 'main/countries.html')
