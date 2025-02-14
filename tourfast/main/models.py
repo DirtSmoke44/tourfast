@@ -1,30 +1,31 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Permission, Group
-
+from django.conf import settings
 
 class Clients(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Пользователь")
-    first_name = models.CharField('Имя', max_length=50, null=True)
-    last_name = models.CharField('Фамилия', max_length=50, null=True)
-    phone_number = models.CharField('Номер телефона', max_length=11, null=True)
-    address = models.TextField('Адрес', null=True)
-    date_of_birth = models.DateField('Дата рождения', null=True)
-    passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.user} {self.user}"
 
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
 class Buyer(AbstractUser):
-    username = models.CharField('Имя', max_length=50)
+
+    last_name = models.CharField('Фамилия', max_length=50, null=True)
     email = models.EmailField('Email', max_length=50)
-    password1 = models.CharField('Пароль', max_length=50)
-    password2 = models.CharField('Пароль', max_length=50)
+    # password1 = models.CharField('Пароль', max_length=50)
+    # password2 = models.CharField('Пароль', max_length=50)
     groups = models.ManyToManyField(Group, related_name='buyers')
     user_permissions = models.ManyToManyField(Permission, related_name='buyers')
+    phone_number = models.CharField('Номер телефона', max_length=11, null=True)
+    address = models.TextField('Адрес', null=True)
+    date_of_birth = models.DateField('Дата рождения', null=True)
+    passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
 
 class Transaction(models.Model):
     card_number = models.CharField(max_length=16)
