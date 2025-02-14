@@ -6,7 +6,7 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
 {% endblock %}
-
+{% csrf_token %}
 {% block body %}
 <div class="profile-container">
     <div class="profile-avatar">
@@ -16,10 +16,10 @@
     </div>
 
     <div class="profile-details">
-        <p>Имя: {{ clients.first_name }}</p>
-        <p>Фамилия: {{ clients.last_name }}</p>
-        <p>Адрес: {{ clients.address }}</p>
-        <p>Телефон: {{ clients.phone_number }}</p>
+        <p>Имя: {{ user.username }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>Адрес: {{ user.address }}</p>
+        <p>Телефон: {{ user.phone_number }}</p>
     </div>
     <div class="edit-profile">
         <button class="edit-profile-btn">Редактировать профиль</button>
@@ -31,7 +31,7 @@
     </a>
     </div>
     <div class="exit-profile">
-    <button class="exit-profile-btn" onclick="location.href='{% url 'logout1' %}?next=/profile'">Выход</button>
+    <button class="exit-profile-btn" onclick="location.href='{% url 'logout' %}?next=/profile'">Выход</button>
 </div>
 </div>
     </div>
