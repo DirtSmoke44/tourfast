@@ -85,8 +85,8 @@
 
 .logo-text {
     font-size: 22px;
-    color: #3CB371;
-    font-family: 'courier', serif;
+    color: #556B2F;
+    font-family: 'comic sans ms', sans-serif;
 
 }
 
@@ -123,10 +123,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #E0FFFF;
-    border-radius: 45px; /* Закругленные углы */
+    padding: 10px 25px;
+    background-color: #AFEEEE;
+    border-radius: 0px; /* Закругленные углы */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта объема */
-    margin: 20px; /* Добавляет отступы сверху и по бокам */
+    margin: 0px; /* Добавляет отступы сверху и по бокам */
 }
 
