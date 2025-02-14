@@ -8,7 +8,9 @@
 {% endblock %}
 
 {% block body %}
-<form class="form">
+<form class="form" method="POST">
+    {% csrf_token %}
+
     <p class="title">Авторизация </p>
     <p class="message">Войдите в аккаунт, чтобы получить полным доступ к путешествиям!</p>
         <div class="flex">
