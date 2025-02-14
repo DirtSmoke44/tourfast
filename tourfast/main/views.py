@@ -7,13 +7,17 @@ from django.contrib.auth import login
 from main.models import Hotel, Country, Tour, Buyer
 from .forms import RegisterForm, LoginForm
 from django.shortcuts import render
-
+from django.contrib.auth import logout
 from .forms import RegisterForm
 from .models import Tour, Country
-
+from django.shortcuts import redirect
 from django.shortcuts import render
 from .models import Tour
 
+
+def logout_view(request):
+    logout(request)
+    return redirect("start_page")
 
 def start(request):
     return render(request, 'main/start.html')
