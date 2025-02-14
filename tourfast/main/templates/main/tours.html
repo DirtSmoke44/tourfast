@@ -11,6 +11,46 @@
 {% block body %}
 {% csrf_token %}
 
+<!-- Контейнер для фильтров и карточек -->
+<div class="filter-tour-container">
+    <!-- Блок фильтров -->
+    <aside class="filter-sidebar">
+        <h2>Фильтры</h2>
+        <div class="filter-section">
+            <h3>Длительность</h3>
+            <label for="duration-min">От (дней)</label>
+            <input type="number" id="duration-min" name="duration-min" value="1">
+            <label for="duration-max">До (дней)</label>
+            <input type="number" id="duration-max" name="duration-max" value="183">
+        </div>
+
+        <div class="filter-section">
+            <h3>Цена</h3>
+            <label for="price-min">От ₽</label>
+            <input type="number" id="price-min" name="price-min" value="969">
+            <label for="price-max">До ₽</label>
+            <input type="number" id="price-max" name="price-max" value="4265073">
+        </div>
+
+        <div class="filter-section">
+            <h3>Дополнительно</h3>
+            <label><input type="checkbox"> Можно в рассрочку</label>
+            <label><input type="checkbox"> Только со скидками</label>
+        </div>
+
+        <div class="filter-section">
+            <h3>Язык тура</h3>
+            <label><input type="checkbox"> Русский</label>
+            <label><input type="checkbox"> Английский</label>
+            <label><input type="checkbox"> Испанский</label>
+            <label><input type="checkbox"> Французский</label>
+            <label><input type="checkbox"> Немецкий</label>
+        </div>
+
+        <button class="apply-filters-btn">Применить фильтры</button>
+    </aside>
+
+    <!-- Существующий блок с карточками туров -->
     <section class="tour-list">
         {% for el in tour %}
             <div class="tour-card card">
@@ -19,15 +59,15 @@
                 </div>
                 <div class="card-info">
                     <h3 class="text-title">{{ el.title }}</h3>
-                    <p class="text-body">Страна: {{ el.country.name }}</p>
-                    <p class="text-body">Отель: {{ el.hotel.name }}</p>
-                    <p class="text-body">Дата: {{ el.start_date }} - {{ el.end_date }}</p>
-                    <p class="text-body">Цена: {{ el.price }} ₽</p>
-
+                    <p class="text-body"><strong>Страна:</strong> {{ el.country.name }}</p>
+                    <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
+                    <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
+                    <p class="text-body">Цена: <strong>{{ el.price|floatformat:"-2" }} ₽</strong></p>
                     <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
                 </div>
             </div>
         {% endfor %}
     </section>
+</div>
 
 {% endblock %}
