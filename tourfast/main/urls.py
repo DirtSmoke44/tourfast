@@ -10,7 +10,9 @@ urlpatterns = [
     path('cart/<int:tour_id>/', views.cart, name='cart_page'),
     path('profile/', views.profile, name='profile_page'),
     path('tours/', views.tours, name='tours_page'),
-
+    path('hotels/', views.hotels, name='hotels_page'),
+    path('sales/', views.sales, name='sales_page'),
+    path('countries/', views.countries, name='countries_page'),
     path('accounts/', include("django.contrib.auth.urls")),
     path("logout/", views.logout_view, name="logout"),
 

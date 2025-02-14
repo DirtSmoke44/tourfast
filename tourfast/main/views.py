@@ -84,3 +84,6 @@ def hotels(request):
 
 def sales(request):
     return render(request, 'main/sales.html')
+
+def countries(request):
+    return render(request, 'main/countries.html')
