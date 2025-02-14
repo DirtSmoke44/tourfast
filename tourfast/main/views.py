@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from main.models import Hotel, Country, Tour
 
@@ -12,6 +12,12 @@ from .models import Tour
 
 def start(request):
     return render(request, 'main/start.html')
+
+def cart(request, tour_id):
+    tour = get_object_or_404(Tour, id=tour_id)
+    # Здесь логика работы с корзиной
+    return render(request, 'cart.html', {'tour': tour})
+
 
 def tours(request):
     hotel = Hotel.objects.all()
@@ -33,3 +39,9 @@ def cart(request):
 
 def profile(request):
     return render(request, 'main/profile.html')
+
+def hotels(request):
+    return render(request, 'main/hotels.html')
+
+def sales(request):
+    return render(request, 'main/sales.html')

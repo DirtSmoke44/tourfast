@@ -1,123 +1,69 @@
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.search-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.container {
-    display: flex;
-}
-
+/* Общие стили для списка туров */
 .tour-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    width: 70%;
+    padding: 20px;
 }
 
-.text-title {
- font-weight: 900;
- font-size: 1.2em;
- line-height: 1.5;
+/* Карточка тура */
+.tour-card {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
 }
 
-.card {
-    width: 190px;
-    height: 254px;
-    padding: .8em;
-    background: #f5f5f5;
-    position: relative;
-    overflow: visible;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    margin-bottom: 20px; /* Добавлено пространство между карточками */
+.tour-card:hover {
+    transform: scale(1.05);
 }
 
+/* Фото внутри карточки */
 .card-img img {
     width: 100%;
-    height: auto;
-    border-radius: 10px; /* Скругление углов изображений */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
 }
 
-.tour-card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 32%;
-    text-align: center;
-    min-height: 400px;
-}
-
-
-.tour-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
+/* Контейнер с текстом */
 .card-info {
- padding-top: 10%;
-}
-
-
-.filters {
-    width: 250px;
-    padding: 1em;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.filters h3 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    color: #333;
-}
-
-.filters label {
-    font-size: 1em;
-    display: block;
-    margin-bottom: .5em;
-}
-
-.filters select,
-.filters input {
-    width: 100%;
-    padding: .5em;
-    margin-bottom: 1em;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.filters button {
-    width: 100%;
-    padding: .6em;
-    background: #252525;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.filters button:hover {
-    background: #444;
-}
-
-/* Сброс фильтров */
-.reset-filters {
-    display: block;
-    margin-top: 1em;
+    padding: 15px;
     text-align: center;
-    color: #252525;
-    font-size: .9em;
-    text-decoration: none;
 }
 
-.reset-filters:hover {
-    text-decoration: underline;
+/* Заголовок тура */
+.text-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Описание тура */
+.text-body {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Кнопка оформления */
+.order-btn {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background: #50c878; /* Мятный цвет */
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background: #3ba768;
 }
