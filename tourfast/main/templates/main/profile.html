@@ -6,33 +6,70 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
 {% endblock %}
-{% csrf_token %}
+
 {% block body %}
-<div class="profile-container">
-    <div class="profile-avatar">
-        <img src="{% static 'main/icons/user2.png' %}" alt="Аватар пользователя">
-        <p class="data-title">Ваш профиль:</p>
-        <p class="profile-email">E-mail: {{ user.email }}</p>
-    </div>
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom">
+                <div class="avatar-container">
+              <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h4>{{ user.username }}</h4>
+              <p>Пользователь</p>
+                     </div>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8 custom-bg">
+              <div class="card-body p-4">
+                <h5>Данные аккаунта</h5>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{ user.email }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Телефон</h6>
+                    <p class="text-muted">{{ user.phone_number }}</p>
+                  </div>
+                </div>
+                <h5>Дополнительные данные</h5>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Адрес</h6>
+                    <p class="text-muted">{{ user.address }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Фамилия</h6>
+                    <p class="text-muted">{{ user.last_name }}</p>
+                  </div>
 
-    <div class="profile-details">
-        <p>Имя: {{ user.username }}</p>
-        <p>Фамилия: {{ user.last_name }}</p>
-        <p>Адрес: {{ user.address }}</p>
-        <p>Телефон: {{ user.phone_number }}</p>
-    </div>
-    <div class="edit-profile">
-        <button class="edit-profile-btn">Редактировать профиль</button>
-    </div>
+<div class="edit-profile">
+  <button class="edit-profile-btn">Редактировать</button>
+</div>
 
-    <div class="view-delivery">
-        <a href="{% url 'cart_page' %}" class="view-delivery-btn">
-        Просмотреть заказы
-    </a>
-    </div>
-    <div class="exit-profile">
-    <button class="exit-profile-btn" onclick="location.href='{% url 'logout' %}?next=/profile'">Выход</button>
+<div class="view-delivery">
+  <a href="{% url 'cart_page' %}" class="view-delivery-btn">Оформленные туры</a>
 </div>
+
+<div class="exit-profile">
+  <button class="exit-profile-btn" onclick="location.href='{% url 'logout' %}?next=/profile'">Выход</button>
 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
 {% endblock %}
+
+
+

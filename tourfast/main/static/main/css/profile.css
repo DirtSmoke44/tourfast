@@ -1,211 +1,120 @@
-/* Основные стили */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a; /* Цвет фона, как в Tailwind bg-slate-950 */
-  color: #ffffff;
+/* Стили для кнопок */
+.edit-profile-btn,
+.view-delivery-btn,
+.exit-profile-btn {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 20px; /* Закруглённые углы */
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.edit-profile-btn {
+  background-color: #1fcdff; /* Синий цвет */
+}
+
+.edit-profile-btn:hover {
+  background-color: #357ABD; /* Темнее синий при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.view-delivery-btn {
+  background-color: #00cb96; /* Зелёный цвет */
+}
+
+.view-delivery-btn:hover {
+  background-color: #00edc7;
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.exit-profile-btn {
+  background-color: #e10009; /* Красный цвет */
+  color: white;
+}
+
+.exit-profile-btn:hover {
+  background-color: #980010; /* Темнее красный при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Контейнеры для кнопок */
+.edit-profile,
+.view-delivery,
+.exit-profile {
+  margin: 5px 0;
+  text-align: center;
+}
+
+
+
+
+/* Градиентный фон для секции */
+.gradient-custom {
+  background: linear-gradient(to right bottom, #66CDAA, #4682B4); /* SeaGreen to SteelBlue */
+  background-size: cover; /* Обеспечивает покрытие градиентом всего элемента */
+}
+
+.gradient-custom{    /* Позволяет текс с аватаркой двигать вниз и вверх */
+padding-bottom: 20px;
+}
+
+.vh-100 {  /* чтобы спустить блок профиля вниз или вверх */
+ margin: auto;
+ margin-top: -65px;
+}
+
+.col-md-4{
+text-align: center;
+color: white;
+}
+
+.avatar-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  flex-direction: column;
+  align-items: center; /* Выравнивание по центру по горизонтали */
+  justify-content: flex-end; /* Опускаем содержимое вниз */
+  height: 100%; /* Занимает всю высоту родительского блока */
+  padding-bottom: 150px; /* Отступ снизу */
 }
 
-.card {
-  width: 380px;
-  position: relative;
+/* Стили для изображения */
+.avatar-container img {
+  margin-bottom: 10px; /* Отступ между изображением и текстом */
 }
 
-.card-inner {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  background-color: #0f172a;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+/* Стили для текста */
+.avatar-container h4,
+.avatar-container p {
+  margin: 3px 0; /* Отступы между текстовыми элементами */
 }
 
-.card-inner:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.1);
+.col-md-8.custom-bg {
+  background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Градиентный фон */
 }
 
-.gradient-circle {
-  position: absolute;
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  filter: blur(32px);
-  transition: all 0.5s ease;
+.card-body {
+  width: 100%; /* Занимает всю ширину родительского блока */
+  max-width: 600px; /* Ограничение максимальной ширины */
 }
 
-.gradient-circle.top-left {
-  left: -64px;
-  top: -64px;
-  background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.2), rgba(147, 51, 234, 0));
+.card-body h5,
+.card-body h6 {
+  color: #333; /* Цвет заголовков */
 }
 
-.gradient-circle.bottom-right {
-  right: -64px;
-  bottom: -64px;
-  background: linear-gradient(to bottom right, rgba(147, 51, 234, 0.2), rgba(99, 102, 241, 0));
+.card-body .text-muted {
+  color: black; /* Цвет текста */
 }
 
-.card-inner:hover .gradient-circle {
-  transform: scale(1.5);
-  opacity: 0.7;
+/* Стили для горизонтальных линий */
+.card-body hr {
+  border-color: black; /* Цвет линии */
 }
 
-.card-content {
-  position: relative;
-  padding: 1.5rem;
-}
 
-.icon {
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
-}
-
-.icon svg {
-  width: 48px;
-  height: 48px;
-  color: rgba(99, 102, 241, 0.1);
-}
-
-.stars {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.stars svg {
-  width: 20px;
-  height: 20px;
-  color: #f59e0b;
-}
-
-.text-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 1rem;
-}
-
-.text-content p {
-  color: #94a3b8;
-  margin-top: 0.5rem;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.avatar {
-  position: relative;
-}
-
-.avatar-gradient {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(to right, rgba(99, 102, 241, 0.75), rgba(147, 51, 234, 0.75));
-  filter: blur(8px);
-  opacity: 0.75;
-  transition: opacity 0.3s ease;
-}
-
-.avatar:hover .avatar-gradient {
-  opacity: 1;
-}
-
-.avatar-icon {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #0f172a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatar-icon svg {
-  width: 48px;
-  height: 48px;
-  color: rgba(99, 102, 241, 1);
-}
-
-.author-info h4 {
-  font-weight: 600;
-}
-
-.author-info p {
-  color: #94a3b8;
-  font-size: 0.875rem;
-}
-
-.verified {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin-left: auto;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  background-color: rgba(99, 102, 241, 0.1);
-}
-
-.verified svg {
-  width: 16px;
-  height: 16px;
-  color: rgba(99, 102, 241, 1);
-}
-
-.verified span {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(99, 102, 241, 1);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.stat {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  background-color: rgba(15, 23, 42, 0.5);
-}
-
-.stat svg {
-  width: 20px;
-  height: 20px;
-  color: rgba(99, 102, 241, 1);
-}
-
-.stat span {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.stat p {
-  color: #94a3b8;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.actions button {
-  padding: 0.5
