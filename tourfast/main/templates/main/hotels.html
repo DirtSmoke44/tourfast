@@ -60,7 +60,9 @@
                     <p class="text-body"><strong>Отель:</strong> {{ el.country }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.city }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.address }}</p>
-                    <p class="text-body"><strong>Дата:</strong> {{ el.stars }}</p>
+                    <span style="color: green;">
+                    {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
+                    </span>
                     <p class="text-body">Цена: <strong>{{ el.price_per_night }} ₽</strong></p>
                     <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
                 </div>

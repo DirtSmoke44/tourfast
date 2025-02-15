@@ -16,46 +16,18 @@
 
 <!-- Контейнер для карточек стран -->
 <section class="country-list">
-
+    {% for el in country %}
     <div class="country-card">
         <div class="card-img">
-            <img src="{% static 'main/img/countryphotoandgifs/germany1.jpg' %}" alt="Германия">
+            <img src="{{ el.photo.url }}" alt="{{ el.name }}">
         </div>
         <div class="card-info">
-            <h3 class="text-title">Германия</h3>
+            <h3 class="text-title">{{ el.name }}</h3>
             <button class="select-btn">Выбрать</button>
         </div>
     </div>
+    {% endfor %}
 
-    <div class="country-card">
-        <div class="card-img">
-            <img src="{% static 'main/img/countryphotoandgifs/russia1.jpg' %}" alt="Россия">
-        </div>
-        <div class="card-info">
-            <h3 class="text-title">Россия</h3>
-            <button class="select-btn">Выбрать</button>
-        </div>
-    </div>
-
-    <div class="country-card">
-        <div class="card-img">
-            <img src="{% static 'main/img/countryphotoandgifs/usa1.jpg' %}" alt="США">
-        </div>
-        <div class="card-info">
-            <h3 class="text-title">США</h3>
-            <button class="select-btn">Выбрать</button>
-        </div>
-    </div>
-
-    <div class="country-card">
-        <div class="card-img">
-            <img src="{% static 'main/img/countryphotoandgifs/italy1.jpg' %}" alt="Италия">
-        </div>
-        <div class="card-info">
-            <h3 class="text-title">Италия</h3>
-            <button class="select-btn">Выбрать</button>
-        </div>
-    </div>
 </section>
 
 {% endblock %}

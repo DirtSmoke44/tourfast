@@ -21,7 +21,7 @@ class Buyer(AbstractUser):
     groups = models.ManyToManyField(Group, related_name='buyers')
     user_permissions = models.ManyToManyField(Permission, related_name='buyers')
     phone_number = models.CharField('Номер телефона', max_length=11, null=True)
-    address = models.TextField('Адрес', null=True)
+    # address = models.TextField('Адрес', null=True)
     date_of_birth = models.DateField('Дата рождения', null=True)
     passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
 
@@ -33,7 +33,7 @@ class Transaction(models.Model):
 
 class Country(models.Model):
     name = models.CharField(max_length=100, unique=True)
-
+    photo = models.ImageField('Фото отеля', upload_to='main/countryphotos/', null=True, blank=True)
     def __str__(self):
         return self.name
 

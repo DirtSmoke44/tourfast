@@ -85,7 +85,8 @@ def sales(request):
     return render(request, 'main/sales.html')
 
 def countries(request):
-    return render(request, 'main/countries.html')
+    country = Country.objects.all()
+    return render(request, 'main/countries.html', {'country': country})
 
 def orderaccept(request):
     return render(request, 'main/orderaccept.html')
