@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
-      <change beforePath="$PROJECT_DIR$/.idea/TourWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TourWeb.iml" afterDir="false" />
+    <list default="true" id="d513f2ea-d9b6-487c-9e36-89b9d0d725b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/profile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +35,12 @@
     &quot;assignee&quot;: &quot;DirtSmoke44&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DirtSmoke44/tourfast.git",
-    "accountId": "9b240e01-400d-4ea8-aecf-34bb2c8f249c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DirtSmoke44/tourfast.git&quot;,
+    &quot;accountId&quot;: &quot;9b240e01-400d-4ea8-aecf-34bb2c8f249c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -146,7 +147,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="" />
+      <changelist id="d513f2ea-d9b6-487c-9e36-89b9d0d725b3" name="Changes" comment="" />
       <created>1739262264578</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
