@@ -49,17 +49,19 @@
 
     <!-- Существующий блок с карточками туров -->
     <section class="tour-list">
-        {% for el in tour %}
+        {% for el in hotel %}
             <div class="tour-card card">
                 <div class="card-img">
-                    <img src="{{ el.photo.url }}" alt="{{ el.title }}">
+                    <img src="{{ el.photo.url }}" alt="{{ el.name }}">
                 </div>
                 <div class="card-info">
-                    <h3 class="text-title">{{ el.title }}</h3>
-                    <p class="text-body"><strong>Страна:</strong> {{ el.country.name }}</p>
-                    <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
-                    <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
-                    <p class="text-body">Цена: <strong>{{ el.price|floatformat:"-2" }} ₽</strong></p>
+                    <h3 class="text-title">{{ el.name }}</h3>
+
+                    <p class="text-body"><strong>Отель:</strong> {{ el.country }}</p>
+                    <p class="text-body"><strong>Дата:</strong> {{ el.city }}</p>
+                    <p class="text-body"><strong>Дата:</strong> {{ el.address }}</p>
+                    <p class="text-body"><strong>Дата:</strong> {{ el.stars }}</p>
+                    <p class="text-body">Цена: <strong>{{ el.price_per_night }} ₽</strong></p>
                     <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
                 </div>
             </div>
