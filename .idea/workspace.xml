@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
-      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/user2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/authorization.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/authorization.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/old_search.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/registration.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/authorization.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/authorization.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/node_modules/.package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\icons" />
       <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\videos" />
       <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\gif" />
       <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\img" />
