@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0002_transaction_clients_passport_data_buyer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0003_hotel_photo_tour_photo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0004_remove_employee_branch_alter_hotel_photo_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0005_remove_tour_departure_city.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0006_buyer_address_buyer_date_of_birth_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0006_remove_clients_address_remove_clients_date_of_birth_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0007_remove_buyer_password1_remove_buyer_password2_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0008_merge_20250214_1900.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/countries.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
