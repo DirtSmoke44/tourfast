@@ -4,37 +4,36 @@
 {% block title %} Авторизация {% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/registration.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/authorization.css' %}">
 {% endblock %}
 
 {% block body %}
 
+<!-- Видеофон -->
+<video autoplay muted loop class="bg-video">
+    <source src="{% static 'main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+<!-- Затемнение -->
+<div class="overlay"></div>
+
+<!-- Форма авторизации -->
 <form class="form" method="post">
     {% csrf_token %}
 
     <p class="title">Авторизация </p>
-    <p class="message">Войдите в аккаунт, чтобы получить полным доступ к сайту!</p>
-        <div class="flex">
-        <label>
-            <input class="input" name="username" id="username" type="text" placeholder="" required="">
-            <span>Имя</span>
-        </label>
+    <p class="message">Войдите в аккаунт и получите полный доступ к турам!</p>
+    <label>
+        <input class="input" name="username" id="username" type="text" placeholder="" required="">
+        <span>Имя</span>
+    </label>
 
-<!--        <label>-->
-<!--            <input class="input" name="last_name" id="last_name" type="text" placeholder="" required="">-->
-<!--            <span>Lastname</span>-->
-<!--        </label>-->
-
-
-<!--    <label>-->
-<!--        <input class="input" name="email" id="email" type="email" placeholder="" required="">-->
-<!--        <span>Email</span>-->
-<!--    </label>-->
-    </div>
     <label>
         <input class="input" name="password" id="password" type="password" placeholder="" required="">
         <span>Пароль</span>
     </label>
+
     {{ form.errors }}
     <button class="submit">Войти</button>
     <p class="signin">Ещё нет аккаунта? <a href="{% url 'register' %}">Регистрация</a> </p>

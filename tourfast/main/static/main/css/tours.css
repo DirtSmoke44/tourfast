@@ -72,11 +72,11 @@
     width: 80%;
     margin: 15px auto;
     padding: 10px;
-    background: #50c878; /* Мятный цвет */
-    color: white;
+    background: #50c878;
+    color: black;
     text-align: center;
     font-size: 16px;
-    font-weight: bold;
+
     border-radius: 8px;
     text-decoration: none;
     transition: background 0.3s;
@@ -84,6 +84,27 @@
 
 .order-btn:hover {
     background: #3ba768;
+}
+
+
+/* Кнопка оформления */
+.reservation-btn {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background: #72bfff;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.reservation-btn:hover {
+    background: #1ffcff;
 }
 
 /* Контейнер для фильтров и карточек */
@@ -139,7 +160,7 @@
     width: 100%;
     padding: 10px;
     background: #50c878;
-    color: white;
+    color: black;
     border: none;
     border-radius: 8px;
     font-size: 16px;

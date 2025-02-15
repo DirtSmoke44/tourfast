@@ -85,3 +85,10 @@ def sales(request):
 
 def countries(request):
     return render(request, 'main/countries.html')
+
+def orderaccept(request):
+    return render(request, 'main/orderaccept.html')
+
+def reservation(request):
+    return render(request, 'main/reservation.html')
+

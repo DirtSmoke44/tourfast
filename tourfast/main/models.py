@@ -5,8 +5,6 @@ from django.conf import settings
 class Clients(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-
-
     def __str__(self):
         return f"{self.user} {self.user}"
 
@@ -15,7 +13,6 @@ class Clients(models.Model):
         verbose_name_plural = 'Клиенты'
 
 class Buyer(AbstractUser):
-
 
     last_name = models.CharField('Фамилия', max_length=50, null=True)
     email = models.EmailField('Email', max_length=50)
