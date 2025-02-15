@@ -60,8 +60,9 @@
                     <p class="text-body"><strong>Страна:</strong> {{ el.country.name }}</p>
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
-                    <p class="text-body">Цена: <strong>{{ el.price|floatformat:"-2" }} ₽</strong></p>
-                    <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
+                    <p class="text-body"><strong>Цена:</strong> {{ el.price|floatformat:"-2" }} ₽</p>
+                    <a href="{% url 'cart_page' %}" class="order-btn">Оформить</a>
+                    <a href="{% url 'reservation_page' %}" class="reservation-btn">Забронировать</a>
                 </div>
             </div>
         {% endfor %}

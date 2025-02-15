@@ -15,6 +15,8 @@ urlpatterns = [
     path('countries/', views.countries, name='countries_page'),
     path('accounts/', include("django.contrib.auth.urls")),
     path("logout/", views.logout_view, name="logout"),
+    path("orderaccept/", views.orderaccept, name="orderaccept_page"),
+    path("reservation/", views.reservation, name="reservation_page"),
 
     # path('clear-basket/', views.clear_basket, name='clear_basket'),
     # path('cart/remove/', views.remove_item, name='remove_item'),

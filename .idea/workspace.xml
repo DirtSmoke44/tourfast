@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/orderaccept.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/ordercomplete.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/reservation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/templates/main/ordercomplete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/templates/main/reservation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/tailwind.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

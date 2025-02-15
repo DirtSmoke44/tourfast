@@ -1,7 +1,7 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block title %} Профиль пользователя {% endblock %}
+{% block title %} Профиль {% endblock %}
 
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
@@ -11,7 +11,7 @@
 <div class="profile-container">
     <div class="profile-avatar">
         <img src="{% static 'main/icons/user2.png' %}" alt="Аватар пользователя">
-        <p class="data-title">Учётная запись</p>
+        <p class="data-title">Ваш профиль</p>
         <p class="profile-email">E-mail: {{ user.email }}</p>
     </div>
 
