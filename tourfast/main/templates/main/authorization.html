@@ -13,11 +13,11 @@
     {% csrf_token %}
 
     <p class="title">Авторизация </p>
-    <p class="message">Войдите в аккаунт, чтобы получить полным доступ к путешествиям!</p>
+    <p class="message">Войдите в аккаунт, чтобы получить полным доступ к сайту!</p>
         <div class="flex">
         <label>
             <input class="input" name="username" id="username" type="text" placeholder="" required="">
-            <span>Firstname</span>
+            <span>Имя</span>
         </label>
 
 <!--        <label>-->
@@ -33,7 +33,7 @@
     </div>
     <label>
         <input class="input" name="password" id="password" type="password" placeholder="" required="">
-        <span>Password</span>
+        <span>Пароль</span>
     </label>
     {{ form.errors }}
     <button class="submit">Войти</button>
