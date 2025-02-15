@@ -1,15 +1,43 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 350px;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-  background-color: #1a1a1a;
-  color: #fff;
-  border: 1px solid #333;
+/* Фоновое видео */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Видео должно быть внизу */
 }
+
+/* Затемнение */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
+    z-index: -1; /* Затемнение поверх видео */
+}
+
+/* Центрирование формы */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    z-index: 1; /* Форма должна быть поверх видео */
+}
+
 
 .title {
   font-size: 28px;
@@ -30,7 +58,7 @@
 .title::after {
   width: 18px;
   height: 18px;
-  animation: pulse 1s linear infinite;
+  animation: pulse 2s linear infinite;
 }
 
 .title::before,
@@ -46,7 +74,8 @@
 
 .message,
 .signin {
-  font-size: 14.5px;
+  font-size: 15px;
+  text-align: center;
   color: rgba(255, 255, 255, 0.7);
 }
 
