@@ -6,6 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0002_transaction_clients_passport_data_buyer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0003_hotel_photo_tour_photo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0004_remove_employee_branch_alter_hotel_photo_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0005_remove_tour_departure_city.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0006_buyer_address_buyer_date_of_birth_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0006_remove_clients_address_remove_clients_date_of_birth_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0007_remove_buyer_password1_remove_buyer_password2_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/migrations/0008_merge_20250214_1900.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/countries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
+>>>>>>> d19f189643b360678671ed187b74e1dc4ffc9a12
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +53,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/DirtSmoke44/tourfast.git&quot;,
-    &quot;accountId&quot;: &quot;9b240e01-400d-4ea8-aecf-34bb2c8f249c&quot;
+    &quot;accountId&quot;: &quot;114f203c-0a8e-45f7-9c3c-97af3f61c799&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -54,15 +71,17 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;git-widget-placeholder&quot;: &quot;il&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/PythonProjects/GitHub/tourfast&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;air&quot;,
+>>>>>>> d19f189643b360678671ed187b74e1dc4ffc9a12
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\icons" />
-      <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\videos" />
       <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\gif" />
       <recent name="D:\PythonProjects\TourWeb\tourfast\main\static\main\img" />
     </key>
@@ -140,14 +159,11 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+        <option value="bundled-python-sdk-0e3be3396995-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="" />

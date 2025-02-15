@@ -5,7 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/tourfast" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Python 3.12 (tourfast)" jdkType="Python SDK" />
+=======
+    <orderEntry type="inheritedJdk" />
+>>>>>>> d19f189643b360678671ed187b74e1dc4ffc9a12
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
