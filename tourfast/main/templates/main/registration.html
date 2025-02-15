@@ -9,47 +9,49 @@
 
 {% block body %}
 
+<!-- Фоновое видео -->
+<video autoplay loop muted class="bg-video">
+    <source src="{% static 'main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+<!-- Затемняющий слой -->
+<div class="overlay"></div>
+
 <form class="form" method="post">
     {% csrf_token %}
 
     <p class="title">Регистрация </p>
-    <p class="message">Зарегистрируйтесь, чтобы получить полный доступ к путешествиям!. </p>
-        <div class="flex">
+    <p class="message">Зарегистрируйтесь и отправьтесь в своё путешествие прямо сейчас!</p>
+    <div class="flex">
         <label>
-
-
-            <input class="input" type="text" name="username" placeholder="" required="">
-
+            <input class="input" type="text" name="username" required="">
             <span>Имя</span>
         </label>
 
         <label>
-
-            <input class="input" type="text" name="last_name" placeholder="" required="">
-
+            <input class="input" type="text" name="last_name" required="">
             <span>Фамилия</span>
         </label>
     </div>
 
     <label>
-
-        <input class="input" type="email" name="email" placeholder="" required="">
-
+        <input class="input" type="email" name="email" required="">
         <span>E-mail</span>
     </label>
 
     <label>
-
-        <input class="input" type="password" name="password1" placeholder="" required="">
+        <input class="input" type="password" name="password1" required="">
         <span>Пароль</span>
     </label>
-    <label>
-        <input class="input" type="password" name="password2" placeholder="" required="">
 
+    <label>
+        <input class="input" type="password" name="password2" required="">
         <span>Подтвердите пароль</span>
     </label>
+
     <button class="submit">Зарегистрироваться</button>
-    <p class="signin">Уже есть аккаунт ? <a href="{% url 'login_page' %}">Авторизация</a> </p>
+    <p class="signin">Уже есть аккаунт? <a href="{% url 'login_page' %}">Авторизация</a></p>
 </form>
 
 {% endblock %}

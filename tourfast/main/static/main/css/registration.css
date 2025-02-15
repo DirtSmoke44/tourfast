@@ -1,15 +1,44 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 350px;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-  background-color: #1a1a1a;
-  color: #fff;
-  border: 1px solid #333;
+/* Фоновое видео */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Фон должен быть самым нижним */
 }
+
+/* Затемнение */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1; /* Затемнение поверх видео */
+}
+
+/* Центрирование формы */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 30px;
+    position: absolute; /* Чтобы разместить поверх */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование */
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    z-index: 1; /* Форма поверх всего */
+    margin-top: 5px; /* если убрать видео с заднего фона то высота слетит надо будеть ещё дополнительно доабвить margin-auto */
+}
+
 
 .title {
   font-size: 28px;
@@ -19,7 +48,7 @@
   display: flex;
   align-items: center;
   padding-left: 30px;
-  color: #00bfff;
+  color: #00f5bb;
 }
 
 .title::before {
@@ -30,7 +59,7 @@
 .title::after {
   width: 18px;
   height: 18px;
-  animation: pulse 1s linear infinite;
+  animation: pulse 2s linear infinite;
 }
 
 .title::before,
@@ -41,10 +70,10 @@
   width: 16px;
   border-radius: 50%;
   left: 0px;
-  background-color: #00bfff;
+  background-color: #00f5bb;
 }
 
-.message, 
+.message,
 .signin {
   font-size: 14.5px;
   color: rgba(255, 255, 255, 0.7);
@@ -59,7 +88,7 @@
 }
 
 .signin a {
-  color: #00bfff;
+  color: #00f5bb;
 }
 
 .flex {
@@ -114,14 +143,14 @@
   outline: none;
   padding: 10px;
   border-radius: 10px;
-  color: #fff;
+  color: black;
   font-size: 16px;
   transform: .3s ease;
-  background-color: #00bfff;
+  background-color: #00f5bb;
 }
 
 .submit:hover {
-  background-color: #00bfff96;
+  background-color: #66b5ff;
 }
 
 @keyframes pulse {
@@ -135,3 +164,4 @@
     opacity: 0;
   }
 }
+

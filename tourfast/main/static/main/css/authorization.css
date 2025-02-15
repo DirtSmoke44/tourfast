@@ -4,11 +4,13 @@
   gap: 10px;
   max-width: 350px;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 30px;
   position: relative;
   background-color: #1a1a1a;
   color: #fff;
   border: 1px solid #333;
+  margin: auto;
+  margin-top: 130px;
 }
 
 .title {

@@ -4,7 +4,7 @@
 {% block title %} Авторизация {% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/registration.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/authorization.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -13,7 +13,7 @@
     {% csrf_token %}
 
     <p class="title">Авторизация </p>
-    <p class="message">Войдите в аккаунт, чтобы получить полным доступ к сайту!</p>
+    <p class="message">Войдите в аккаунт и получите полный доступ к турам!</p>
         <div class="flex">
         <label>
             <input class="input" name="username" id="username" type="text" placeholder="" required="">
@@ -30,6 +30,7 @@
 <!--        <input class="input" name="email" id="email" type="email" placeholder="" required="">-->
 <!--        <span>Email</span>-->
 <!--    </label>-->
+
     </div>
     <label>
         <input class="input" name="password" id="password" type="password" placeholder="" required="">
