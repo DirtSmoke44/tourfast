@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'tourfast',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
