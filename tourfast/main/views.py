@@ -20,7 +20,8 @@ from .models import Tour, Country
 from django.shortcuts import redirect
 from django.shortcuts import render
 from .models import Tour
-
+from .filters import TourFilter
+from .forms import CustomTourFilterForm
 
 def logout_view(request):
     logout(request)
@@ -36,9 +37,29 @@ def cart(request, tour_id):
 
 def tours(request):
     hotel = Hotel.objects.all()
-    tour = Tour.objects.all()
+    tours = Tour.objects.all()
     country = Country.objects.all()
-    return render(request, 'main/tours.html', {'hotel': hotel, 'tour': tour, 'country': country})
+    tour_filter = TourFilter(request.GET, queryset=Tour.objects.all())
+    if request.GET:
+        form = CustomTourFilterForm(request.GET)
+
+        if form.is_valid():
+            # Применяем фильтры вручную
+            if form.cleaned_data['country']:
+                tours = tours.filter(country=form.cleaned_data['country'])
+            if form.cleaned_data['price_min']:
+                tours = tours.filter(price__gte=form.cleaned_data['price_min'])
+            if form.cleaned_data['price_max']:
+                tours = tours.filter(price__lte=form.cleaned_data['price_max'])
+            if form.cleaned_data['duration_min']:
+                tours = tours.filter(duration__gte=form.cleaned_data['duration_min'])
+            if form.cleaned_data['duration_max']:
+                tours = tours.filter(duration__lte=form.cleaned_data['duration_max'])
+    else:
+        form = CustomTourFilterForm()
+
+    return render(request, 'main/tours.html', {'form': form,'hotel': hotel, 'tour': tours, 'country': country, 'filter': tour_filter})
+
 
 def registration(request):
     return render(request, 'main/registration.html')
