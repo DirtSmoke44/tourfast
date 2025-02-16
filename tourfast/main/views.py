@@ -30,9 +30,11 @@ def logout_view(request):
 def start(request):
     return render(request, 'main/start.html')
 
+@login_required
 def cart(request, tour_id):
     tour = get_object_or_404(Tour, id=tour_id)
     # Здесь логика работы с корзиной
+
     return render(request, 'cart.html', {'tour': tour})
 
 def tours(request):
