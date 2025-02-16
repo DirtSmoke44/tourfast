@@ -8,10 +8,19 @@
 {% endblock %}
 
 {% block body %}
+
+<!-- Видеофон -->
+<video autoplay muted loop class="bg-video">
+    <source src="{% static 'main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+<!-- Затемнение -->
+<div class="overlay"></div>
+
 {% if tours %}
 <div class="cart-container">
-    <h2>Ваша корзина</h2>
-
+    <h2>Ваши туры:</h2>
 
     {% for tour in tours %}
     <div class="cart-item">
@@ -25,15 +34,12 @@
         <p class="cart-item-price">{{ tour.price|floatformat:"-2" }} ₽</p>
     </div>
        <form action="{% url 'remove_from_cart' tour.id %}" method="get">
-        <button type="submit" class="remove-btn">Удалить</button>
+        <button type="submit" class="remove-btn">Удалить тур</button>
     </form>
 
     {% endfor %}
 
-    <div class="coupon-section">
-        <input type="text" placeholder="Ваш купон" class="coupon-input">
-        <button class="apply-coupon-btn">Принять</button>
-    </div>
+
 
     <form action="{% url 'tours_page' %}" method="get">
         <button type="submit" class="add-tour-btn">Добавить тур</button>

@@ -13,9 +13,34 @@
     transform: translate(-50%, -50%);
 }
 
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Видео должно быть внизу */
+}
+
+/* Затемнение */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
+    z-index: -1; /* Затемнение поверх видео */
+}
+
+
 h2 {
     margin-bottom: 15px;
     font-size: 22px;
+    font-weight: bold;
+    color: black;
 }
 
 .cart-item {
@@ -42,7 +67,7 @@ h2 {
 
 .cart-item-title {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .cart-item-subtitle {
@@ -97,9 +122,10 @@ h2 {
 }
 
 .clear-cart-btn {
-    background-image: linear-gradient(to left top, #ffffff, #cacaca, #979797, #676767, #3b3b3b, #38313a, #3c2632, #3f1922, #6c2332, #9c2e3e, #ce3a47, #ff4a4a);
-    color: white;
+    background-image: linear-gradient(to right bottom, #ffb9b9, #fc9490, #f46e65, #e74638, #d40000);
+    color: black;
     padding: 8px 15px;
+    font-weight: bold;
     border-radius: 25px;
     cursor: pointer;
     text-decoration: none; /* Убирает подчеркивание ссылки */
@@ -107,6 +133,28 @@ h2 {
     margin-left: 115px; /* Отступ слева */
 }
 
+.clear-cart-btn:hover {
+background-image: radial-gradient(circle, #970000, #970d0c, #961615, #951e1e, #942525);
+color: white;
+}
+
+.remove-btn {
+   background: black;
+    color: white;
+    border: none;
+    gap: 5px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.remove-btn:hover {
+background-image: radial-gradient(circle, #210000, #29171d, #33282f, #3e3a3f, #4c4c4c);
+font-weight: bold;
+color: white;
+}
 
 .add-tour-btn {
     width: 100%;
@@ -115,10 +163,35 @@ h2 {
     color: white;
     border: none;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 25px;
     cursor: pointer;
     margin-bottom: 15px;
 }
+
+.add-tour-btn:hover {
+   background-image: linear-gradient(to right bottom, #181818, #2f4658, #0e8090, #36bda2, #acf492);
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to right bottom, #c4ffed, #9affdb, #70ffc1, #45ffa1, #00ff79);
+    color: black;
+    padding: 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.5s ease-in-out;
+}
+
+.checkout-btn:hover {
+   background-image: radial-gradient(circle, #6edc63, #5fb854, #509646, #417538, #32552b);
+}
+
 
 .cart-summary {
     background: #f9f9f9;
@@ -136,15 +209,4 @@ h2 {
     font-size: 20px;
 }
 
-.checkout-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background-image: linear-gradient(to right top, #91c2b5, #84ceb3, #7cdaad, #7be4a1, #82ee90);
-    color: black;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 16px;
-    margin-top: 10px;
-}
+
