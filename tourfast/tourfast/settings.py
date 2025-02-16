@@ -59,7 +59,7 @@ ROOT_URLCONF = 'tourfast.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,4 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = reverse_lazy("profile")
 AUTH_USER_MODEL = 'main.Buyer'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Хранение сессий в базе данных
+SESSION_COOKIE_SECURE = False  # Для разработки, в продакшене должно быть True
+SESSION_SAVE_EVERY_REQUEST = True  # Сохранять сессию при каждом запросе
 

@@ -65,6 +65,7 @@
     <!-- Блок с карточками туров -->
     <section class="tour-list">
         {% for el in tour %}
+        {% csrf_token %}
             <div class="tour-card card">
                 <div class="card-img">
                     <img src="{{ el.photo.url }}" alt="{{ el.title }}">
@@ -75,7 +76,7 @@
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
                     <p class="text-body"><strong>Цена:</strong> {{ el.price|floatformat:"-2" }} ₽</p>
-                    <a href="{% url 'cart_page' %}" class="order-btn">
+                    <a href="{% url 'add_to_cart' el.id %}" class="order-btn">
     <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
     Оформить
 </a>

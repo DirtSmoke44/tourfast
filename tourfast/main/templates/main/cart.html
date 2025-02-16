@@ -8,23 +8,27 @@
 {% endblock %}
 
 {% block body %}
-
+{% if tours %}
 <div class="cart-container">
     <h2>Ваша корзина</h2>
 
+
+    {% for tour in tours %}
     <div class="cart-item">
-        <img src="{% static 'main/images/tour-icon.png' %}" alt="Тур" class="cart-item-img">
+        <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="cart-item-img">
         <div class="cart-item-details">
-            <p class="cart-item-title">Тур</p>
-            <p class="cart-item-subtitle">Страна, Отель</p>
+            <p class="cart-item-title">{{ tour.title }}</p>
+            <p class="cart-item-subtitle">Страна: {{ tour.country.name }}</p>
+            <p class="cart-item-subtitle">Отель: {{ tour.hotel.name }}</p>
         </div>
-        <div class="cart-item-quantity">
-            <button class="quantity-btn">-</button>
-            <span class="quantity-number">2</span>
-            <button class="quantity-btn">+</button>
-        </div>
-        <p class="cart-item-price">$23.99</p>
+
+        <p class="cart-item-price">{{ tour.price|floatformat:"-2" }} ₽</p>
     </div>
+       <form action="{% url 'remove_from_cart' tour.id %}" method="get">
+        <button type="submit" class="remove-btn">Удалить</button>
+    </form>
+
+    {% endfor %}
 
     <div class="coupon-section">
         <input type="text" placeholder="Ваш купон" class="coupon-input">
@@ -36,12 +40,17 @@
     </form>
 
     <div class="cart-summary">
-        <p>Отель за сутки: <span class="summary-price">47.99$</span></p>
-        <p>Стоимость тура: <span class="summary-price">3.99$</span></p>
-        <p>Всего: <span class="summary-price total-price">57.99$</span></p>
+
+        <p>Отель за сутки: <span class="summary-price">{{ hotel_price|floatformat:"-2" }} ₽</span></p>
+        <p>Стоимость тура: <span class="summary-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
+        <p>Всего: <span class="summary-price total-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
         <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить</a>
     </div>
-     <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
+
+    <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
 </div>
+{% else %}
+    <p>Корзина пуста</p>
+{% endif %}
 
 {% endblock %}

@@ -22,6 +22,15 @@ from django.shortcuts import render
 from .models import Tour
 from .filters import TourFilter
 from .forms import CustomTourFilterForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Tour
+import logging
+logger = logging.getLogger(__name__)
+
+
+
+from django.shortcuts import render
 
 def logout_view(request):
     logout(request)
@@ -30,12 +39,72 @@ def logout_view(request):
 def start(request):
     return render(request, 'main/start.html')
 
-def cart(request, tour_id):
-    tour = get_object_or_404(Tour, id=tour_id)
-    # Здесь логика работы с корзиной
-    return render(request, 'cart.html', {'tour': tour})
+
+
+@login_required
+def cart_page(request):
+    cart = request.session.get('cart', {'tours': []})
+    print(f"Текущая корзина: {cart}")  # Отладочный вывод
+    tour_ids = cart.get('tours', [])
+    tours = Tour.objects.filter(id__in=tour_ids)
+    hotel_price = sum(tours.hotel.price_per_night for tours in tours)
+    total_price = sum(tours.price for tours in tours)
+    return render(request, 'main/cart.html', {'tours': tours,
+        'total_price': total_price, 'hotel_price': hotel_price})
+
+
+@login_required
+def add_to_cart(request, tour_id):
+    print(f"Добавление тура {tour_id} в корзину")
+    if 'cart' not in request.session:
+        request.session['cart'] = {'tours': []}
+        print("Корзина инициализирована")
+
+    cart = request.session['cart']
+    cart.setdefault('tours', [])
+
+    if tour_id not in cart['tours']:
+        cart['tours'].append(tour_id)
+        print(f"Тур {tour_id} добавлен в корзину")
+
+    request.session['cart'] = cart
+    request.session.modified = True
+    request.session.save()
+    print(f"Текущая корзина: {cart}")
+
+    return redirect('cart_page')
+
+
+
+@login_required
+def remove_from_cart(request, tour_id):
+    """Удаляет тур из корзины."""
+    cart = request.session.get('cart', {'tours': []})
+
+    if tour_id in cart['tours']:
+        cart['tours'].remove(tour_id)
+
+    request.session['cart'] = cart
+    request.session.modified = True
+
+    return redirect('cart_page')
+
+
+@login_required
+def clear_cart(request):
+    """Очищает корзину."""
+    request.session['cart'] = {'tours': []}
+    request.session.modified = True
+
+    return redirect('cart_page')
+
 
 def tours(request):
+
+
+
+
+
     hotel = Hotel.objects.all()
     tours = Tour.objects.all()
     country = Country.objects.all()
@@ -57,6 +126,7 @@ def tours(request):
                 tours = tours.filter(duration__lte=form.cleaned_data['duration_max'])
     else:
         form = CustomTourFilterForm()
+
 
     return render(request, 'main/tours.html', {'form': form,'hotel': hotel, 'tour': tours, 'country': country, 'filter': tour_filter})
 
