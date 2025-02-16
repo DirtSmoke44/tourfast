@@ -96,6 +96,9 @@ def hottours(request):
 def cart(request):
     return render(request, 'main/cart.html')
 
+def clearcart(request):
+    return render(request, 'main/clear_cart.html')
+
 @login_required
 def profile(request):
     return render(request, 'main/profile.html')

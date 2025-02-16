@@ -96,6 +96,18 @@ h2 {
     cursor: pointer;
 }
 
+.clear-cart-btn {
+    background-image: linear-gradient(to left top, #ffffff, #cacaca, #979797, #676767, #3b3b3b, #38313a, #3c2632, #3f1922, #6c2332, #9c2e3e, #ce3a47, #ff4a4a);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none; /* Убирает подчеркивание ссылки */
+    display: inline-block; /* Чтобы применялись отступы */
+    margin-left: 115px; /* Отступ слева */
+}
+
+
 .add-tour-btn {
     width: 100%;
     padding: 10px;
