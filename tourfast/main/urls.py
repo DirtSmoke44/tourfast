@@ -1,14 +1,14 @@
 from django.urls import path, include
 from . import views
-from .views import cart
+from .views import cart_page, add_to_cart, remove_from_cart
 
 urlpatterns = [
     path('', views.start, name='start_page'),
     path('hottours/', views.hottours, name='hottours_page'),
     path('registration/', views.RegisterView.as_view(), name='registration_page'),
     path('authorization/', views.LoginUserView.as_view(), name='login_page'),
-    path('cart/', views.cart, name='cart_page'),
-    path('cart/<int:tour_id>/', views.cart, name='cart_page'),
+    path('cart/', views.cart_page, name='cart_page'),
+    path('cart/<int:tour_id>/', views.cart_page, name='cart_page'),
     path('profile/', views.profile, name='profile_page'),
     path('tours/', views.tours, name='tours_page'),
     path('hotels/', views.hotels, name='hotels_page'),
@@ -18,7 +18,9 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path("orderaccept/", views.orderaccept, name="orderaccept_page"),
     path("reservation/", views.reservation, name="reservation_page"),
-    path('clearcart/', views.clearcart, name='clear_cart'),
+    path('clearcart/', views.clear_cart, name='clear_cart'),
+    path('add_to_cart/<int:tour_id>/', add_to_cart, name='add_to_cart'),
+    path('remove_from_cart/<int:tour_id>/', remove_from_cart, name='remove_from_cart'),
     # path('cart/remove/', views.remove_item, name='remove_item'),
     # path('create_transaction/', views.create_transaction, name='create_transaction'),
     # path('payment_result/<int:transaction_id>/', views.payment_result, name='payment_result'),
