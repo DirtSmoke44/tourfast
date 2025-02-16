@@ -92,17 +92,18 @@ color: white;
 }
 
 .col-md-8.custom-bg {
-  background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Градиентный фон */
+  background-image: linear-gradient(to right top, #fdfdfd, #f1f8ff, #ddf6fd, #cef4ed, #cfeed3);
 }
 
 .card-body {
   width: 100%; /* Занимает всю ширину родительского блока */
   max-width: 600px; /* Ограничение максимальной ширины */
+
 }
 
 .card-body h5,
 .card-body h6 {
-  color: #333; /* Цвет заголовков */
+  color: black; /* Цвет заголовков */
 }
 
 .card-body .text-muted {

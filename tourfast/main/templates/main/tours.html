@@ -75,8 +75,14 @@
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
                     <p class="text-body"><strong>Цена:</strong> {{ el.price|floatformat:"-2" }} ₽</p>
-                    <a href="{% url 'cart_page' %}" class="order-btn">Оформить</a>
-                    <a href="{% url 'reservation_page' %}" class="reservation-btn">Забронировать</a>
+                    <a href="{% url 'cart_page' %}" class="order-btn">
+    <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
+    Оформить
+</a>
+                    <a href="{% url 'reservation_page' %}" class="reservation-btn">
+    <img src="{% static 'main/icons/booking.png' %}" alt="Cart Icon" class="cart-icon">
+    Забронировать
+</a>
                 </div>
             </div>
         {% endfor %}

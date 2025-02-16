@@ -4,99 +4,44 @@
 {% block title %}Корзина{% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/basket.css' %}">
-<link rel="stylesheet" href="{% static 'main/css/header.css' %}">
-<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/cart.css' %}">
 {% endblock %}
 
 {% block body %}
 
-<body>
-    <video autoplay muted loop id="background-video">
-        <source src="{% static 'main/videos/closeup-colorful-animation-art-in-motion-.mp4' %}" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-    </video>
+<div class="cart-container">
+    <h2>Ваша корзина</h2>
 
-<div class="basket-container">
-    <div class="basket-content">
-        <h1>CookieTaste</h1>
-        <h2>Ваша корзина</h2>
-
-        <nav aria-label="breadcrumb">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="/" class="breadcrumb-btn main-btn">Главная</a>
-                </li>
-
-            </ul>
-        </nav>
-
-        <table class="basket-table">
-            <thead>
-                <tr>
-                    <th>Товар</th>
-                    <th>Цена</th>
-                    <th>Количество (за 1 упаковку)</th>
-                    <th>Стоимость</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if cookies %}
-                    {% for cookie in cookies %}
-                        <tr>
-                            <td class="product-details">
-                                <img src="{{ cookie.forms.photo.url }}" alt="{{ cookie.cookie }}" class="product-image">
-                                <div>
-                                    <p><strong>{{ cookie.forms.title }}</strong></p>
-                                    <p>Начинка: {{ cookie.fillings.title }}</p>
-                                    <a href="#" class="remove-item">
-                                        <form method="POST" action="{% url 'remove_item' %}">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="cookie_id" value="{{ cookie.id }}">
-                                            <button type="submit" class="remove-item-btn">Удалить</button>
-                                        </form>
-                                    </a>
-                                </div>
-                            </td>
-                            <td>{{ cookie.price }} Руб.</td>
-                            <td class="quantity-control">
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    <button class="quantity-btn minus">-</button>
-                                    <input type="number" value="1" min="1" class="quantity-input">
-                                    <button class="quantity-btn plus">+</button>
-                                </form>
-                            </td>
-                            <td>{{ cookie.price }} Руб.</td>
-                        </tr>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="3"><strong>Общая сумма:</strong></td>
-                        <td><strong>{{ total_price }} Руб.</strong></td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="4">Корзина пуста.</td>
-                    </tr>
-                {% endif %}
-            </tbody>
-        </table>
-
-        <div class="basket-summary">
-            <p><strong>Всего:</strong> <span id="total-price">{{ total_price }}</span> ₽</p>
+    <div class="cart-item">
+        <img src="{% static 'main/images/tour-icon.png' %}" alt="Тур" class="cart-item-img">
+        <div class="cart-item-details">
+            <p class="cart-item-title">Тур</p>
+            <p class="cart-item-subtitle">Страна, Отель</p>
         </div>
-
-        <div class="basket-actions">
-            <form action="{% url 'tours_page' %}" method="get">
-                <button type="submit" class="add-basket-btn">Добавить ещё</button>
-            </form>
-            <form method="POST" action="{% url 'clear_basket' %}">
-                {% csrf_token %}
-                <button type="submit" class="clear-basket-btn">Очистить</button>
-             </form>
-            <a href="{% url 'orderaccept_page' %}" class="confirm-btn">Подтвердить</a>
+        <div class="cart-item-quantity">
+            <button class="quantity-btn">-</button>
+            <span class="quantity-number">2</span>
+            <button class="quantity-btn">+</button>
         </div>
+        <p class="cart-item-price">$23.99</p>
     </div>
+
+    <div class="coupon-section">
+        <input type="text" placeholder="Ваш купон" class="coupon-input">
+        <button class="apply-coupon-btn">Принять</button>
+    </div>
+
+    <form action="{% url 'tours_page' %}" method="get">
+        <button type="submit" class="add-tour-btn">Добавить тур</button>
+    </form>
+
+    <div class="cart-summary">
+        <p>Отель за сутки: <span class="summary-price">47.99$</span></p>
+        <p>Стоимость тура: <span class="summary-price">3.99$</span></p>
+        <p>Всего: <span class="summary-price total-price">57.99$</span></p>
+
+    </div>
+     <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
 </div>
 
 {% endblock %}
