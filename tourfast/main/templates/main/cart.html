@@ -18,17 +18,16 @@
         <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="cart-item-img">
         <div class="cart-item-details">
             <p class="cart-item-title">{{ tour.title }}</p>
-            <p class="cart-item-subtitle">{{ tour.country.name }}, {{ tour.hotel.name }}</p>
+            <p class="cart-item-subtitle">Страна: {{ tour.country.name }}</p>
+            <p class="cart-item-subtitle">Отель: {{ tour.hotel.name }}</p>
         </div>
-        <div class="cart-item-quantity">
-            <button class="quantity-btn">-</button>
-            <span class="quantity-number">1</span>
-            <button class="quantity-btn">+</button>
-        </div>
+
         <p class="cart-item-price">{{ tour.price|floatformat:"-2" }} ₽</p>
     </div>
+       <form action="{% url 'remove_from_cart' tour.id %}" method="get">
+        <button type="submit" class="remove-btn">Удалить</button>
+    </form>
 
-    <a href="{% url 'remove_from_cart' tour.id %}" class="remove-btn">Удалить</a>
     {% endfor %}
 
     <div class="coupon-section">
@@ -41,7 +40,8 @@
     </form>
 
     <div class="cart-summary">
-        <p>Отель за сутки: <span class="summary-price">47.99 ₽</span></p>
+
+        <p>Отель за сутки: <span class="summary-price">{{ hotel_price|floatformat:"-2" }} ₽</span></p>
         <p>Стоимость тура: <span class="summary-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
         <p>Всего: <span class="summary-price total-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
         <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить</a>

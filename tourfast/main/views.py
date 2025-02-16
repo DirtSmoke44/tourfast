@@ -47,7 +47,10 @@ def cart_page(request):
     print(f"Текущая корзина: {cart}")  # Отладочный вывод
     tour_ids = cart.get('tours', [])
     tours = Tour.objects.filter(id__in=tour_ids)
-    return render(request, 'main/cart.html', {'tours': tours})
+    hotel_price = sum(tours.hotel.price_per_night for tours in tours)
+    total_price = sum(tours.price for tours in tours)
+    return render(request, 'main/cart.html', {'tours': tours,
+        'total_price': total_price, 'hotel_price': hotel_price})
 
 
 @login_required
