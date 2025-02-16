@@ -83,10 +83,11 @@
 
 .text-overlay .meeting-service {
     color: white;
+    text-stroke: 2px black;
 }
 
 .text-overlay .highlight {
-    color: #90EE90; /* Светло-зеленый цвет */
+    color: #66ffee; /* Светло-голубой цвет */
     text-decoration: underline;
 }
 

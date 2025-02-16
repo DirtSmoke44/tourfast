@@ -34,12 +34,12 @@
 }
 
 .exit-profile-btn {
-  background-color: #e10009; /* Красный цвет */
+  background-color: #262626;
   color: white;
 }
 
 .exit-profile-btn:hover {
-  background-color: #980010; /* Темнее красный при наведении */
+  background-color: #000000;
   transform: scale(1.05); /* Увеличение при наведении */
 }
 
@@ -50,9 +50,6 @@
   margin: 5px 0;
   text-align: center;
 }
-
-
-
 
 /* Градиентный фон для секции */
 .gradient-custom {
@@ -116,5 +113,3 @@ color: white;
 .card-body hr {
   border-color: black; /* Цвет линии */
 }
-
-
