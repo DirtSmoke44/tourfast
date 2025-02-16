@@ -1,239 +1,138 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* Для того, чтобы все элементы находились поверх видео */
-    overflow: hidden; /* Чтобы видео не выходило за пределы экрана */
-}
-
-.navbar {
-    width: 100%;
-    background-color: #333;
-    padding: 10px 20px;
-    position: fixed; /* Fix navbar to the top */
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.navbar-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Basket Container */
-.basket-container {
-    margin-top: 100px; /* Adjust this value to fit below the navbar */
-    width: 80%;
-    max-width: 1000px;
-    background-color: #ffffff;
-    padding: 30px;
+.cart-container {
+    width: 400px;
+    margin: auto;
+    background-image: linear-gradient(to top, #837c80, #948e93, #a5a0a7, #b5b3bc, #c5c6d0, #c7ccd7, #c8d2dd, #c9d8e3, #bbd2dc, #aecbd3, #a1c5c8, #96bebc);
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Basket Content Styling */
-.basket-content h1 {
-    font-size: 32px;
-    color: #333;
+h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
 }
 
-.basket-content h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #B22222;
-}
-
-/* Table Styling */
-.basket-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-}
-
-.basket-table th, .basket-table td {
-    padding: 15px;
-    text-align: left;
-    border: none; /* Убираем линии */
-}
-
-.basket-table th {
-    background-color: #f4f4f4;
-}
-
-.product-details {
+.cart-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-.product-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
+.cart-item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
-.product-details div {
+.cart-item-details {
+    flex-grow: 1;
     text-align: left;
+    padding: 0 10px;
 }
 
-/* Adjusting the position of quantity control */
-.quantity-control {
-    display: flex;
-    margin-left: -45px; /* Adjusting position horizontally */
-    top: -30px; /* Move it higher (increase the negative value to move it further up) */
-    align-items: center;
-    justify-content: center; /* Center horizontally */
-    margin-bottom: 20px; /* Adjust space between the quantity control and the price */
-    position: relative;
-}
-
-/* Styling for quantity buttons */
-.quantity-btn {
-    padding: 5px 5px;
-    background-color: #FFD700;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.quantity-btn.plus {
-    background-color: #34a853; /* Green button for plus */
-}
-
-.quantity-btn.minus {
-    background-color: #FF6347; /* Red button for minus */
-}
-
-/* Styling for the quantity input field */
-.quantity-input {
-    width: 40px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 0px;
-    font-size: 14px;
-    margin: 0 5px; /* Add space between input and buttons */
-}
-
-/* Coupon Section */
-.coupon-container {
-    margin: 20px 0;
-    text-align: left;
-}
-
-.coupon-container input {
-    margin-right: 10px;
-}
-
-/* Basket Summary */
-.basket-summary {
-    font-size: 20px;
-    margin-bottom: 20px; /* Убрали жирность */
-}
-
-/* Basket Actions */
-.basket-actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Add space between buttons */
-}
-
-.confirm-btn, .clear-basket-btn, .add-basket-btn {
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.cart-item-title {
+    font-weight: bold;
     font-size: 16px;
-    width: 150px; /* Set a fixed width for all buttons to make them the same size */
-    text-align: center;
 }
 
-/* Button Specific Colors */
-.confirm-btn {
-    background-color: #FFA500; /* Orange */
-    text-decoration: none;
+.cart-item-subtitle {
+    font-size: 14px;
+    color: gray;
 }
 
-.clear-basket-btn {
-    background-color: #FF6347; /* Red */
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
 }
 
-.add-basket-btn {
-    background-color: #32CD32; /* Green */
+.quantity-btn {
+    background-image: linear-gradient(to right top, #39836f, #3b9b8f, #3fb2b2, #47cad7, #59e1fd);
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
 }
 
-/* Hover Effects */
-.confirm-btn:hover {
-    background-color: #FF8C00; /* Darker Orange */
+.quantity-number {
+    margin: 0 10px;
+    font-size: 16px;
 }
 
-.clear-basket-btn:hover {
-    background-color: #FF4500;
+.cart-item-price {
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.add-basket-btn:hover {
-    background-color: #228B22;
+.coupon-section {
+    display: flex;
+    gap: 10px; /* Добавляет пробел между полем ввода и кнопкой */
+    margin-bottom: 15px;
 }
 
-.remove-item-btn {
-    padding: 0 15px; /* Убрали вертикальный padding */
+.coupon-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+
+.apply-coupon-btn {
+    background-image: linear-gradient(to right top, #55c2a5, #1fc0c3, #01bcdd, #4ab3ec, #82a8ee);
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 8px 15px;
+    border-radius: 25px;
     cursor: pointer;
-    height: 23px; /* Фиксированная высота кнопки */
-    line-height: 25px; /* Совпадает с высотой кнопки для центрирования текста */
-    font-size: 14px;
+}
+
+.add-tour-btn {
+    width: 100%;
+    padding: 10px;
+    background-image: linear-gradient(to right top, #39836f, #3b9b8f, #3fb2b2, #47cad7, #59e1fd);
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.cart-summary {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.summary-price {
+    float: right;
+    font-weight: bold;
+}
+
+.total-price {
+    font-size: 20px;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
     text-align: center;
-    background-color: #FF6347;
-    transition: background-color 0.3s ease;
-}
-
-.remove-item-btn:hover {
-    background-color: #E63900;
-}
-
-/* Breadcrumb button styles */
-.breadcrumb-btn {
-    padding: 10px 20px; /* Уменьшаем внутренние отступы */
-    background-color: #9370DB; /* Violet color */
-    color: white;
+    background-image: linear-gradient(to right top, #91c2b5, #84ceb3, #7cdaad, #7be4a1, #82ee90);
+    color: black;
+    padding: 10px;
+    border-radius: 25px;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px; /* Уменьшаем размер шрифта */
-    transition: background-color 0.3s ease;
-    margin-right: 10px; /* Добавляем отступ между кнопками */
+    font-size: 16px;
+    margin-top: 10px;
 }
-
-.breadcrumb-btn:hover {
-    background-color: #8A2BE2; /* Darker violet on hover */
-}
-
-.basket-btn {
-    padding: 6px 12px; /* Уменьшаем внутренние отступы */
-    background-color: #FF7F50; /* Orange color */
-    color: white;
-    border-radius: 5px;
-    font-size: 14px; /* Уменьшаем размер шрифта */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: 10px; /* Добавляем отступ между кнопками */
-}
-
-.basket-btn.active {
-    background-color: #FF4500; /* Darker orange for active button */
-}
-
-.basket-btn:hover {
-    background-color: #FF6347; /* Lighter orange on hover */
-}
-
-

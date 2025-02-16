@@ -68,16 +68,18 @@
 
 /* Кнопка оформления */
 .order-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80%;
     margin: 15px auto;
     padding: 10px;
-    background: #50c878;
-    color: black;
+    background: #709b16;
+    color: white;
+    font-weight: bold;
     text-align: center;
     font-size: 16px;
-
-    border-radius: 8px;
+    border-radius: 25px;
     text-decoration: none;
     transition: background 0.3s;
 }
@@ -86,10 +88,19 @@
     background: #3ba768;
 }
 
+/* Иконка корзины */
+.cart-icon {
+    width: 20px; /* Размер иконки */
+    height: 20px; /* Размер иконки */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
 
-/* Кнопка оформления */
+}
+
+/* Кнопка бронирования */
 .reservation-btn {
-    display: block;
+    display: flex; /* Используем flex для выравнивания иконки и текста */
+    align-items: center; /* Выравниваем элементы по центру вертикально */
+    justify-content: center; /* Выравниваем элементы по центру горизонтально */
     width: 80%;
     margin: 15px auto;
     padding: 10px;
@@ -97,14 +108,21 @@
     color: black;
     text-align: center;
     font-size: 16px;
-
-    border-radius: 8px;
+    border-radius: 25px;
+    font-weight: bold;
     text-decoration: none;
     transition: background 0.3s;
 }
 
 .reservation-btn:hover {
     background: #1ffcff;
+}
+
+/* Иконка корзины (такая же, как и для первой кнопки) */
+.cart-icon {
+    width: 20px; /* Размер иконки */
+    height: 20px; /* Размер иконки */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
 }
 
 /* Контейнер для фильтров и карточек */

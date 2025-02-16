@@ -22,33 +22,40 @@
                 {{ form.country }}
             </div>
 
-            <div class="filter-section">
-                <h3>Длительность</h3>
-                <label for="id_duration_min">От (дней)</label>
-                {{ form.duration_min }}
-                <label for="id_duration_max">До (дней)</label>
-                {{ form.duration_max }}
-            </div>
+<!--            <div class="filter-section">-->
+<!--                <h3>Длительность</h3>-->
+<!--                <label for="id_duration_min">От (дней)</label>-->
+<!--                {{ form.duration_min }}-->
+<!--                <label for="id_duration_max">До (дней)</label>-->
+<!--                {{ form.duration_max }}-->
+<!--            </div>-->
 
             <div class="filter-section">
-                <h3>Цена</h3>
+                <h3>Цена:</h3>
                 <label for="id_price_min">От ₽</label>
                 {{ form.price_min }}
                 <label for="id_price_max">До ₽</label>
                 {{ form.price_max }}
             </div>
 
-            <div class="filter-section">
-                <h3>Дополнительно</h3>
-                <label><input type="checkbox"> Без скидок</label>
-                <label><input type="checkbox"> Рассрочка</label>
-                <label><input type="checkbox"> Со скидками</label>
-            </div>
+<!--            <div class="filter-section">-->
+<!--                <h3>Дополнительно</h3>-->
+<!--                <label><input type="checkbox"> Без скидок</label>-->
+<!--                <label><input type="checkbox"> Рассрочка</label>-->
+<!--                <label><input type="checkbox"> Со скидками</label>-->
+<!--            </div>-->
+
+<!--            <div class="filter-section">-->
+<!--                <h3>Язык тура</h3>-->
+<!--                <label><input type="checkbox">Русский</label>-->
+<!--                <label><input type="checkbox">Английский</label>-->
+<!--            </div>-->
 
             <div class="filter-section">
-                <h3>Язык тура</h3>
-                <label><input type="checkbox">Русский</label>
-                <label><input type="checkbox">Английский</label>
+                <h3>Вид тура:</h3>
+                <label><input type="checkbox">Экскурсионный</label>
+                <label><input type="checkbox">Горящий тур</label>
+
             </div>
 
             <button class="apply-filters-btn">Применить фильтры</button>
@@ -68,8 +75,14 @@
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
                     <p class="text-body"><strong>Цена:</strong> {{ el.price|floatformat:"-2" }} ₽</p>
-                    <a href="{% url 'cart_page' %}" class="order-btn">Оформить</a>
-                    <a href="{% url 'reservation_page' %}" class="reservation-btn">Забронировать</a>
+                    <a href="{% url 'cart_page' %}" class="order-btn">
+    <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
+    Оформить
+</a>
+                    <a href="{% url 'reservation_page' %}" class="reservation-btn">
+    <img src="{% static 'main/icons/booking.png' %}" alt="Cart Icon" class="cart-icon">
+    Забронировать
+</a>
                 </div>
             </div>
         {% endfor %}

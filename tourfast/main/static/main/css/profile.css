@@ -1,0 +1,116 @@
+/* Стили для кнопок */
+.edit-profile-btn,
+.view-delivery-btn,
+.exit-profile-btn {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 20px; /* Закруглённые углы */
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.edit-profile-btn {
+  background-color: #1fcdff; /* Синий цвет */
+}
+
+.edit-profile-btn:hover {
+  background-color: #357ABD; /* Темнее синий при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.view-delivery-btn {
+  background-color: #00cb96; /* Зелёный цвет */
+}
+
+.view-delivery-btn:hover {
+  background-color: #00edc7;
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.exit-profile-btn {
+  background-color: #262626;
+  color: white;
+}
+
+.exit-profile-btn:hover {
+  background-color: #000000;
+  transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Контейнеры для кнопок */
+.edit-profile,
+.view-delivery,
+.exit-profile {
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* Градиентный фон для секции */
+.gradient-custom {
+  background: linear-gradient(to right bottom, #66CDAA, #4682B4); /* SeaGreen to SteelBlue */
+  background-size: cover; /* Обеспечивает покрытие градиентом всего элемента */
+}
+
+.gradient-custom{    /* Позволяет текс с аватаркой двигать вниз и вверх */
+padding-bottom: 20px;
+}
+
+.vh-100 {  /* чтобы спустить блок профиля вниз или вверх */
+ margin: auto;
+ margin-top: -65px;
+}
+
+.col-md-4{
+text-align: center;
+color: white;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Выравнивание по центру по горизонтали */
+  justify-content: flex-end; /* Опускаем содержимое вниз */
+  height: 100%; /* Занимает всю высоту родительского блока */
+  padding-bottom: 150px; /* Отступ снизу */
+}
+
+/* Стили для изображения */
+.avatar-container img {
+  margin-bottom: 10px; /* Отступ между изображением и текстом */
+}
+
+/* Стили для текста */
+.avatar-container h4,
+.avatar-container p {
+  margin: 3px 0; /* Отступы между текстовыми элементами */
+}
+
+.col-md-8.custom-bg {
+  background-image: linear-gradient(to right top, #fdfdfd, #f1f8ff, #ddf6fd, #cef4ed, #cfeed3);
+}
+
+.card-body {
+  width: 100%; /* Занимает всю ширину родительского блока */
+  max-width: 600px; /* Ограничение максимальной ширины */
+
+}
+
+.card-body h5,
+.card-body h6 {
+  color: black; /* Цвет заголовков */
+}
+
+.card-body .text-muted {
+  color: black; /* Цвет текста */
+}
+
+/* Стили для горизонтальных линий */
+.card-body hr {
+  border-color: black; /* Цвет линии */
+}
