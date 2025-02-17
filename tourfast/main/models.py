@@ -12,7 +12,7 @@ class Clients(models.Model):
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
-class Buyer(AbstractUser):
+class Buyer(AbstractUser): # Клиенты
 
     last_name = models.CharField('Фамилия', max_length=50, null=True)
     email = models.EmailField('Email', max_length=50)
@@ -25,13 +25,13 @@ class Buyer(AbstractUser):
     date_of_birth = models.DateField('Дата рождения', null=True)
     passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
 
-class Transaction(models.Model):
+class Transaction(models.Model): # Транзакции
     card_number = models.CharField(max_length=16)
     amount = models.DecimalField(max_digits=100000, decimal_places=2)
     status = models.CharField(max_length=20, default="pending")  # например, "успешно" или "ошибка"
     created_at = models.DateTimeField(auto_now_add=True)
 
-class Country(models.Model):
+class Country(models.Model): # Страны
     name = models.CharField(max_length=100, unique=True)
     photo = models.ImageField('Фото отеля', upload_to='main/countryphotos/', null=True, blank=True)
     def __str__(self):
@@ -41,7 +41,7 @@ class Country(models.Model):
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны'
 
-class Hotel(models.Model):
+class Hotel(models.Model): # Отели
     name = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name="hotels")
     city = models.CharField(max_length=100)
@@ -57,7 +57,7 @@ class Hotel(models.Model):
         verbose_name = 'Отель'
         verbose_name_plural = 'Отели'
 
-class Tour(models.Model):
+class Tour(models.Model): # Туры
     title = models.CharField(max_length=200)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name="tours")
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="tours")
@@ -73,7 +73,7 @@ class Tour(models.Model):
         verbose_name = 'Тур'
         verbose_name_plural = 'Туры'
 
-class Booking(models.Model):
+class Booking(models.Model): # Бронирование
     client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name="bookings")
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name="bookings")
     booking_date = models.DateTimeField(auto_now_add=True)
@@ -90,7 +90,7 @@ class Booking(models.Model):
         verbose_name = 'Бронирование'
         verbose_name_plural = 'Бронирования'
 
-class Review(models.Model):
+class Review(models.Model): # Отзывы
     client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name="reviews")
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="reviews")
     rating = models.PositiveSmallIntegerField()
@@ -104,7 +104,7 @@ class Review(models.Model):
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
 
-class Employee(models.Model):
+class Employee(models.Model): # Сотрудники
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     position = models.CharField(max_length=100)
