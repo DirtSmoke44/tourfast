@@ -1,10 +1,10 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block title %}Все туры{% endblock %}
+{% block title %}Отели{% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/tours.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/hotels.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
 {% endblock %}
 
@@ -32,18 +32,6 @@
             <input type="number" id="price-max" name="price-max">
         </div>
 
-        <div class="filter-section">
-            <h3>Дополнительно</h3>
-            <label><input type="checkbox"> Можно в рассрочку</label>
-            <label><input type="checkbox"> Только со скидками</label>
-        </div>
-
-        <div class="filter-section">
-            <h3>Язык тура</h3>
-            <label><input type="checkbox"> Русский</label>
-            <label><input type="checkbox"> Английский</label>
-        </div>
-
         <button class="apply-filters-btn">Применить фильтры</button>
     </aside>
 
@@ -57,9 +45,9 @@
                 <div class="card-info">
                     <h3 class="text-title">{{ el.name }}</h3>
 
-                    <p class="text-body"><strong>Отель:</strong> {{ el.country }}</p>
-                    <p class="text-body"><strong>Дата:</strong> {{ el.city }}</p>
-                    <p class="text-body"><strong>Дата:</strong> {{ el.address }}</p>
+                    <p class="text-body"><strong>Страна:</strong> {{ el.country }}</p>
+                    <p class="text-body"><strong>Город:</strong> {{ el.city }}</p>
+                    <p class="text-body"><strong>Адрес:</strong> {{ el.address }}</p>
                     <span style="color: green;">
                     {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
                     </span>

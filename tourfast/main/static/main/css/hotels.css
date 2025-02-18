@@ -1,10 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+/* Общие стили для списка туров */
+.tour-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
 
-</body>
-</html>
+/* Карточка тура */
+.tour-card {
+    width: 300px; /* Ширина карточки */
+    background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    padding-bottom: 10px;
+    min-height: 500px; /* Фиксированная высота карточки */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Равномерное распределение контента */
+}
+
+.tour-card:hover {
+    transform: scale(1.05);
+}
+
+/* Фото внутри карточки */
+.card-img {
+    width: 90%; /* Уменьшил размер фото внутри карточки */
+    margin: 10px auto 0 auto; /* Центрируем фото */
+    border-radius: 15px; /* Закругленные края */
+    overflow: hidden; /* Обрезаем углы */
+}
+
+.card-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px; /* Делаем закругления */
+}
+
+/* Контейнер с текстом */
+.card-info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1; /* Растягиваем контейнер с текстом */
+}
+
+/* Заголовок тура */
+.text-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Описание тура */
+.text-body {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Выделение ключевых слов жирным */
+.text-body strong {
+    font-weight: 700;
+}
+
+/* Кнопка оформления */
+.order-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background: #709b16;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background: #3ba768;
+}
+
+/* Иконка корзины */
+.cart-icon {
+    width: 20px; /* Размер иконки */
+    height: 20px; /* Размер иконки */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+
+}
+
+/* Кнопка бронирования */
+.reservation-btn {
+    display: flex; /* Используем flex для выравнивания иконки и текста */
+    align-items: center; /* Выравниваем элементы по центру вертикально */
+    justify-content: center; /* Выравниваем элементы по центру горизонтально */
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background: #72bfff;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.reservation-btn:hover {
+    background: #1ffcff;
+}
+
+/* Иконка корзины (такая же, как и для первой кнопки) */
+.cart-icon {
+    width: 20px; /* Размер иконки */
+    height: 20px; /* Размер иконки */
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+/* Контейнер для фильтров и карточек */
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Боковая панель с фильтрами */
+.filter-sidebar {
+    width: 250px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto; /* Автоматическая высота по содержимому */
+}
+
+.filter-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filter-section label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.filter-section input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-section input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.apply-filters-btn {
+    width: 100%;
+    padding: 10px;
+    background: #50c878;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.apply-filters-btn:hover {
+    background: #3ba768;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .filter-tour-container {
+        flex-direction: column;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+    }
+
+    .tour-card {
+        min-height: auto; /* Убираем фиксированную высоту на мобильных */
+    }
+}
+
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start; /* Выравнивание элемента по верхнему краю */
+}

@@ -1,7 +1,7 @@
 /* Общие стили для списка туров */
 .tour-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;  /* было wrap и тогда станет 4 тура в строку а не 5 как сейчас */
     justify-content: center;
     gap: 20px;
     padding: 20px;
@@ -9,7 +9,7 @@
 
 /* Карточка тура */
 .tour-card {
-    width: 320px; /* Ширина карточки */
+    width: 300px; /* Ширина карточки */
     background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
