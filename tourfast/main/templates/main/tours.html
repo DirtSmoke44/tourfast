@@ -75,7 +75,17 @@
                     <p class="text-body"><strong>Страна:</strong> {{ el.country.name }}</p>
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }} - {{ el.end_date }}</p>
-                    <p class="text-body"><strong>Цена:</strong> {{ el.price|floatformat:"-2" }} ₽</p>
+
+                    <p class="text-body"><strong>Цена:</strong>
+    {% if el.old_price %}
+        <s class="old-price">{{ el.old_price|floatformat:"-2" }} ₽</s> →
+        <strong class="new-price">{{ el.price|floatformat:"-2" }} ₽</strong>
+        <span class="discount-label">(-{{ el.discount_percentage }}%)</span>
+    {% else %}
+        <strong class="new-price">{{ el.price|floatformat:"-2" }} ₽</strong>
+    {% endif %}
+</p>
+
                     <a href="{% url 'add_to_cart' el.id %}" class="order-btn">
     <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
     Оформить

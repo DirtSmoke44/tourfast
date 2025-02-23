@@ -63,8 +63,14 @@ class Tour(models.Model): # Туры
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="tours")
     start_date = models.DateField()
     end_date = models.DateField()
+    old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True) # типа для скидки
     price = models.DecimalField(max_digits=10, decimal_places=2)
     photo = models.ImageField('Фото тура', upload_to='main/tourphotos/', null=True, blank=True)
+
+    def discount_percentage(self):
+        if self.old_price and self.old_price > self.price:
+            return round((self.old_price - self.price) / self.old_price * 100, 2)
+        return 0
 
     def __str__(self):
         return f"{self.title} ({self.start_date} - {self.end_date})"

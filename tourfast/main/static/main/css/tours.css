@@ -210,3 +210,14 @@
     padding: 20px;
     align-items: flex-start; /* Выравнивание элемента по верхнему краю */
 }
+
+.old-price {
+    color: red;
+    font-weight: bold;
+}
+
+.new-price {
+    color: green;
+    font-weight: bold;
+}
+
