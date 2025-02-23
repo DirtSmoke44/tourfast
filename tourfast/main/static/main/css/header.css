@@ -33,6 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .navbar-brand {
@@ -75,18 +76,6 @@
 
 .btn-register:hover {
     background-color: #00FFFF;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    font-family: 'Arial', serif;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FF8C00;
-    text-decoration: none;
-    margin-left: 20px;
 }
 
 .TourFast-Logo {
