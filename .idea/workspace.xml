@@ -5,28 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/mirlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/sberpay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/icons/sbplogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/orderaccept.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/orderaccept.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/ordercomplete.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/ordercomplete.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/countryphotos/.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/countryphotos/starry_sky_mountains_clouds_120271_3840x2400.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/countryphotos/загружено_21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/151596023.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/berlinhotel.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/Безымянный.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/Безымянный_ddYJn01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/загружено_15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/загружено_17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/hotelphotos/загружено_20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/tourphotos/berlin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/tourphotos/maxresdefault.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/tourphotos/nine_tail_fox.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/tourphotos/rome.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/media/main/tourphotos/загружено_21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/ordercomplete.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/ordercomplete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,9 +75,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\icons" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\css\cssbuttons" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast" />
-      <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\icons" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\videos" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\gif" />
     </key>

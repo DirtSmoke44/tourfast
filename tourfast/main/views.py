@@ -1,9 +1,6 @@
 
 from django.shortcuts import render, get_object_or_404
 from main.models import Hotel, Country, Tour
-
-
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import FormView, CreateView
@@ -184,6 +181,9 @@ def countries(request):
 
 def orderaccept(request):
     return render(request, 'main/orderaccept.html')
+
+def ordercomplete(request):
+    return render(request, 'main/ordercomplete.html')
 
 def reservation(request):
     return render(request, 'main/reservation.html')

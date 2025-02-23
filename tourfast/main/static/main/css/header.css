@@ -3,9 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px; /* Паддинг для улучшения внешнего вида */
-    background-color: #f8f9fa;
-    border-radius: 15px; /* Закругленные углы */
+    padding: 10px 25px;
+    background-color: #B0E0E6;
+    border-radius: 0px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта объема */
+    margin: 0px; /* Добавляет отступы сверху и по бокам */
 }
 
 .nav-link {
@@ -14,7 +16,7 @@
     text-decoration: none;
     padding: 10px 20px;
     transition: color 0.3s ease;
-    font-family: 'helvetica', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 .nav-link:hover {
@@ -31,6 +33,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF8C00;
+    text-decoration: none;
+    margin-left: 20px;
 }
 
 .btn-login {
@@ -123,14 +137,4 @@
     margin-right: 15px;
 }
 
-.navbar-custom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 25px;
-    background-color: #B0E0E6;
-    border-radius: 0px; /* Закругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта объема */
-    margin: 0px; /* Добавляет отступы сверху и по бокам */
-}
 

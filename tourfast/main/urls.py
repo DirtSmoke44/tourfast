@@ -17,6 +17,7 @@ urlpatterns = [
     path('accounts/', include("django.contrib.auth.urls")),
     path("logout/", views.logout_view, name="logout"),
     path("orderaccept/", views.orderaccept, name="orderaccept_page"),
+    path("ordercomplete/", views.ordercomplete, name="ordercomplete_page"),
     path("reservation/", views.reservation, name="reservation_page"),
     path('clearcart/', views.clear_cart, name='clear_cart'),
     path('add_to_cart/<int:tour_id>/', add_to_cart, name='add_to_cart'),

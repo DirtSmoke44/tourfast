@@ -177,13 +177,12 @@
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background: #50c878;
+    background: #9ACD32;
     color: black;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 .apply-filters-btn:hover {

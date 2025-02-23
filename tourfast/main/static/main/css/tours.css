@@ -85,7 +85,7 @@
 }
 
 .order-btn:hover {
-    background: #3ba768;
+    background: #00FA9A;
 }
 
 /* Иконка корзины */
@@ -115,7 +115,7 @@
 }
 
 .reservation-btn:hover {
-    background: #1ffcff;
+    background: #4169E1;
 }
 
 /* Иконка корзины (такая же, как и для первой кнопки) */
@@ -177,13 +177,12 @@
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background: #50c878;
+    background: #9ACD32;
     color: black;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 .apply-filters-btn:hover {
