@@ -7,19 +7,13 @@
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/cart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/editprofile.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/editprofile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/orderaccept.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/orderaccept.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/editprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/editprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/tours.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

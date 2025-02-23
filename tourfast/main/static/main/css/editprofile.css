@@ -3,7 +3,7 @@ body {
     background-color: #f5f5f5;
 }
 
-.payment-container {
+.edit-container {
     width: 400px;
     background: white;
     padding: 20px;
@@ -13,7 +13,7 @@ body {
     text-align: center;
 }
 
-.payment-title {
+.edit-title {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 15px;
@@ -49,11 +49,11 @@ input {
     width: 48%;
 }
 
-.acceptchanges-button {
+.save-button {
     width: 100%;
     padding: 12px;
-    background: black;
-    color: white;
+    background: #00cb96;
+      color: black;
     border: none;
     border-radius: 25px;
     font-size: 16px;
@@ -62,41 +62,29 @@ input {
     transition: 0.3s;
 }
 
-.acceptchanges-button:hover {
+.save-button:hover {
     background: #333;
 }
 
 .back-button {
+    display: block; /* Делаем кнопку блочным элементом */
     width: 100%;
     padding: 12px;
-    background: #ccc;
+    background: #1fcdff;
     color: black;
     border: none;
     border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    text-align: center; /* Выравнивание текста по центру */
     transition: 0.3s;
+    text-decoration: none; /* Убираем подчеркивание */
 }
+
 
 .back-button:hover {
-    background: #999;
+    background: #333;
 }
 
-.payment-info {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-}
 
-.payment-methods {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.payment-methods img {
-    width: 50px;
-    height: auto;
-}

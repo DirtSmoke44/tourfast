@@ -4,14 +4,14 @@
 {% block title %}Редактирование профиля{% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/editprofiles.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/editprofile.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
 
-<div class="payment-container">
-    <h2 class="payment-title">Редактирование профиля</h2>
+<div class="edit-container">
+    <h2 class="edit-title">Редактирование профиля</h2>
     <form action="{% url 'editprofile_page' %}" method="post">
         {% csrf_token %}
 
@@ -24,12 +24,6 @@
         <label for="middle_name">Отчество:</label>
         <input type="text" id="middle_name" name="middle_name" placeholder="Введите ваше отчество" required>
 
-        <label for="middle_name">Адрес:</label>
-        <input type="text" id="address_name" name="address_name" placeholder="Введите ваш адрес" required>
-
-       <label for="Mail">E-Mail:</label>
-        <input type="text" id="Mail" name="Mail" placeholder="Введите ваш E-Mail" required>
-
         <label for="dob">Дата рождения:</label>
         <input type="date" id="dob" name="dob" required>
 
@@ -39,14 +33,14 @@
         <label for="passport">Паспортные данные:</label>
         <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" required>
 
-        <div>
-    <button type="submit" class="acceptchanges-button">Сохранить</button>
-    <form action="{% url 'profile_page' %}" method="get" style="display: inline;">
-        <button type="submit" class="back-button">Профиль</button>
-    </form>
-</div>
+        <label for="address">Адрес проживания:</label>
+        <input type="text" id="address" name="address" placeholder="Введите адрес" required>
 
+        <button type="submit" class="save-button">Сохранить</button>
     </form>
+
+    <!-- Ссылка для перехода в профиль -->
+    <a href="{% url 'profile_page' %}" class="back-button">Профиль</a>
 </div>
 
 {% endblock %}
