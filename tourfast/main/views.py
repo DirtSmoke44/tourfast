@@ -49,7 +49,6 @@ def cart_page(request):
     return render(request, 'main/cart.html', {'tours': tours,
         'total_price': total_price, 'hotel_price': hotel_price})
 
-
 @login_required
 def add_to_cart(request, tour_id):
     print(f"Добавление тура {tour_id} в корзину")
@@ -187,4 +186,7 @@ def ordercomplete(request):
 
 def reservation(request):
     return render(request, 'main/reservation.html')
+
+def editprofile(request):
+    return render(request, 'main/editprofile.html')
 

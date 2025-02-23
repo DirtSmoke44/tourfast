@@ -15,6 +15,12 @@
   display: inline-block;
 }
 
+h5 {
+    text-align: center; /* Центрирование текста по горизонтали */
+    margin: 0 auto; /* Центрирование блока по горизонтали (если нужно) */
+    width: 100%; /* Ширина блока (можно настроить под ваш макет) */
+}
+
 .edit-profile-btn {
   background-color: #1fcdff; /* Синий цвет */
 }

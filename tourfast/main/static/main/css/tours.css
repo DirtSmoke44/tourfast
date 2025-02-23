@@ -16,7 +16,7 @@ body {
 
 .tour-card {
     width: 300px;
-   background-image: linear-gradient(to right bottom, #d8ffda, #c5f8e8, #c2eef0, #c8e3ed, #cfd8e2, #d0d8e1, #d0d8e1, #d1d8e0, #cde3eb, #c9eeef, #cdf8ea, #deffdf);
+    background-image: linear-gradient(to right bottom, #a5f5f8, #afecfa, #bce3f6, #c8dbec, #ced4df, #ced2dd, #ced0db, #ceced9, #cdcfe2, #cbd1ec, #c6d3f5, #c0d6ff);
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -187,7 +187,10 @@ body {
 
 .new-price {
     color: green;
+    font-size: 20px;
     font-weight: bold;
+    margin-left: 5px;
+    padding-top: 10px;
 }
 
 @media (max-width: 768px) {

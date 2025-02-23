@@ -39,8 +39,6 @@
 
     {% endfor %}
 
-
-
     <form action="{% url 'tours_page' %}" method="get">
         <button type="submit" class="add-tour-btn">Добавить тур</button>
     </form>
@@ -56,7 +54,12 @@
     <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
 </div>
 {% else %}
-    <p>Корзина пуста</p>
+
+<div class="empty-cart">
+    <p class="empty-cart-text">Корзина пуста</p>
+    <a href="{% url 'tours_page' %}" class="add-tour-btn2">Добавить тур</a>
+</div>
+
 {% endif %}
 
 {% endblock %}

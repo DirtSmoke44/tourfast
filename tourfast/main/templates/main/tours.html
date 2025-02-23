@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block body %}
+
 <!-- Контейнер для фильтров и карточек -->
 <div class="filter-tour-container">
     <!-- Блок фильтров -->
@@ -75,10 +76,9 @@
                     <p class="text-body"><strong>Страна:</strong> {{ el.country.name }}</p>
                     <p class="text-body"><strong>Отель:</strong> {{ el.hotel.name }}</p>
                     <p class="text-body"><strong>Дата:</strong> {{ el.start_date }}<br> - {{ el.end_date }}</br></p>
-
                     <p class="text-body"><strong>Цена:</strong>
     {% if el.old_price %}
-        <s class="old-price">{{ el.old_price|floatformat:"-2" }} ₽</s> →
+        <s class="old-price">{{ el.old_price|floatformat:"-2" }} ₽</s>
         <strong class="new-price">{{ el.price|floatformat:"-2" }} ₽</strong>
         <span class="discount-label">(-{{ el.discount_percentage }}%)</span>
     {% else %}

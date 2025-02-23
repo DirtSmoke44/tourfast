@@ -9,8 +9,6 @@
 
 {% block body %}
 
-
-
 <section class="vh-100" style="background-color: #f4f5f7;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -52,7 +50,9 @@
                   </div>
 
 <div class="edit-profile">
-  <button class="edit-profile-btn">Редактировать</button>
+  <form action="{% url 'editprofile_page' %}" method="get">
+    <button type="submit" class="edit-profile-btn">Редактировать</button>
+  </form>
 </div>
 
 <div class="view-delivery">

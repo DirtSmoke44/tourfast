@@ -9,17 +9,18 @@
 
 /* Карточка тура */
 .tour-card {
-    width: 300px; /* Ширина карточки */
-    background: rgba(255, 255, 255, 0.8); /* Слегка прозрачный фон */
-    border-radius: 15px;
+    width: 300px;
+background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2bbbc, #cbc1c1, #d2c8c8, #dacfcf, #e1d6d6, #e8e0e2, #efeaed, #f6f5f7, #ffffff);
+    border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     padding-bottom: 10px;
-    min-height: 500px; /* Фиксированная высота карточки */
+    min-height: 500px;
+    top: -17px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Равномерное распределение контента */
+    justify-content: space-between;
 }
 
 .tour-card:hover {

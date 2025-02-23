@@ -13,7 +13,6 @@
     transform: translate(-50%, -50%);
 }
 
-
 .bg-video {
     position: fixed;
     top: 0;
@@ -24,7 +23,6 @@
     z-index: -2; /* Видео должно быть внизу */
 }
 
-/* Затемнение */
 .overlay {
     position: fixed;
     top: 0;
@@ -34,7 +32,6 @@
     background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
     z-index: -1; /* Затемнение поверх видео */
 }
-
 
 h2 {
     margin-bottom: 15px;
@@ -101,24 +98,8 @@ h2 {
 
 .coupon-section {
     display: flex;
-    gap: 10px; /* Добавляет пробел между полем ввода и кнопкой */
+    gap: 10px;
     margin-bottom: 15px;
-}
-
-.coupon-input {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-}
-
-.apply-coupon-btn {
-    background-image: linear-gradient(to right top, #55c2a5, #1fc0c3, #01bcdd, #4ab3ec, #82a8ee);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 25px;
-    cursor: pointer;
 }
 
 .clear-cart-btn {
@@ -128,18 +109,20 @@ h2 {
     font-weight: bold;
     border-radius: 25px;
     cursor: pointer;
-    text-decoration: none; /* Убирает подчеркивание ссылки */
-    display: inline-block; /* Чтобы применялись отступы */
-    margin-left: 115px; /* Отступ слева */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px; /* Выносим кнопку за рамку контейнера */
+    width: 100%; /* Ширина кнопки */
+    text-align: center; /* Центрируем текст */
 }
 
 .clear-cart-btn:hover {
-background-image: radial-gradient(circle, #970000, #970d0c, #961615, #951e1e, #942525);
-color: white;
+    background-image: radial-gradient(circle, #970000, #970d0c, #961615, #951e1e, #942525);
+    color: white;
 }
 
 .remove-btn {
-   background: black;
+    background: black;
     color: white;
     border: none;
     gap: 5px;
@@ -151,15 +134,15 @@ color: white;
 }
 
 .remove-btn:hover {
-background-image: radial-gradient(circle, #210000, #29171d, #33282f, #3e3a3f, #4c4c4c);
-font-weight: bold;
-color: white;
+    background-image: radial-gradient(circle, #210000, #29171d, #33282f, #3e3a3f, #4c4c4c);
+    font-weight: bold;
+    color: white;
 }
 
 .add-tour-btn {
     width: 100%;
     padding: 10px;
-    background-image: linear-gradient(to right top, #39836f, #3b9b8f, #3fb2b2, #47cad7, #59e1fd);
+    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
     color: white;
     border: none;
     font-size: 16px;
@@ -170,15 +153,15 @@ color: white;
 }
 
 .add-tour-btn:hover {
-   background-image: linear-gradient(to right bottom, #181818, #2f4658, #0e8090, #36bda2, #acf492);
+    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
 }
 
 .checkout-btn {
     display: block;
     width: 100%;
     text-align: center;
-    background-image: linear-gradient(to right bottom, #c4ffed, #9affdb, #70ffc1, #45ffa1, #00ff79);
-    color: black;
+    background-color: black; /* Черный фон */
+    color: white; /* Белый текст */
     padding: 10px;
     border-radius: 25px;
     font-weight: bold;
@@ -189,9 +172,8 @@ color: white;
 }
 
 .checkout-btn:hover {
-   background-image: radial-gradient(circle, #6edc63, #5fb854, #509646, #417538, #32552b);
+    background-color: #333; /* Темно-серый при наведении */
 }
-
 
 .cart-summary {
     background: #f9f9f9;
@@ -209,4 +191,34 @@ color: white;
     font-size: 20px;
 }
 
+.empty-cart {
+    text-align: center;
+    margin-top: 50px;
+}
 
+.add-tour-btn2 {
+    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.add-tour-btn2:hover {
+    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
+}
+
+.empty-cart-text {
+    color: white; /* Белый цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 54px; /* Большой размер шрифта */
+    text-align: center; /* Центрирование текста по горизонтали */
+    padding: 40px 0; /* Отступы сверху и снизу */
+    margin-top: 270px; /* Отступ сверху */
+    width: 100%; /* Ширина блока */
+}

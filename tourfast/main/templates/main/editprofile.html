@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/editprofiles.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="payment-container">
+    <h2 class="payment-title">Редактирование профиля</h2>
+    <form action="{% url 'editprofile_page' %}" method="post">
+        {% csrf_token %}
+
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Введите ваше имя" required>
+
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" required>
+
+        <label for="middle_name">Отчество:</label>
+        <input type="text" id="middle_name" name="middle_name" placeholder="Введите ваше отчество" required>
+
+        <label for="middle_name">Адрес:</label>
+        <input type="text" id="address_name" name="address_name" placeholder="Введите ваш адрес" required>
+
+       <label for="Mail">E-Mail:</label>
+        <input type="text" id="Mail" name="Mail" placeholder="Введите ваш E-Mail" required>
+
+        <label for="dob">Дата рождения:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="phone">Номер телефона:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+
+        <label for="passport">Паспортные данные:</label>
+        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" required>
+
+        <div>
+    <button type="submit" class="acceptchanges-button">Сохранить</button>
+    <form action="{% url 'profile_page' %}" method="get" style="display: inline;">
+        <button type="submit" class="back-button">Профиль</button>
+    </form>
+</div>
+
+    </form>
+</div>
+
+{% endblock %}
