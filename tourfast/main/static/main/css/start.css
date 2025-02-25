@@ -121,3 +121,118 @@
     transform: scale(1.1); /* Увеличение размера кнопки */
     background-color: #1d1d1d; /* Сохраняем цвет фона */
 }
+
+
+/* секция с почтой */
+
+/* Стили для новой секции подписки */
+.subscription-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.subscription-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.subscription-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.subscription-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+.btn-subscribe {
+    background-color: #3CB371;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-subscribe:hover {
+    background-color: #00FA9A;
+}
+
+.privacy-notice {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+
+.subscription-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.subscription-section ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+
+
+/* Стили для подвала (footer) */
+.footer-section {
+    background-color: #94f9ff;
+    padding: 30px 0;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 50px;
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-links .nav-item {
+    margin: 0 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-links .nav-link {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-links .nav-link img {
+    width: 24px;
+    height: 24px;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 8px;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
