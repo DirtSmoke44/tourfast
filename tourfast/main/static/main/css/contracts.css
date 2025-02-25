@@ -1,0 +1,98 @@
+/* Основные стили для контейнера */
+.contracts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Заголовок страницы */
+.contracts-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Список договоров */
+.contracts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Карточка договора */
+.contract-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contract-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Заголовок карточки */
+.contract-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Детали договора */
+.contract-details {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.contract-details p {
+    margin: 5px 0;
+}
+
+/* Кнопки действий */
+.contract-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.contract-download,
+.contract-details-link {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.contract-download {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.contract-download:hover {
+    background-color: #0056b3;
+}
+
+.contract-details-link {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.contract-details-link:hover {
+    background-color: #218838;
+}
+
+/* Сообщение об отсутствии договоров */
+.no-contracts {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 20px;
+}

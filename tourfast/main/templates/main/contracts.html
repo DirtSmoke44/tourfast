@@ -1,0 +1,37 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Мои договора{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/contracts.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="contracts-container">
+    <h1 class="contracts-title">Мои договора</h1>
+
+    {% if contracts %}
+        <div class="contracts-list">
+            {% for contract in contracts %}
+                <div class="contract-card">
+                    <h2 class="contract-card-title">Договор №{{ contract.id }}</h2>
+                    <div class="contract-details">
+                        <p><strong>Тур:</strong> {{ contract.tour.title }}</p>
+                        <p><strong>Дата оформления:</strong> {{ contract.created_at|date:"d.m.Y H:i" }}</p>
+                        <p><strong>Статус оплаты:</strong> {{ contract.transaction.status }}</p>
+                        <p><strong>Сумма:</strong> {{ contract.tour.price }} руб.</p>
+                    </div>
+                    <div class="contract-actions">
+                        <a href="#" class="contract-download">Скачать договор</a>
+                        <a href="#" class="contract-details-link">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-contracts">У вас пока нет оформленных договоров.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -29,7 +29,7 @@
         <div class="retry-section">
             {% if transaction.status == "failed" %}
                 <p>Попробуйте снова или свяжитесь с нашей службой поддержки.</p>
-                <a href="{% url 'order_accept_page' %}" class="retry-button">Попробовать еще раз</a>
+                <a href="{% url 'orderaccept_page' %}" class="retry-button">Попробовать еще раз</a>
             {% endif %}
         </div>
 

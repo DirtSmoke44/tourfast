@@ -9,7 +9,6 @@
 
 {% block body %}
 
-<!-- Контейнер для фона -->
 <div class="profile-background">
   <section class="vh-100">
     <div class="container py-5 h-100">
@@ -57,7 +56,7 @@
                     </form>
                   </div>
                   <div class="view-delivery">
-                    <a href="{% url 'cart_page' %}" class="view-delivery-btn">Мои туры</a>
+                    <a href="{% url 'contracts_page' %}" class="view-delivery-btn">Мои договора</a>
                   </div>
                   <div class="exit-profile">
                     <button class="exit-profile-btn" onclick="location.href='{% url 'logout' %}?next=/profile'">Выход</button>

@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
+      <change afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/contracts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tourfast/main/templates/main/contracts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/payment_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/payment_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

@@ -190,3 +190,6 @@ def reservation(request):
 def editprofile(request):
     return render(request, 'main/editprofile.html')
 
+def contracts(request):
+    return render(request, 'main/contracts.html')
+
