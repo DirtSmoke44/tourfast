@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Проверка номера телефона (формат: +7 (XXX) XXX-XX-XX)
-        const phonePattern = /^\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$/;
-        if (!phonePattern.test(phone)) {
+
+        if (!/^\d{11}$/.test(phone)) {
             alert("Введите корректный номер телефона в формате +7 (XXX) XXX-XX-XX.");
             isValid = false;
         }
