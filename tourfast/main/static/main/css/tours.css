@@ -16,7 +16,7 @@ body {
 
 .tour-card {
     width: 300px;
-    background-image: linear-gradient(to right bottom, #a5f5f8, #afecfa, #bce3f6, #c8dbec, #ced4df, #ced2dd, #ced0db, #ceced9, #cdcfe2, #cbd1ec, #c6d3f5, #c0d6ff);
+    background-image: linear-gradient(to right bottom, #ffffff, #f1f4ff, #dcebff, #bfe4ff, #9bdeff);
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -75,7 +75,7 @@ body {
     width: 80%;
     margin: 15px auto;
     padding: 10px;
-    background: #709b16;
+    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
     color: white;
     font-weight: bold;
     text-align: center;
@@ -86,7 +86,7 @@ body {
 }
 
 .order-btn:hover {
-    background: #00FA9A;
+    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
 }
 
 .cart-icon {
@@ -95,26 +95,6 @@ body {
     margin-right: 10px;
 }
 
-.reservation-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background: #72bfff;
-    color: black;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.reservation-btn:hover {
-    background: #4169E1;
-}
 
 .filter-tour-container {
     display: flex;
