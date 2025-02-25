@@ -116,8 +116,11 @@
 
 /* Сообщение об отсутствии договоров */
 .no-contracts {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #777;
-    margin-top: 20px;
+    color: white; /* Белый цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 50px; /* Большой размер шрифта */
+    text-align: center; /* Центрирование текста по горизонтали */
+    padding: 40px 0; /* Отступы сверху и снизу */
+    margin-top: 270px; /* Отступ сверху */
+    width: 100%; /* Ширина блока */
 }

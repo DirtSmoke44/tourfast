@@ -23,19 +23,19 @@
         <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" value="{{ user.last_name }}" required>
 
         <label for="dob">Дата рождения:</label>
-        <input type="date" id="dob" name="dob" value="{{ user.date_of_birth }}" required>
+        <input type="date" id="dob" name="dob" value="{{ user.date_of_birth|date:'Y-m-d' }}" required>
 
         <label for="phone">Номер телефона:</label>
-        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" value="{{ user.phone_number }}" required>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" value="{{ user.phone_number }}" required maxlength="11">
 
         <label for="passport">Паспортные данные:</label>
-        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" value="{{ user.passport_data }}" required>
+        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" value="{{ user.passport_data }}" required  maxlength="10">
 
         <label for="cardholder">Имя владельца карты:</label>
         <input type="text" id="cardholder" name="cardholder" placeholder="Введите данные владельца карты" required>
 
         <label for="card_number">Номер карты:</label>
-        <input type="text" id="card_number" name="card_number" placeholder="0000 0000 0000 0000" required>
+        <input type="text" id="card_number" name="card_number" placeholder="0000 0000 0000 0000" required  maxlength="16">
 
         <label for="expiry">Срок действия карты / CVV:</label>
         <div class="card-details">
