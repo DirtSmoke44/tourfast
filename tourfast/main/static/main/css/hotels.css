@@ -75,7 +75,7 @@ background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2
     width: 80%;
     margin: 15px auto;
     padding: 10px;
-    background: #709b16;
+    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
     color: white;
     font-weight: bold;
     text-align: center;
@@ -86,7 +86,7 @@ background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2
 }
 
 .order-btn:hover {
-    background: #3ba768;
+     background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
 }
 
 /* Иконка корзины */
@@ -97,27 +97,6 @@ background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2
 
 }
 
-/* Кнопка бронирования */
-.reservation-btn {
-    display: flex; /* Используем flex для выравнивания иконки и текста */
-    align-items: center; /* Выравниваем элементы по центру вертикально */
-    justify-content: center; /* Выравниваем элементы по центру горизонтально */
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background: #72bfff;
-    color: black;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.reservation-btn:hover {
-    background: #1ffcff;
-}
 
 /* Иконка корзины (такая же, как и для первой кнопки) */
 .cart-icon {
@@ -178,8 +157,8 @@ background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background: #9ACD32;
-    color: black;
+    background-image: linear-gradient(to right bottom, #3e57ae, #3e78c7, #4b98dc, #65b8ee, #87d7ff);
+    color: white;
     border: none;
     border-radius: 25px;
     font-size: 16px;

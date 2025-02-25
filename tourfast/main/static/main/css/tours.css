@@ -148,8 +148,8 @@ body {
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background: #9ACD32;
-    color: black;
+    background-image: linear-gradient(to right bottom, #3e57ae, #3e78c7, #4b98dc, #65b8ee, #87d7ff);
+    color: white;
     border: none;
     border-radius: 25px;
     font-size: 16px;
