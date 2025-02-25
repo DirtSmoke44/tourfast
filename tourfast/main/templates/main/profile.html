@@ -20,7 +20,7 @@
                 <div class="avatar-container">
                   <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="img-fluid my-5" style="width: 80px;" />
                   <h4>{{ user.username }}</h4>
-                  <p>Пользователь</p>
+                  <p>Ваш профиль</p>
                 </div>
                 <i class="far fa-edit mb-5"></i>
               </div>
@@ -30,7 +30,7 @@
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>Email</h6>
+                      <h6>E-Mail</h6>
                       <p class="text-muted">{{ user.email }}</p>
                     </div>
                     <div class="col-6 mb-3">
@@ -42,8 +42,8 @@
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>Адрес</h6>
-                      <p class="text-muted">{{ user.address }}</p>
+                      <h6>Паспортные данные:</h6>
+                      <p class="text-muted">{{ user.passport_data }}</p>
                     </div>
                     <div class="col-6 mb-3">
                       <h6>Фамилия</h6>

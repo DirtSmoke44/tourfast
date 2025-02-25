@@ -9,8 +9,18 @@
 {% endblock %}
 
 {% block body %}
+
+<!-- Видеофон -->
+<video autoplay muted loop class="bg-video">
+    <source src="{% static 'main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+<!-- Затемнение -->
+<div class="overlay"></div>
+
 <div class="contracts-container">
-    <h1 class="contracts-title">Мои договора</h1>
+    <h1 class="contracts-title">Мои договора:</h1>
 
     {% if contracts %}
         <div class="contracts-list">
@@ -18,14 +28,16 @@
                 <div class="contract-card">
                     <h2 class="contract-card-title">Договор №{{ contract.id }}</h2>
                     <div class="contract-details">
-                        <p><strong>Тур:</strong> {{ contract.tour.title }}</p>
+                        <p><strong>{{ contract.tour.title }}</strong></p>
                         <p><strong>Дата оформления:</strong> {{ contract.date|date:"d.m.Y H:i" }}</p>
-                        <p><strong>Статус оплаты:</strong> Complete</p>
-                        <p><strong>Сумма:</strong> {{ contract.tour.price }} руб.</p>
+                        <p><strong>Имя клиента:</strong> {{ contract.client.username }}</p>
+                        <p><strong>Фамилия клиента:</strong> {{ contract.client.last_name }}</p>
+                        <p><strong>Статус оплаты:</strong> Подтверждён</p>
+                        <p><strong>Итого:</strong> {{ contract.tour.price|floatformat:"-2" }} Рублей</p>
                     </div>
                     <div class="contract-actions">
                         <a href="#" class="contract-download">Скачать договор</a>
-                        <a href="#" class="contract-details-link">Подробнее</a>
+                        <a href="#" class="contract-details-link">Отправить ваучер на почту</a>
                     </div>
                 </div>
             {% endfor %}

@@ -1,3 +1,24 @@
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Видео должно быть внизу */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
+    z-index: -1; /* Затемнение поверх видео */
+}
+
+
 /* Основные стили для контейнера */
 .contracts-container {
     max-width: 1200px;
@@ -10,7 +31,7 @@
 .contracts-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -24,11 +45,14 @@
 
 /* Карточка договора */
 .contract-card {
-    background-color: #fff;
+    background-image: linear-gradient(to bottom, #c6f4fb, #cff0fc, #d8edfa, #dfe9f5, #e4e7ee, #e0e3ed, #dddeeb, #dad9e9, #d0d0ec, #c6c7ef, #babff3, #adb7f6);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%; /* Ширина карточки */
+    max-width: 1200px; /* Максимальная ширина карточки */
+    text-align: center; /* Центрирование текста */
 }
 
 .contract-card:hover {
@@ -60,13 +84,14 @@
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    justify-content: center; /* Центрирование кнопок */
 }
 
 .contract-download,
 .contract-details-link {
     text-decoration: none;
     padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 0.9rem;
     transition: background-color 0.2s;
 }

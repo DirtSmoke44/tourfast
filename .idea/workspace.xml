@@ -7,6 +7,11 @@
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/contracts.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/contracts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/editprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/editprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/orderaccept.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +61,15 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "air",
+    "git-widget-placeholder": "il",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\GitHub\tourfast\tourfast" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\icons" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\css\cssbuttons" />
-      <recent name="D:\PythonProjects\GitHub\tourfast\tourfast" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\videos" />
       <recent name="D:\PythonProjects\GitHub\tourfast\tourfast\main\static\main\gif" />
     </key>
