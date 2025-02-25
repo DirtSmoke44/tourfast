@@ -19,8 +19,8 @@
                     <h2 class="contract-card-title">Договор №{{ contract.id }}</h2>
                     <div class="contract-details">
                         <p><strong>Тур:</strong> {{ contract.tour.title }}</p>
-                        <p><strong>Дата оформления:</strong> {{ contract.created_at|date:"d.m.Y H:i" }}</p>
-                        <p><strong>Статус оплаты:</strong> {{ contract.transaction.status }}</p>
+                        <p><strong>Дата оформления:</strong> {{ contract.date|date:"d.m.Y H:i" }}</p>
+                        <p><strong>Статус оплаты:</strong> Complete</p>
                         <p><strong>Сумма:</strong> {{ contract.tour.price }} руб.</p>
                     </div>
                     <div class="contract-actions">

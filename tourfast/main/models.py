@@ -96,3 +96,17 @@ class Booking(models.Model): # Бронирование
         verbose_name = 'Бронирование'
         verbose_name_plural = 'Бронирования'
 
+class Contracts(models.Model):
+
+    title = models.CharField(max_length=200)
+    client = models.ForeignKey(Buyer, on_delete=models.CASCADE, related_name="contracts")
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name="contracts")
+    date = models.DateTimeField(auto_now_add=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def str(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Договор'
+        verbose_name_plural = 'Договора'
