@@ -184,55 +184,186 @@
 
 
 
-/* Стили для подвала (footer) */
-.footer-section {
-    background-color: #94f9ff;
-    padding: 30px 0;
-    color: black;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    text-align: center;
+
+/* Footer Styles */
+.footer-distributed {
+    background: #8af6ff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    color: #000000; /* Чёрный цвет текста по умолчанию */
 }
 
-.footer-logo {
-    width: 50px;
-    font-family: 'Poppins', sans-serif;
-    height: auto;
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
+/* Footer left */
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+/* The company logo */
+.footer-distributed h3 {
+    color: #000000; /* Чёрный цвет текста */
+    font: normal 36px 'Open Sans', cursive;
     margin: 0;
-    display: flex;
-    font-family: 'Poppins', sans-serif;
-    justify-content: center;
-    align-items: center;
 }
 
-.footer-links .nav-item {
-    margin: 0 10px;
-    font-family: 'Poppins', sans-serif;
+.footer-distributed h3 span {
+    color: #000000; /* Чёрный цвет текста */
 }
 
-.footer-links .nav-link {
-    display: flex;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: black;
+/* Footer links */
+.footer-distributed .footer-links {
+    color: #000000; /* Чёрный цвет текста */
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #000000; /* Чёрный цвет текста */
+}
+
+.footer-distributed .footer-company-name {
+    color: #000000; /* Чёрный цвет текста */
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff; /* Иконки остаются белыми */
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #000000; /* Чёрный цвет текста */
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+    color: #000000; /* Чёрный цвет текста */
+}
+
+.footer-distributed .footer-center p a {
+    color: #000000; /* Чёрный цвет текста */
     text-decoration: none;
 }
 
-.footer-links .nav-link img {
-    width: 24px;
-    height: 24px;
-    font-family: 'Poppins', sans-serif;
-    margin-right: 8px;
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    text-decoration: underline; /* Подчёркивание ссылок */
+    color: #000000; /* Чёрный цвет текста */
+    display: inline-block;
+    padding-right: 5px;
 }
 
-.footer-text {
-    margin: 0;
-    font-size: 0.9em;
-    font-family: 'Poppins', sans-serif;
-    color: black;
+.footer-distributed .footer-links .link-1:before {
+    content: none;
+    text-decoration: underline; /* Подчёркивание ссылок */
 }
+
+/* Footer Right */
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #000000; /* Чёрный цвет текста */
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #000000; /* Чёрный цвет текста */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff; /* Иконки остаются белыми */
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+
+.footer-distributed .footer-links a:hover {
+    color: #1751ff;
+}
+
+/* Responsive Footer */
+@media (max-width: 880px) {
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+}
+
