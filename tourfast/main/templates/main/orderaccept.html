@@ -45,6 +45,12 @@
             <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
         </div>
 
+             <!-- Кнопка "Оплатить" с переходом на ordercomplete_page -->
+<form action="{% url 'ordercomplete_page' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="pay-button">Оплатить</button>
+</form>
+
     </form>
     <p class="payment-info">Используйте удобные способы оплаты!</p>
 
@@ -53,12 +59,6 @@
             <img src="{% static 'main/icons/mirlogo.png' %}" alt="МИР">
             <img src="{% static 'main/icons/sberpay.png' %}" alt="Google Pay">
         </div>
-
-     <!-- Кнопка "Оплатить" с переходом на ordercomplete_page -->
-<form action="{% url 'ordercomplete_page' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="pay-button">Оплатить</button>
-</form>
 
 <!-- Кнопка "Назад" с переходом на cart_page -->
 <form action="{% url 'cart_page' %}" method="get">
