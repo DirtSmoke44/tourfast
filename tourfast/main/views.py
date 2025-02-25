@@ -1,33 +1,18 @@
-
-from django.shortcuts import render, get_object_or_404
-from main.models import Hotel, Country, Tour
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
-from main.models import Hotel, Country, Tour, Buyer
 from .forms import RegisterForm, LoginForm
-
-from django.shortcuts import render
 from django.contrib.auth import logout
-from .forms import RegisterForm
-from .models import Tour, Country
-from django.shortcuts import redirect
-from django.shortcuts import render
-from .models import Tour
 from .filters import TourFilter
 from .forms import CustomTourFilterForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Tour
 import logging
 logger = logging.getLogger(__name__)
 
 
-
-from django.shortcuts import render
 
 def logout_view(request):
     logout(request)
@@ -96,10 +81,6 @@ def clear_cart(request):
 
 
 def tours(request):
-
-
-
-
 
     hotel = Hotel.objects.all()
     tours = Tour.objects.all()
@@ -190,6 +171,44 @@ def reservation(request):
 def editprofile(request):
     return render(request, 'main/editprofile.html')
 
+@login_required
 def contracts(request):
-    return render(request, 'main/contracts.html')
+    contracts = Contracts.objects.filter(client=request.user)
+    return render(request, 'main/contracts.html',  {'contracts': contracts})
+
+@login_required
+def process_payment(request):
+    if request.method == "POST":
+        user = request.user  # Получаем текущего пользователя
+        cart = request.session.get("cart", {}).get("tours", [])  # Получаем список ID туров из сессии
+
+        if not cart:
+            return redirect("cart_page")  # Если корзина пустая, перенаправляем обратно
+
+        tours = Tour.objects.filter(id__in=cart)  # Получаем объекты туров
+        total_price = sum(tour.price for tour in tours)  # Рассчитываем общую стоимость
+
+        # Создаем запись о транзакции (можно добавить проверку успешности платежа)
+        transaction = Transaction.objects.create(
+            card_number="XXXX-XXXX-XXXX-0000",  # В реальном проекте номер карты не сохраняем!
+            amount=total_price,
+            status="success"
+        )
+
+        # Создаем договор на каждый оплаченный тур
+        for tour in tours:
+            Contracts.objects.create(
+                title=f"Договор на тур {tour.title}",
+                client=user,
+                tour=tour,
+                price=tour.price
+            )
+
+        # Очищаем корзину после оплаты
+        request.session["cart"] = {"tours": []}
+        request.session.modified = True
+
+        return redirect("ordercomplete_page")  # Перенаправляем на страницу подтверждения заказа
+
+    return redirect("cart_page")
 

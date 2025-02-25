@@ -12,26 +12,27 @@
 
 <div class="payment-container">
     <h2 class="payment-title">Оформление тура</h2>
-    <form action="{% url 'orderaccept_page' %}" method="post">
+
+    <form action="{% url 'process_payment' %}" method="post">
         {% csrf_token %}
 
         <label for="first_name">Имя:</label>
-        <input type="text" id="first_name" name="first_name" placeholder="Введите ваше имя" value="{{user.username}}" required>
+        <input type="text" id="first_name" name="first_name" placeholder="Введите ваше имя" value="{{ user.username }}" required>
 
         <label for="last_name">Фамилия:</label>
-        <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" value="{{user.last_name}}" required>
+        <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" value="{{ user.last_name }}" required>
 
         <label for="middle_name">Отчество:</label>
         <input type="text" id="middle_name" name="middle_name" placeholder="Введите ваше отчество" required>
 
         <label for="dob">Дата рождения:</label>
-        <input type="date" id="dob" name="dob" value="{{user.date_of_brith}}" required>
+        <input type="date" id="dob" name="dob" value="{{ user.date_of_birth }}" required>
 
         <label for="phone">Номер телефона:</label>
-        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___--" value="{{user.phone_number}}" required>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" value="{{ user.phone_number }}" required>
 
         <label for="passport">Паспортные данные:</label>
-        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" value="{{user.passport_data}}" required>
+        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" value="{{ user.passport_data }}" required>
 
         <label for="cardholder">Имя владельца карты:</label>
         <input type="text" id="cardholder" name="cardholder" placeholder="Введите данные владельца карты" required>
@@ -45,27 +46,26 @@
             <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
         </div>
 
-             <!-- Кнопка "Оплатить" с переходом на ordercomplete_page -->
-<form action="{% url 'ordercomplete_page' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="pay-button">Оплатить</button>
-</form>
-
+        <!-- Кнопка "Оплатить" -->
+        <button type="submit" class="pay-button">Оплатить</button>
     </form>
+
     <p class="payment-info">Используйте удобные способы оплаты!</p>
 
-        <div class="payment-methods">
-            <img src="{% static 'main/icons/sbplogo.png' %}" alt="Apple Pay">
-            <img src="{% static 'main/icons/mirlogo.png' %}" alt="МИР">
-            <img src="{% static 'main/icons/sberpay.png' %}" alt="Google Pay">
-        </div>
+    <div class="payment-methods">
+        <img src="{% static 'main/icons/sbplogo.png' %}" alt="Apple Pay">
+        <img src="{% static 'main/icons/mirlogo.png' %}" alt="МИР">
+        <img src="{% static 'main/icons/sberpay.png' %}" alt="Google Pay">
+    </div>
 
-<!-- Кнопка "Назад" с переходом на cart_page -->
-<form action="{% url 'cart_page' %}" method="get">
-    <button type="submit" class="back-button">Назад</button>
-</form>
-
+    <!-- Кнопка "Назад" с переходом на cart_page -->
+    <form action="{% url 'cart_page' %}" method="get">
+        <button type="submit" class="back-button">Назад</button>
+    </form>
 </div>
+
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
