@@ -96,30 +96,3 @@ class Booking(models.Model): # Бронирование
         verbose_name = 'Бронирование'
         verbose_name_plural = 'Бронирования'
 
-class Review(models.Model): # Отзывы
-    client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name="reviews")
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="reviews")
-    rating = models.PositiveSmallIntegerField()
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Отзыв от {self.client.user.username} на {self.hotel.name}"
-
-    class Meta:
-        verbose_name = 'Отзыв'
-        verbose_name_plural = 'Отзывы'
-
-class Employee(models.Model): # Сотрудники
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    position = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=15)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.position}"
-
-    class Meta:
-        verbose_name = 'Сотрудник'
-        verbose_name_plural = 'Сотрудники'
