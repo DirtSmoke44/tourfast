@@ -6,7 +6,7 @@ from django.contrib.auth import login
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import logout
 from .filters import TourFilter
-from .forms import CustomTourFilterForm
+from .forms import CustomTourFilterForm, UserEditForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 import logging
@@ -168,8 +168,23 @@ def ordercomplete(request):
 def reservation(request):
     return render(request, 'main/reservation.html')
 
+@login_required
 def editprofile(request):
-    return render(request, 'main/editprofile.html')
+    user = request.user  # Получаем текущего пользователя
+
+    if request.method == "POST":
+        # Получаем данные из формы
+        user.first_name = request.POST.get("first_name")
+        user.last_name = request.POST.get("last_name")
+        user.date_of_birth = request.POST.get("dob")
+        user.phone_number = request.POST.get("phone")
+        user.passport_data = request.POST.get("passport")
+
+        user.save()  # Сохраняем изменения в базе данных
+        return redirect("profile_page")  # Перенаправление на страницу профиля
+
+    return render(request, "main/editprofile.html")
+
 
 @login_required
 def contracts(request):

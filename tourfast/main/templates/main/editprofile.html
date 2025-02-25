@@ -15,20 +15,20 @@
     <form action="{% url 'editprofile_page' %}" method="post">
         {% csrf_token %}
 
-        <label for="first_name">Имя:</label>
-        <input type="text" id="first_name" name="first_name" placeholder="Введите ваше имя" required>
+        <label for="username">Имя:</label>
+        <input type="text" id="username" name="first_name" placeholder="Введите ваше имя" value="{{user.username}}" required>
 
         <label for="last_name">Фамилия:</label>
-        <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" required>
+        <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" value="{{user.last_name}}" required>
 
-        <label for="dob">Дата рождения:</label>
-        <input type="date" id="dob" name="dob" required>
+        <label for="date_of_birth">Дата рождения:</label>
+        <input type="date" id="date_of_birth" name="dob" value="{{user.date_of_birth}}" required>
 
-        <label for="phone">Номер телефона:</label>
-        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <label for="phone_number">Номер телефона:</label>
+        <input type="tel" id="phone_number" name="phone" placeholder="+7 (___) ___-__-__" value="{{user.phone_number}}" required>
 
-        <label for="passport">Паспортные данные:</label>
-        <input type="text" id="passport" name="passport" placeholder="Серия и номер паспорта" required>
+        <label for="passport_data">Паспортные данные:</label>
+        <input type="text" id="passport_data" name="passport" placeholder="Серия и номер паспорта" value="{{user.passport_data}}" required>
 
         <button type="submit" class="save-button">Сохранить</button>
     </form>

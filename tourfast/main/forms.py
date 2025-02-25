@@ -23,3 +23,11 @@ class LoginForm(AuthenticationForm):
     # email = forms.CharField(label="Email", widget=forms.EmailInput(attrs={'class': 'input'}))
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={'class': 'input'}))
 
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = Buyer
+        fields = ['username', 'last_name', 'email', 'phone_number', 'date_of_birth', 'passport_data']
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
+        }
+
