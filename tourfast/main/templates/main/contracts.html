@@ -30,7 +30,8 @@
                     <div class="contract-details">
                         <p><strong>{{ contract.tour.title }}</strong></p>
                         <p><strong>Дата оформления:</strong> {{ contract.date|date:"d.m.Y H:i" }}</p>
-                        <p><strong>Клиент:</strong> {{ contract.client }}</p>
+                        <p><strong>Имя клиента:</strong> {{ contract.client.username }}</p>
+                        <p><strong>Фамилия клиента:</strong> {{ contract.client.last_name }}</p>
                         <p><strong>Статус оплаты:</strong> Подтверждён</p>
                         <p><strong>Итого:</strong> {{ contract.tour.price|floatformat:"-2" }} Рублей</p>
                     </div>

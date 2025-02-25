@@ -1,7 +1,7 @@
 .cart-container {
     width: 400px;
     margin: auto;
-    background-image: linear-gradient(to top, #837c80, #948e93, #a5a0a7, #b5b3bc, #c5c6d0, #c7ccd7, #c8d2dd, #c9d8e3, #bbd2dc, #aecbd3, #a1c5c8, #96bebc);
+    background-image: linear-gradient(to bottom, #c6f4fb, #cff0fc, #d8edfa, #dfe9f5, #e4e7ee, #e0e3ed, #dddeeb, #dad9e9, #d0d0ec, #c6c7ef, #babff3, #adb7f6);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -103,8 +103,8 @@ h2 {
 }
 
 .clear-cart-btn {
-    background-image: linear-gradient(to right bottom, #ffb9b9, #fc9490, #f46e65, #e74638, #d40000);
-    color: black;
+    background-image: linear-gradient(to right top, #ff0000, #de0002, #be0003, #9f0003, #810000);
+    color: white;
     padding: 8px 15px;
     font-weight: bold;
     border-radius: 25px;
@@ -142,7 +142,7 @@ h2 {
 .add-tour-btn {
     width: 100%;
     padding: 10px;
-    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
+    background-image: linear-gradient(to right bottom, #000cff, #5645ee, #7869da, #9289c3, #a8a8a8);
     color: white;
     border: none;
     font-size: 16px;
@@ -153,14 +153,15 @@ h2 {
 }
 
 .add-tour-btn:hover {
-    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
+    background-image: linear-gradient(to right bottom, #000cff, #7058ff, #a591ff, #d3c8ff, #ffffff);
+     color: black;
 }
 
 .checkout-btn {
     display: block;
     width: 100%;
     text-align: center;
-    background-color: black; /* Черный фон */
+    background-image: linear-gradient(to right bottom, #31d45b, #15b061, #1b8c5f, #2b6953, #354641);
     color: white; /* Белый текст */
     padding: 10px;
     border-radius: 25px;
@@ -172,7 +173,8 @@ h2 {
 }
 
 .checkout-btn:hover {
-    background-color: #333; /* Темно-серый при наведении */
+    background-image: linear-gradient(to right bottom, #cae5d2, #a7e6b7, #83e699, #5be477, #1ae14e);
+    color: black;
 }
 
 .cart-summary {

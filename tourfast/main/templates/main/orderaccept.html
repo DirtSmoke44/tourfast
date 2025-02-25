@@ -22,9 +22,6 @@
         <label for="last_name">Фамилия:</label>
         <input type="text" id="last_name" name="last_name" placeholder="Введите вашу фамилию" value="{{ user.last_name }}" required>
 
-        <label for="middle_name">Отчество:</label>
-        <input type="text" id="middle_name" name="middle_name" placeholder="Введите ваше отчество" required>
-
         <label for="dob">Дата рождения:</label>
         <input type="date" id="dob" name="dob" value="{{ user.date_of_birth }}" required>
 
@@ -65,8 +62,6 @@
 </div>
 
 
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -77,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Получаем значения полей
         const firstName = document.getElementById("first_name").value.trim();
         const lastName = document.getElementById("last_name").value.trim();
-        const middleName = document.getElementById("middle_name").value.trim();
         const dob = document.getElementById("dob").value;
         const phone = document.getElementById("phone").value.trim();
         const passport = document.getElementById("passport").value.trim();
@@ -92,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Проверка имени, фамилии и отчества
-        if (!isOnlyLetters(firstName) || !isOnlyLetters(lastName) || !isOnlyLetters(middleName)) {
-            alert("Имя, фамилия и отчество должны содержать только буквы.");
+        if (!isOnlyLetters(firstName) || !isOnlyLetters(lastName)) {
+            alert("Имя и фамилия должны содержать только буквы.");
             isValid = false;
         }
 
