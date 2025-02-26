@@ -4,23 +4,22 @@
     justify-content: center;
     align-items: center;
     padding: 10px 25px;
-    background-color: #B0E0E6;
-    border-radius: 0px; /* Закругленные углы */
+    background-color: #94f9ff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для эффекта объема */
     margin: 0px; /* Добавляет отступы сверху и по бокам */
 }
 
 .nav-link {
     font-size: 18px;
-    color: #000; /* Черный цвет текста */
+    color: #000;
     text-decoration: none;
     padding: 10px 20px;
     transition: color 0.3s ease;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-link:hover {
-    color: #00BFFF; /* Голубой цвет при наведении */
+    color: #295fff; /* Голубой цвет при наведении */
 }
 
 .navbar-nav {
