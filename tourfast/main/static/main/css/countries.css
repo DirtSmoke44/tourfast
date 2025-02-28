@@ -1,7 +1,7 @@
 /* Общие стили для страницы */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+    background-image: linear-gradient(to right bottom, #e7e7e7, #dbdbe4, #cbd1e2, #b8c7df, #a2bedc);
     margin: 0;
     padding: 0;
 }
@@ -22,11 +22,13 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    max-width: 1400px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
 }
 
 /* Карточка страны */
 .country-card {
-    width: 250px;
+    flex-basis: calc(20% - 20px); /* 20% ширины контейнера минус отступы */
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,6 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
 }
 
 .country-card:hover {

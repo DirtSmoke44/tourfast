@@ -1,26 +1,35 @@
-/* Общие стили для списка туров */
+body {
+    background-color: #e0f7fa; /* Мятный цвет */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Общие стили для списка отелей */
 .tour-list {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    max-width: 1600px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
 }
 
-/* Карточка тура */
+/* Карточка отеля */
 .tour-card {
-    width: 300px;
-background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2bbbc, #cbc1c1, #d2c8c8, #dacfcf, #e1d6d6, #e8e0e2, #efeaed, #f6f5f7, #ffffff);
+    width: 290px;
+    background-image: linear-gradient(to left bottom, #a8a8a8, #b0aeb0, #b8b5b7, #c2bbbc, #cbc1c1, #d2c8c8, #dacfcf, #e1d6d6, #e8e0e2, #efeaed, #f6f5f7, #ffffff);
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     padding-bottom: 10px;
     min-height: 500px;
-    top: -17px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
 }
 
 .tour-card:hover {

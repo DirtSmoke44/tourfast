@@ -2,31 +2,32 @@ body {
     background-color: #e0f7fa;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .tour-list {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color: rgba(224, 247, 250, 0.9);
+    max-width: 1600px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
 }
 
 .tour-card {
-    width: 300px;
+    width: 290px;
     background-image: linear-gradient(to right bottom, #ffffff, #f1f4ff, #dcebff, #bfe4ff, #9bdeff);
-    border-radius: 25px;
+     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     padding-bottom: 10px;
     min-height: 500px;
-    top: -17px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .tour-card:hover {

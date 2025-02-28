@@ -158,12 +158,13 @@
     border: none;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
 }
 
 .btn-subscribe:hover {
     background-color: #00FA9A;
+    color: black;
 }
 
 .privacy-notice {
