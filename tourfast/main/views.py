@@ -19,8 +19,8 @@ def logout_view(request):
     return redirect("start_page")
 
 def start(request):
-    return render(request, 'main/start.html')
-
+    tours = Tour.objects.filter(old_price__isnull=False)  # Фильтруем только те, у которых есть старая цена
+    return render(request, 'main/start.html', {'tour': tours})
 
 
 @login_required

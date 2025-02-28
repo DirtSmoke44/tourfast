@@ -1,7 +1,7 @@
 /* Общие стили для страницы */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+    background-image: linear-gradient(to right bottom, #e7e7e7, #dbdbe4, #cbd1e2, #b8c7df, #a2bedc);
     margin: 0;
     padding: 0;
 }
