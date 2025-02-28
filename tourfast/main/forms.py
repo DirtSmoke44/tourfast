@@ -11,6 +11,7 @@ class CustomTourFilterForm(forms.Form):
     price_max = forms.DecimalField(required=False, min_value=0, label="Цена до")
     duration_min = forms.IntegerField(required=False, min_value=0, label="Мин. длительность")
     duration_max = forms.IntegerField(required=False, min_value=0, label="Макс. длительность")
+    hot_tours = forms.BooleanField(required=False, label="Горящие туры")
 
 class RegisterForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
