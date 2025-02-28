@@ -9,6 +9,7 @@ from .filters import TourFilter
 from .forms import CustomTourFilterForm, UserEditForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+
 import logging
 logger = logging.getLogger(__name__)
 
@@ -81,16 +82,15 @@ def clear_cart(request):
 
 
 def tours(request):
-
     hotel = Hotel.objects.all()
     tours = Tour.objects.all()
     country = Country.objects.all()
     tour_filter = TourFilter(request.GET, queryset=Tour.objects.all())
+
     if request.GET:
         form = CustomTourFilterForm(request.GET)
 
         if form.is_valid():
-            # Применяем фильтры вручную
             if form.cleaned_data['country']:
                 tours = tours.filter(country=form.cleaned_data['country'])
             if form.cleaned_data['price_min']:
@@ -101,11 +101,16 @@ def tours(request):
                 tours = tours.filter(duration__gte=form.cleaned_data['duration_min'])
             if form.cleaned_data['duration_max']:
                 tours = tours.filter(duration__lte=form.cleaned_data['duration_max'])
+
+            # Фильтр для горящих туров
+            if form.cleaned_data.get('hot_tours'):
+                tours = tours.filter(old_price__isnull=False)  # Показываем только туры с old_price
+
     else:
         form = CustomTourFilterForm()
 
-
-    return render(request, 'main/tours.html', {'form': form,'hotel': hotel, 'tour': tours, 'country': country, 'filter': tour_filter})
+    return render(request, 'main/tours.html',
+                  {'form': form, 'hotel': hotel, 'tour': tours, 'country': country, 'filter': tour_filter})
 
 
 def registration(request):

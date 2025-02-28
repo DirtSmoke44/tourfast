@@ -12,3 +12,12 @@ class TourFilter(django_filters.FilterSet):
     class Meta:
         model = Tour
         fields = ['country', 'price_min', 'price_max', 'duration_min', 'duration_max']
+
+        # class TourFilter(django_filters.FilterSet):
+        #     hot_tours = django_filters.BooleanFilter(field_name="old_price", lookup_expr="isnull", exclude=True,
+        #                                              label="Горящие туры")
+        #
+        #     class Meta:
+        #         model = Tour
+        #         fields = ['country', 'price_min', 'price_max', 'duration_min', 'duration_max', 'hot_tours']
+
