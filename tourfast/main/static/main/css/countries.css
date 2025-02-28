@@ -73,19 +73,20 @@ body {
 
 /* Кнопка "Выбрать" */
 .select-btn {
-    background-color: #6B8E23;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
+    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
+    color: black;
+    padding: 10px 20px;
     border: none;
     border-radius: 25px;
-    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-
+    transition: background 0.3s;
+    text-decoration: none;
 }
 
 .select-btn:hover {
-    background-color: #0056b3;
+    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
 }
 
 
