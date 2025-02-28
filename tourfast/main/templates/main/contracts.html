@@ -40,7 +40,7 @@
                         <p><strong>Итого:</strong> {{ contract.tour.price|floatformat:"-2" }} Рублей</p>
                     </div>
                     <div class="contract-actions">
-                        <a href="#" class="contract-download">Скачать договор</a>
+                        <a href="{% url 'download_contract' contract.id %}" class="contract-download">Скачать договор</a>
                         <a href="#" class="contract-details-link">Отправить ваучер на почту</a>
                     </div>
                 </div>

@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+
 from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
@@ -232,3 +234,32 @@ def process_payment(request):
 
     return redirect("cart_page")
 
+
+def download_contract(request, contract_id):
+    contract = get_object_or_404(Contracts, id=contract_id)
+
+    # Формируем текст для договора
+    contract_text = f"""
+    Договор №{contract.id}
+    ----------------------
+    Тур: {contract.tour.title}
+    Дата оформления: {contract.date.strftime("%d.%m.%Y %H:%M")}
+
+    Клиент:
+    Имя: {contract.client.username}
+    Фамилия: {contract.client.last_name}
+
+    Детали тура:
+    Страна: {contract.tour.country}
+    Отель: {contract.tour.hotel}
+    Даты: {contract.tour.start_date.strftime("%d.%m.%Y")} - {contract.tour.end_date.strftime("%d.%m.%Y")}
+    Стоимость за ночь: {contract.tour.hotel.price_per_night:.2f} Рублей
+    Общая стоимость: {contract.price:.2f} Рублей
+
+    Статус оплаты: Подтверждён
+    """
+
+    # Создаём HTTP-ответ с файлом .txt
+    response = HttpResponse(contract_text, content_type='text/plain')
+    response['Content-Disposition'] = f'attachment; filename=contract_{contract.id}.txt'
+    return response
