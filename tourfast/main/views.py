@@ -101,6 +101,7 @@ def tours(request):
                 tours = tours.filter(duration__gte=form.cleaned_data['duration_min'])
             if form.cleaned_data['duration_max']:
                 tours = tours.filter(duration__lte=form.cleaned_data['duration_max'])
+
     else:
         form = CustomTourFilterForm()
 
