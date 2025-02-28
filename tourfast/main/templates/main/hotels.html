@@ -53,7 +53,7 @@
                     {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
                     </span>
                     <p class="text-body"><strong>Цена:</strong> {{ el.price_per_night|floatformat:"-2" }} ₽</p>
-                    <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
+                    <a href="{% url 'tours_page' %}" class="order-btn">Открыть туры</a>
                 </div>
             </div>
         {% endfor %}
