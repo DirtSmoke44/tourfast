@@ -22,11 +22,13 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    max-width: 1400px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
 }
 
 /* Карточка страны */
 .country-card {
-    width: 250px;
+    flex-basis: calc(20% - 20px); /* 20% ширины контейнера минус отступы */
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,6 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
 }
 
 .country-card:hover {

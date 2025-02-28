@@ -7,10 +7,10 @@
     <list default="true" id="2aef6cc9-dd70-467a-bc53-f9377b0d493f" name="Changes" comment="header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tourfast/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/reservation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/start.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hottours.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/countries.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/countries.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/hotels.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/static/main/css/tours.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/tourfast/main/templates/main/hotels.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +39,12 @@
     &quot;assignee&quot;: &quot;DirtSmoke44&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DirtSmoke44/tourfast.git",
-    "accountId": "9b240e01-400d-4ea8-aecf-34bb2c8f249c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DirtSmoke44/tourfast.git&quot;,
+    &quot;accountId&quot;: &quot;9b240e01-400d-4ea8-aecf-34bb2c8f249c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
