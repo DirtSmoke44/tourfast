@@ -23,7 +23,8 @@
         </div>
         <div class="card-info">
             <h3 class="text-title">{{ el.name }}</h3>
-            <button class="select-btn">Выбрать</button>
+<!--            <button class="select-btn" href="{% url 'tours_page' %}?country={{ el.id }}" >Выбрать</button>-->
+            <a href="{% url 'tours_page' %}?country={{ el.id }}" class="select-btn">Выбрать</a>
         </div>
     </div>
     {% endfor %}

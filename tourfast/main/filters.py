@@ -8,6 +8,7 @@ class TourFilter(django_filters.FilterSet):
     duration_max = django_filters.NumberFilter(field_name="duration", lookup_expr='lte', label="Макс. длительность")
     country = django_filters.ModelChoiceFilter(queryset=Tour.objects.values_list('country__name', flat=True).distinct(), label="Страна")
 
+
     class Meta:
         model = Tour
         fields = ['country', 'price_min', 'price_max', 'duration_min', 'duration_max']
