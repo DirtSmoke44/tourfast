@@ -49,10 +49,11 @@
                     <p class="text-body"><strong>Город:</strong> {{ el.city }}</p>
                     <p class="text-body"><strong>Адрес:</strong> {{ el.address }}</p>
                     <strong>Кол-во звёзд:</strong>
-                    <span style="color: green;">
+                    <span style="color: brown;">
                     {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
                     </span>
-                    <p class="text-body"><strong>Цена:</strong> {{ el.price_per_night|floatformat:"-2" }} ₽</p>
+                    <p class="text-body"><strong>Цена:</strong>
+                     <strong class="new-price">{{ el.price_per_night|floatformat:"-2" }} ₽ / В сутки</strong>
                     <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
                 </div>
             </div>

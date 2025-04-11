@@ -6,29 +6,47 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/countries.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
+<script src="{% static 'main/js/mappingcountry.js' %}"></script>
 {% endblock %}
 
 {% block body %}
 {% csrf_token %}
 
 <!-- Заголовок страницы -->
-<h1 class="page-title">Список стран для путешествий</h1>
+<h1 class="page-title">Список стран для путешествий 🌍</h1>
 
 <!-- Контейнер для карточек стран -->
 <section class="country-list">
-    {% for el in country %}
-    <div class="country-card">
-        <div class="card-img">
-            <img src="{{ el.photo.url }}" alt="{{ el.name }}">
-        </div>
-        <div class="card-info">
-            <h3 class="text-title">{{ el.name }}</h3>
-<!--            <button class="select-btn" href="{% url 'tours_page' %}?country={{ el.id }}" >Выбрать</button>-->
+{% for el in country %}
+<div class="country-card">
+    <div class="card-img">
+        <img src="{{ el.photo.url }}" alt="{{ el.name }}">
+    </div>
+    <div class="card-info">
+        <h3 class="text-title">{{ el.name }}</h3>
+        <a href="{% url 'tours_page' %}?country={{ el.id }}" class="select-btn">Выбрать</a>
+        <button class="info-btn" onclick="openModal('{{ el.id }}')">Подробнее</button>
+    </div>
+</div>
+
+<!-- Модалка внутри цикла! -->
+<div id="modal-{{ el.id }}" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('{{ el.id }}')">&times;</span>
+        <h2>{{ el.name }}</h2>
+        <img src="{{ el.photo.url }}" alt="{{ el.name }}" class="modal-image">
+        <p>{{ el.description }}</p>
+        <iframe
+            src="https://www.google.com/maps?q={{ el.name }}&output=embed"
+            class="modal-map"
+            loading="lazy"
+        ></iframe>
+        <div class="modal-buttons">
             <a href="{% url 'tours_page' %}?country={{ el.id }}" class="select-btn">Выбрать</a>
+            <button class="back-btn" onclick="closeModal('{{ el.id }}')">Назад</button>
         </div>
     </div>
-    {% endfor %}
-
+</div>
+{% endfor %}
 </section>
-
 {% endblock %}

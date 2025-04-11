@@ -71,23 +71,121 @@ body {
     color: #333;
 }
 
-/* Кнопка "Выбрать" */
-.select-btn {
-    background-color: #6B8E23;
-    color: #fff;
+/* Кнопки */
+button, .select-btn, .back-btn {
     font-size: 16px;
     font-weight: 700;
-    border: none;
-    border-radius: 25px;
-    padding: 5px 15px;
+    padding: 10px 20px; /* Универсальный размер кнопок */
+    border-radius: 25px; /* Закругленные углы */
     cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные изменения */
+}
 
+/* Кнопка "Выбрать" */
+.select-btn {
+    background-color: #00b270; /* Зелёный цвет */
+    color: #fff;
 }
 
 .select-btn:hover {
-    background-color: #0056b3;
+    background-color: #6ef747; /* Темнее зелёный при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
 }
 
+/* Кнопка "Подробнее" */
+.info-btn {
+    background-color: #4896be; /* Голубой цвет */
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 7px 7px; /* Универсальный размер кнопок */
+    border-radius: 25px; /* Закругленные углы */
+    cursor: pointer;
+}
 
+.info-btn:hover {
+    background-color: #4169e1; /* Темнее голубой при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
+}
 
+/* Кнопка "Назад" */
+.back-btn {
+    background-color: #ff4d4d; /* Красный цвет */
+    color: white;
+}
 
+.back-btn:hover {
+    background-color: #e60000; /* Темнее красный при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Контент внутри окна */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* Закрыть */
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Фото в модалке */
+.modal-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* Карта */
+.modal-map {
+    width: 100%;
+    height: 250px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+/* Кнопки внизу */
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}

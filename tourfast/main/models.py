@@ -33,6 +33,7 @@ class Transaction(models.Model): # Транзакции
 
 class Country(models.Model): # Страны
     name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(max_length=1000, unique=True, null=True)
     photo = models.ImageField('Фото страны', upload_to='main/countryphotos/', null=True, blank=True)
     def __str__(self):
         return self.name

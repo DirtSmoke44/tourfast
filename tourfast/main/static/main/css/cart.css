@@ -103,7 +103,7 @@ h2 {
 }
 
 .clear-cart-btn {
-    background-image: linear-gradient(to right top, #ff0000, #de0002, #be0003, #9f0003, #810000);
+    background-color: #E33032;
     color: white;
     padding: 8px 15px;
     font-weight: bold;
@@ -117,8 +117,8 @@ h2 {
 }
 
 .clear-cart-btn:hover {
-    background-image: radial-gradient(circle, #970000, #970d0c, #961615, #951e1e, #942525);
-    color: white;
+    background-color: #FF5B5B;
+
 }
 
 .remove-btn {
@@ -142,7 +142,7 @@ h2 {
 .add-tour-btn {
     width: 100%;
     padding: 10px;
-    background-image: linear-gradient(to right bottom, #000cff, #5645ee, #7869da, #9289c3, #a8a8a8);
+    background-color: #00b270; /* Зелёный цвет */;
     color: white;
     border: none;
     font-size: 16px;
@@ -153,15 +153,14 @@ h2 {
 }
 
 .add-tour-btn:hover {
-    background-image: linear-gradient(to right bottom, #000cff, #7058ff, #a591ff, #d3c8ff, #ffffff);
-     color: black;
+    background-color: #70C591;
 }
 
 .checkout-btn {
     display: block;
     width: 100%;
     text-align: center;
-    background-image: linear-gradient(to right bottom, #31d45b, #15b061, #1b8c5f, #2b6953, #354641);
+    background-color: #00b1ca;
     color: white; /* Белый текст */
     padding: 10px;
     border-radius: 25px;
@@ -173,8 +172,8 @@ h2 {
 }
 
 .checkout-btn:hover {
-    background-image: linear-gradient(to right bottom, #cae5d2, #a7e6b7, #83e699, #5be477, #1ae14e);
-    color: black;
+     background-color: #62C8FD;
+
 }
 
 .cart-summary {
@@ -199,7 +198,7 @@ h2 {
 }
 
 .add-tour-btn2 {
-    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
+    background-color: #00b270; /* Зелёный цвет */;
     color: white;
     padding: 10px 20px;
     border: none;

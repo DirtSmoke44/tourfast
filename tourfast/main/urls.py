@@ -4,6 +4,7 @@ from .views import cart_page, add_to_cart, remove_from_cart, download_contract
 
 urlpatterns = [
     path('', views.start, name='start_page'),
+    path('map/', views.map, name='map_page'),
     path('hottours/', views.hottours, name='hottours_page'),
     path('registration/', views.RegisterView.as_view(), name='registration_page'),
     path('authorization/', views.LoginUserView.as_view(), name='login_page'),
