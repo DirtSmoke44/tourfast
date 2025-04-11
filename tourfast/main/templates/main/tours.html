@@ -92,6 +92,10 @@
     <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
     Оформить
 </a>
+                    <a href="{% url 'add_to_cart' el.id %}" class="booking-btn">
+    <img src="{% static 'main/icons/online-booking.png' %}" alt="Book Icon" class="book-icon">
+    Забронировать
+</a>
                 </div>
             </div>
         {% endfor %}

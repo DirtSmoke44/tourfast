@@ -172,10 +172,11 @@ body {
     margin-right: 10px;
 }
 
+
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background-image: linear-gradient(to right bottom, #3e57ae, #3e78c7, #4b98dc, #65b8ee, #87d7ff);
+    background-color: #29ACFF;
     color: white;
     border: none;
     border-radius: 25px;
@@ -184,7 +185,7 @@ body {
 }
 
 .apply-filters-btn:hover {
-    background: #3ba768;
+    background: #4C8DB7;
 }
 
 /* Адаптация для мобильных устройств */

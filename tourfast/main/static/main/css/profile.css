@@ -1,140 +1,195 @@
-/* Фон для всей страницы */
+/* Основные стили */
 .profile-background {
-  background-image: linear-gradient(to left bottom, #c2ffef, #b8f0ea, #b1e2e2, #acd3d8, #a8c4cc,
-                                    #afc4cd, #b5c3cc, #bbc3cb, #cdd1d8, #dee0e5, #efeff2, #ffffff);
-  background-attachment: fixed; /* Фон остается на месте при скролле */
-  background-size: cover; /* Растягивается на весь экран */
-  background-repeat: no-repeat; /* Без повторения */
-  background-position: center; /* Центрируем фон */
-  width: 100%;
-  height: 100vh; /* Высота на весь экран */
-  position: fixed; /* Фиксируем фон */
-  top: 20;
-  left: 0;
-  z-index: -1; /* Помещаем фон под контент */
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  min-height: 100vh;
+  justify-content: center;
+  padding-top: 180px; /* Добавил отступ сверху */
+  padding-bottom: 60px; /* Добавил отступ снизу */
+  box-sizing: border-box;
 }
 
-
-/* Стили для кнопок */
-.edit-profile-btn,
-.view-delivery-btn,
-.exit-profile-btn {
-  padding: 12px 14px;
-  border: none;
-  border-radius: 20px; /* Закруглённые углы */
-  font-weight: bold;
-  font-size: 14px;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+.profile-container {
+  display: flex;
+  width: 800px;
+  max-height: calc(100vh - 160px); /* Ограничиваем высоту */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: auto; /* Центрирование */
 }
 
-
-h5 {
-    text-align: center; /* Центрирование текста по горизонтали */
-    margin: 0 auto; /* Центрирование блока по горизонтали (если нужно) */
-    width: 100%; /* Ширина блока (можно настроить под ваш макет) */
-}
-
-.edit-profile-btn {
-  background-color: #1fcdff; /* Синий цвет */
-}
-
-.edit-profile-btn:hover {
-  background-color: #357ABD; /* Темнее синий при наведении */
-  transform: scale(1.05); /* Увеличение при наведении */
-}
-
-.view-delivery-btn {
-  background-color: #00cb96; /* Зелёный цвет */
-}
-
-.view-delivery-btn:hover {
-  background-color: #00edc7;
-  transform: scale(1.05); /* Увеличение при наведении */
-}
-
-.exit-profile-btn {
-  background-color: #262626;
-  color: white;
-}
-
-.exit-profile-btn:hover {
-  background-color: #000000;
-  transform: scale(1.05); /* Увеличение при наведении */
-}
-
-/* Контейнеры для кнопок */
-.edit-profile,
-.view-delivery,
-.exit-profile {
-  margin: 5px 0;
-  text-align: center;
-}
-
-/* Градиентный фон для секции */
-.gradient-custom {
-  background: linear-gradient(to right bottom, #66CDAA, #4682B4); /* SeaGreen to SteelBlue */
-  background-size: cover; /* Обеспечивает покрытие градиентом всего элемента */
-}
-
-.gradient-custom{    /* Позволяет текс с аватаркой двигать вниз и вверх */
-padding-bottom: 20px;
-}
-
-.vh-100 {  /* чтобы спустить блок профиля вниз или вверх */
- margin: auto;
- margin-top: -65px;
-}
-
-.col-md-4{
-text-align: center;
-color: white;
-}
-
-.avatar-container {
+/* Боковая панель с аватаркой */
+.profile-sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #5151e5, #72edf2);
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Выравнивание по центру по горизонтали */
-  justify-content: flex-end; /* Опускаем содержимое вниз */
-  height: 100%; /* Занимает всю высоту родительского блока */
-  padding-bottom: 150px; /* Отступ снизу */
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow-y: auto; /* Добавляем прокрутку если контент не помещается */
 }
 
-/* Стили для изображения */
-.avatar-container img {
-  margin-bottom: 10px; /* Отступ между изображением и текстом */
+.avatar-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Стили для текста */
-.avatar-container h4,
-.avatar-container p {
-  margin: 3px 0; /* Отступы между текстовыми элементами */
+.avatar-wrapper:hover .avatar-overlay {
+  opacity: 1;
 }
 
-.col-md-8.custom-bg {
-  background-image: linear-gradient(to right top, #fdfdfd, #f1f8ff, #ddf6fd, #cef4ed, #cfeed3);
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.card-body {
-  width: 100%; /* Занимает всю ширину родительского блока */
-  max-width: 600px; /* Ограничение максимальной ширины */
-
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.card-body h5,
-.card-body h6 {
-  color: black; /* Цвет заголовков */
+.avatar-overlay span {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.card-body .text-muted {
-  color: black; /* Цвет текста */
+.username {
+  font-size: 22px;
+  margin: 10px 0 5px;
 }
 
-/* Стили для горизонтальных линий */
-.card-body hr {
-  border-color: black; /* Цвет линии */
+.profile-status {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+/* Основное содержимое */
+.profile-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto; /* Добавляем прокрутку если контент не помещается */
+}
+
+.profile-section {
+  margin-bottom: 25px;
+}
+
+.profile-section h4 {
+  color: #5151e5;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.profile-data {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data-row {
+  display: flex;
+}
+
+.data-label {
+  font-weight: bold;
+  width: 150px;
+  color: #333;
+}
+
+.data-value {
+  flex: 1;
+  color: #555;
+}
+
+/* Кнопки */
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.profile-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  color: white !important;
+  flex: 1;
+}
+
+.edit-btn {
+  background: #1fcdff;
+}
+
+.edit-btn:hover {
+  background: #0fb4e0;
+  transform: translateY(-2px);
+}
+
+.contracts-btn {
+  background: #00cb96;
+}
+
+.contracts-btn:hover {
+  background: #00b383;
+  transform: translateY(-2px);
+}
+
+.logout-btn {
+  background: #262626;
+}
+
+.logout-btn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .profile-background {
+    padding: 40px 20px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    width: 100%;
+    max-height: none;
+  }
+
+  .profile-sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
 }
