@@ -76,6 +76,15 @@ body {
     font-weight: 700;
 }
 
+.new-price {
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+    padding-top: 10px;
+}
+
+
 /* Кнопка оформления */
 .order-btn {
     display: flex;
@@ -84,7 +93,7 @@ body {
     width: 80%;
     margin: 15px auto;
     padding: 10px;
-    background-image: linear-gradient(to right top, #00ff88, #00e6a0, #00ccb0, #00b1b5, #0096b0);
+    background-color: #b15e5e;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -95,7 +104,7 @@ body {
 }
 
 .order-btn:hover {
-     background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
+     background-color: #e17d7d;
 }
 
 /* Иконка корзины */

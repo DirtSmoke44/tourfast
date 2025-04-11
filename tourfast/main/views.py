@@ -145,6 +145,9 @@ def authorization(request):
 def hottours(request):
     return render(request, 'main/hottours.html')
 
+def map(request):
+    return render(request, 'main/map.html')
+
 def cart(request):
     return render(request, 'main/cart.html')
 

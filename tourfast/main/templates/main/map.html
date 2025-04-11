@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Карта мира{% endblock %}
+
+{% block links %}п
+<link rel="stylesheet" href="{% static 'main/css/map.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h2 class="title">🌍 Интерактивная карта мира </h2>
+
+  <div style="width: 100%; height: 500px;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.0512999631576!2d37.61477731607152!3d55.75582698055354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a537b125f%3A0xf13c05d6e3b6510!2z0JzQsNC90YHQutC-0LUg0L_RgC4sIDEsINCc0L7RgdGC0LDQvdC00LjQutC4LCDQnNC-0YHRgtCw0L3QsNGPINGD0LvQuNGG0LAg0L7QsdC7LiwgMTAwMDAw!5e0!3m2!1sru!2sru!4v1712836200000!5m2!1sru!2sru"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+{% endblock %}
