@@ -19,39 +19,55 @@
 <div class="overlay"></div>
 
 {% if tours %}
-<div class="cart-container">
-    <h2>Ваши туры:</h2>
+<div class="cart-wrapper">
+    <div class="cart-container">
+        <h2>Ваши туры:</h2>
 
-    {% for tour in tours %}
-    <div class="cart-item">
-        <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="cart-item-img">
-        <div class="cart-item-details">
-            <p class="cart-item-title">{{ tour.title }}</p>
-            <p class="cart-item-subtitle">Страна: {{ tour.country.name }}</p>
-            <p class="cart-item-subtitle">Отель: {{ tour.hotel.name }}</p>
+        <div class="tours-list">
+            {% for tour in tours %}
+            <div class="tour-card">
+                <div class="tour-image-container">
+                    <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="tour-image">
+                </div>
+                <div class="tour-details">
+                    <h3 class="tour-title">{{ tour.title }}</h3>
+                    <p class="tour-info">Страна: {{ tour.country.name }}</p>
+                    <p class="tour-info">Отель: {{ tour.hotel.name }}</p>
+                    <p class="tour-price">{{ tour.price|floatformat:"-2" }} ₽</p>
+                    <form action="{% url 'remove_from_cart' tour.id %}" method="get">
+                        <button type="submit" class="remove-btn">Удалить тур</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
         </div>
 
-        <p class="cart-item-price">{{ tour.price|floatformat:"-2" }} ₽</p>
+        <div class="cart-actions">
+            <form action="{% url 'tours_page' %}" method="get">
+                <button type="submit" class="add-tour-btn">Добавить тур</button>
+            </form>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Отель за сутки:</span>
+                    <span class="summary-price">{{ hotel_price|floatformat:"-2" }} ₽</span>
+                </div>
+                <div class="summary-row">
+                    <span>Стоимость тура:</span>
+                    <span class="summary-price">{{ total_price|floatformat:"-2" }} ₽</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Всего:</span>
+                    <span class="summary-price total-price">{{ total_price|floatformat:"-2" }} ₽</span>
+                </div>
+            </div>
+
+            <div class="final-actions">
+                <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить</a>
+                <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
+            </div>
+        </div>
     </div>
-       <form action="{% url 'remove_from_cart' tour.id %}" method="get">
-        <button type="submit" class="remove-btn">Удалить тур</button>
-    </form>
-
-    {% endfor %}
-
-    <form action="{% url 'tours_page' %}" method="get">
-        <button type="submit" class="add-tour-btn">Добавить тур</button>
-    </form>
-
-    <div class="cart-summary">
-
-        <p>Отель за сутки: <span class="summary-price">{{ hotel_price|floatformat:"-2" }} ₽</span></p>
-        <p>Стоимость тура: <span class="summary-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
-        <p>Всего: <span class="summary-price total-price">{{ total_price|floatformat:"-2" }} ₽</span></p>
-        <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить</a>
-    </div>
-
-    <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
 </div>
 {% else %}
 

@@ -1,18 +1,248 @@
-.cart-container {
-    width: 400px;
-    margin: auto;
-    background-image: linear-gradient(to bottom, #c6f4fb, #cff0fc, #d8edfa, #dfe9f5, #e4e7ee, #e0e3ed, #dddeeb, #dad9e9, #d0d0ec, #c6c7ef, #babff3, #adb7f6);
+/* Основные стили */
+.cart-wrapper {
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
+.cart-container {
+    width: 650px;
+    max-height: 80vh;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Карточка тура */
+.tour-card {
+    display: flex;
+    background: white;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* Убрали закругления */
+}
+
+.tour-image-container {
+    width: 200px;
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tour-image {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tour-image:hover {
+    transform: scale(1.05);
+}
+
+.tour-details {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tour-info {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tour-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00b270; /* Зелёный цвет цены */
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+/* Кнопки */
+.remove-btn {
+    background: #000000; /* Чёрный цвет */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.remove-btn:hover {
+    background: #333333; /* Тёмно-серый при наведении */
+    transform: translateY(-2px);
+}
+
+.add-tour-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #00b270, #00c274);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 178, 112, 0.3);
+}
+
+.add-tour-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 178, 112, 0.4);
+}
+
+/* Сумма заказа */
+.cart-summary {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.total-row {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.summary-price {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-price {
+    color: #2c7be5;
+    font-size: 20px;
+}
+
+/* Финальные кнопки */
+.final-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.clear-cart-btn {
+    flex: 1;
+    background: #ff4757;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+.clear-cart-btn:hover {
+    background: #ff6b81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
+}
+
+.checkout-btn {
+    flex: 2;
+    background: linear-gradient(to right, #00b1ca, #00c0e8);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 177, 202, 0.3);
+}
+
+.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 177, 202, 0.4);
+}
+
+/* Пустая корзина */
+.empty-cart {
+    text-align: center;
+}
+
+.empty-cart-text {
+    color: white;
+    font-weight: bold;
+    font-size: 54px;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 270px;
+    width: 100%;
+}
+
+.add-tour-btn2 {
+    background: linear-gradient(to right, #00b270, #00c274);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 178, 112, 0.3);
+}
+
+.add-tour-btn2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 178, 112, 0.4);
+}
+
+/* Фон */
 .bg-video {
     position: fixed;
     top: 0;
@@ -20,7 +250,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2; /* Видео должно быть внизу */
+    z-index: -2;
 }
 
 .overlay {
@@ -29,197 +259,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
-    z-index: -1; /* Затемнение поверх видео */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
-h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
+/* Полоса прокрутки */
+.tours-list {
+    overflow-y: auto;
+    flex: 1;
+    margin-bottom: 20px;
+    padding-right: 10px;
 }
 
-.cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+.tours-list::-webkit-scrollbar {
+    width: 8px;
 }
 
-.cart-item-img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+.tours-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
 }
 
-.cart-item-details {
-    flex-grow: 1;
-    text-align: left;
-    padding: 0 10px;
+.tours-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
 }
 
-.cart-item-title {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.cart-item-subtitle {
-    font-size: 14px;
-    color: gray;
-}
-
-.cart-item-quantity {
-    display: flex;
-    align-items: center;
-}
-
-.quantity-btn {
-    background-image: linear-gradient(to right top, #39836f, #3b9b8f, #3fb2b2, #47cad7, #59e1fd);
-    border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 25px;
-}
-
-.quantity-number {
-    margin: 0 10px;
-    font-size: 16px;
-}
-
-.cart-item-price {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.coupon-section {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.clear-cart-btn {
-    background-color: #E33032;
-    color: white;
-    padding: 8px 15px;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px; /* Выносим кнопку за рамку контейнера */
-    width: 100%; /* Ширина кнопки */
-    text-align: center; /* Центрируем текст */
-}
-
-.clear-cart-btn:hover {
-    background-color: #FF5B5B;
-
-}
-
-.remove-btn {
-    background: black;
-    color: white;
-    border: none;
-    gap: 5px;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-bottom: 15px;
-}
-
-.remove-btn:hover {
-    background-image: radial-gradient(circle, #210000, #29171d, #33282f, #3e3a3f, #4c4c4c);
-    font-weight: bold;
-    color: white;
-}
-
-.add-tour-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #00b270; /* Зелёный цвет */;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-bottom: 15px;
-}
-
-.add-tour-btn:hover {
-    background-color: #70C591;
-}
-
-.checkout-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background-color: #00b1ca;
-    color: white; /* Белый текст */
-    padding: 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background 0.5s ease-in-out;
-}
-
-.checkout-btn:hover {
-     background-color: #62C8FD;
-
-}
-
-.cart-summary {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
-}
-
-.summary-price {
-    float: right;
-    font-weight: bold;
-}
-
-.total-price {
-    font-size: 20px;
-}
-
-.empty-cart {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.add-tour-btn2 {
-    background-color: #00b270; /* Зелёный цвет */;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-decoration: none;
-}
-
-.add-tour-btn2:hover {
-    background-image: linear-gradient(to right bottom, #00cc6a, #00b57a, #009e84, #008787, #007088);
-}
-
-.empty-cart-text {
-    color: white; /* Белый цвет текста */
-    font-weight: bold; /* Жирный шрифт */
-    font-size: 54px; /* Большой размер шрифта */
-    text-align: center; /* Центрирование текста по горизонтали */
-    padding: 40px 0; /* Отступы сверху и снизу */
-    margin-top: 270px; /* Отступ сверху */
-    width: 100%; /* Ширина блока */
+.tours-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
