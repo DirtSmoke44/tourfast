@@ -16,7 +16,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-
 def logout_view(request):
     logout(request)
     return redirect("start_page")
