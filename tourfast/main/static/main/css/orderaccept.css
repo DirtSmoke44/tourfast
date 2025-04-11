@@ -63,14 +63,17 @@ input {
 }
 
 .pay-button:hover {
-    background-image: linear-gradient(to right top, #00b31f, #27b738, #3bbc4b, #4bc05c, #5ac46c);
+    background-color: green;
+    color: white;
+    transform: translateY(-2px);
+
 }
 
 
 .back-button {
     width: 100%;
     padding: 12px;
-    background-image: linear-gradient(to right top, #ff0000, #e60001, #ce0001, #b60001, #9f0000);;
+    background-color: #ff4757;
     color: white;
     border: none;
     border-radius: 25px;
@@ -81,7 +84,9 @@ input {
 }
 
 .back-button:hover {
-    background-image: linear-gradient(to right top, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
+    background: #ff6b81;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
 }
 
 .payment-info {

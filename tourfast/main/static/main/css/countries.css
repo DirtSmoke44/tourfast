@@ -90,7 +90,7 @@ button, .select-btn, .back-btn {
 }
 
 .select-btn:hover {
-    background-color: #6ef747; /* Темнее зелёный при наведении */
+    background-color: #55CF6F; /* Темнее зелёный при наведении */
     transform: scale(1.05); /* Немного увеличивается при наведении */
 }
 

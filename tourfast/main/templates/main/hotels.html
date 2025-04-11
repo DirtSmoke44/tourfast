@@ -54,7 +54,7 @@
                     </span>
                     <p class="text-body"><strong>Цена:</strong>
                      <strong class="new-price">{{ el.price_per_night|floatformat:"-2" }} ₽ / В сутки</strong>
-                    <a href="{% url 'cart_page' el.id %}" class="order-btn">Оформить</a>
+                    <a href="{% url 'cart_page' el.id %}" class="order-btn">Подробнее</a>
                 </div>
             </div>
         {% endfor %}

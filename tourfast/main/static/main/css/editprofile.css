@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
+    background-color: #A9C7FD;
 }
 
 .edit-container {
@@ -53,7 +53,8 @@ input {
     width: 100%;
     padding: 12px;
     background: #00cb96;
-      color: black;
+    color: white;
+    font-weight: bold;
     border: none;
     border-radius: 25px;
     font-size: 16px;
@@ -63,7 +64,8 @@ input {
 }
 
 .save-button:hover {
-    background: #333;
+    background-color: #4AAB5A;
+    transform: translateY(-2px);
 }
 
 .back-button {
@@ -71,7 +73,8 @@ input {
     width: 100%;
     padding: 12px;
     background: #1fcdff;
-    color: black;
+    color: white;
+    font-weight: bold;
     border: none;
     border-radius: 25px;
     font-size: 16px;
@@ -82,9 +85,9 @@ input {
     text-decoration: none; /* Убираем подчеркивание */
 }
 
-
 .back-button:hover {
-    background: #333;
+    background-color: #5886DA;
+    transform: translateY(-2px);
 }
 
 

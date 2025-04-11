@@ -97,6 +97,33 @@ body {
 }
 
 
+.booking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #47ABEB;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.booking-btn:hover {
+    background-color: #2370A1;
+}
+
+.book-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
 .filter-tour-container {
     display: flex;
     gap: 20px;
@@ -149,7 +176,7 @@ body {
 .apply-filters-btn {
     width: 100%;
     padding: 10px;
-    background-image: linear-gradient(to right bottom, #3e57ae, #3e78c7, #4b98dc, #65b8ee, #87d7ff);
+    background-color: #29ACFF;
     color: white;
     border: none;
     border-radius: 25px;
@@ -158,7 +185,7 @@ body {
 }
 
 .apply-filters-btn:hover {
-    background: #3ba768;
+    background: #4C8DB7;
 }
 
 .old-price {

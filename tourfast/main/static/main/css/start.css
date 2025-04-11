@@ -54,7 +54,8 @@
 
 .search-button {
     background: #3CB371;
-    color: black;
+    color: white;
+    font-weight: bold;
     border: none;
     padding: 10px 30px;
     font-size: 16px;
@@ -63,7 +64,7 @@
 }
 
 .search-button:hover {
-    background: #00FA9A;
+    background: #4D9450;
 }
 
 /* Текст поверх изображения */
@@ -160,6 +161,7 @@
     font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .btn-subscribe:hover {
@@ -184,6 +186,11 @@
 }
 
 
+
+.order-btn{
+font-weight: bold;
+
+}
 
 
 /* Footer Styles */

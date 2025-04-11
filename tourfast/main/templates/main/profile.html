@@ -10,65 +10,54 @@
 {% block body %}
 
 <div class="profile-background">
-  <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: .5rem;">
-            <div class="row g-0">
-              <div class="col-md-4 gradient-custom">
-                <div class="avatar-container">
-                  <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="img-fluid my-5" style="width: 80px;" />
-                  <h4>{{ user.username }}</h4>
-                  <p>Ваш профиль</p>
-                </div>
-                <i class="far fa-edit mb-5"></i>
-              </div>
-              <div class="col-md-8 custom-bg">
-                <div class="card-body p-4">
-                  <h5>Данные аккаунта</h5>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>E-Mail</h6>
-                      <p class="text-muted">{{ user.email }}</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Телефон</h6>
-                      <p class="text-muted">{{ user.phone_number }}</p>
-                    </div>
-                  </div>
-                  <h5>Дополнительные данные</h5>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Паспортные данные:</h6>
-                      <p class="text-muted">{{ user.passport_data }}</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Фамилия</h6>
-                      <p class="text-muted">{{ user.last_name }}</p>
-                    </div>
-                  </div>
-                  <div class="edit-profile">
-                    <form action="{% url 'editprofile_page' %}" method="get">
-                      <button type="submit" class="edit-profile-btn">Редактировать</button>
-                    </form>
-                  </div>
-                  <div class="view-delivery">
-                    <a href="{% url 'contracts_page' %}" class="view-delivery-btn">Мои договора</a>
-                  </div>
-                  <div class="exit-profile">
-                    <button class="exit-profile-btn" onclick="location.href='{% url 'logout' %}?next=/profile'">Выход</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div class="profile-container">
+    <div class="profile-sidebar">
+      <div class="avatar-wrapper">
+        <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="profile-avatar" />
+        <div class="avatar-overlay">
+          <span>Изменить</span>
+        </div>
+      </div>
+      <h3 class="username">{{ user.username }}</h3>
+      <p class="profile-status">Ваш профиль</p>
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-section">
+        <h4>Данные аккаунта</h4>
+        <div class="profile-data">
+          <div class="data-row">
+            <span class="data-label">E-Mail:</span>
+            <span class="data-value">{{ user.email }}</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Телефон:</span>
+            <span class="data-value">{{ user.phone_number|default:"Не указан" }}</span>
           </div>
         </div>
       </div>
+
+      <div class="profile-section">
+        <h4>Дополнительные данные</h4>
+        <div class="profile-data">
+          <div class="data-row">
+            <span class="data-label">Паспортные данные:</span>
+            <span class="data-value">{{ user.passport_data|default:"Не указаны" }}</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Фамилия:</span>
+            <span class="data-value">{{ user.last_name|default:"Не указана" }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <a href="{% url 'editprofile_page' %}" class="profile-btn edit-btn">Редактировать</a>
+        <a href="{% url 'contracts_page' %}" class="profile-btn contracts-btn">Мои договора</a>
+        <a href="{% url 'logout' %}?next=/profile" class="profile-btn logout-btn">Выход</a>
+      </div>
     </div>
-  </section>
+  </div>
 </div>
 
 {% endblock %}
