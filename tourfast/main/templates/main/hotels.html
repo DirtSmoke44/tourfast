@@ -35,7 +35,7 @@
         <button class="apply-filters-btn">Применить фильтры</button>
     </aside>
 
-    <!-- Существующий блок с карточками туров -->
+    <!-- Блок с карточками отелей -->
     <section class="tour-list">
         {% for el in hotel %}
             <div class="tour-card card">
@@ -44,21 +44,63 @@
                 </div>
                 <div class="card-info">
                     <h3 class="text-title">{{ el.name }}</h3>
-
                     <p class="text-body"><strong>Страна:</strong> {{ el.country }}</p>
                     <p class="text-body"><strong>Город:</strong> {{ el.city }}</p>
                     <p class="text-body"><strong>Адрес:</strong> {{ el.address }}</p>
                     <strong>Кол-во звёзд:</strong>
-                    <span style="color: brown;">
-                    {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
+                    <span class="stars">
+                        {% for el in el.stars|rjust:el.stars %} ★ {% endfor %}
                     </span>
                     <p class="text-body"><strong>Цена:</strong>
-                     <strong class="new-price">{{ el.price_per_night|floatformat:"-2" }} ₽ / В сутки</strong>
-                    <a href="{% url 'cart_page' el.id %}" class="order-btn">Подробнее</a>
+                    <strong class="new-price">{{ el.price_per_night|floatformat:"-2" }} ₽ / В сутки</strong>
+                    <a href="#" class="order-btn"
+                       onclick="openModal(
+                           '{{ el.name|escapejs }}',
+                           '{{ el.country|escapejs }}',
+                           '{{ el.city|escapejs }}',
+                           '{{ el.address|escapejs }}',
+                           '{{ el.stars }}',
+                           '{{ el.price_per_night|floatformat:"-2" }}'
+                       )">Подробнее</a>
                 </div>
             </div>
         {% endfor %}
     </section>
 </div>
+
+<!-- Модальное окно -->
+<div id="hotelModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 id="modalHotelName"></h2>
+        <p><strong>Страна:</strong> <span id="modalCountry"></span></p>
+        <p><strong>Город:</strong> <span id="modalCity"></span></p>
+        <p><strong>Адрес:</strong> <span id="modalAddress"></span></p>
+        <p><strong>Количество звёзд:</strong> <span id="modalStars"></span></p>
+        <p><strong>Цена:</strong> <span id="modalPrice"></span> ₽ / В сутки</p>
+        <iframe id="modalMap" class="modal-map" loading="lazy"></iframe>
+    </div>
+</div>
+
+<script>
+function openModal(name, country, city, address, stars, price) {
+    document.getElementById('modalHotelName').textContent = name;
+    document.getElementById('modalCountry').textContent = country;
+    document.getElementById('modalCity').textContent = city;
+    document.getElementById('modalAddress').textContent = address;
+    document.getElementById('modalStars').textContent = '★'.repeat(parseInt(stars));
+    document.getElementById('modalPrice').textContent = price;
+
+    const query = encodeURIComponent(`${address}, ${city}, ${country}`);
+    document.getElementById('modalMap').src = `https://www.google.com/maps?q=${query}&output=embed`;
+
+    document.getElementById('hotelModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('hotelModal').style.display = 'none';
+    document.getElementById('modalMap').src = '';
+}
+</script>
 
 {% endblock %}
