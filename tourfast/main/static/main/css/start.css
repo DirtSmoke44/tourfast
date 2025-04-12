@@ -110,8 +110,8 @@
     background-color: #1d1d1d;
     padding: 15px 50px;
     border-radius: 5rem;
-    box-shadow: 0px 0px 20px 5px rgba(135, 206, 250, 0.6); /* Свечение цвета */
-    transition: 0.6s cubic-bezier(0.01, 1.69, 0.99, 0.94);
+    box-shadow: 0px 0px 25px 5px rgba(0, 231, 120, 0.7); /* Яркое бирюзово-зеленое свечение */
+    transition: all 0.6s cubic-bezier(0.01, 1.69, 0.99, 0.94);
 }
 
 .btn.watch-all-tours:hover {
