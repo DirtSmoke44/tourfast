@@ -49,11 +49,13 @@
         <!-- Секция бронирований -->
         {% if bookings %}
 <h2>Ваши бронирования:</h2>
-<div class="bookings-list">
+<div class="tours-list">
     {% for booking in bookings %}
-    <div class="booking-card">
+    <div class="tour-card">
+        <div class="tour-image-container">
         <img src="{{ booking.tour.photo.url }}" alt="{{ booking.tour.title }}">
-        <div class="booking-info">
+            </div>
+        <div class="tour-details">
             <h3>{{ booking.tour.title }}</h3>
             <p>Даты: {{ booking.check_in }} - {{ booking.check_out }}</p>
             <p>Гостей: {{ booking.guests }}</p>
@@ -90,7 +92,10 @@
 
             <div class="final-actions">
                 <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить корзину</a>
-                <a href="{% url 'process_payment' %}" class="checkout-btn">Оплатить</a>
+                <form action="{% url 'process_payment' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="checkout-btn">Оплатить</button>
+</form>
             </div>
         </div>
     </div>
@@ -101,5 +106,15 @@
     <a href="{% url 'tours_page' %}" class="add-tour-btn2">Выбрать тур</a>
 </div>
 {% endif %}
+<script>
+document.querySelector('form[action="{% url 'process_payment' %}"]').addEventListener('submit', function(e) {
+    const tours = {{ tours|length }};
+    const bookings = {{ bookings|length }};
 
+    if (tours === 0 && bookings === 0) {
+        e.preventDefault();
+        alert('Корзина пуста. Добавьте туры или бронирования перед оплатой.');
+    }
+});
+</script>
 {% endblock %}
