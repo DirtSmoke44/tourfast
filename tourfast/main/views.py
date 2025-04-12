@@ -108,11 +108,21 @@ def remove_from_cart(request, tour_id):
 
 @login_required
 def clear_cart(request):
-    """Очищает корзину."""
+    """Очищает корзину (и туры, и бронирования)."""
+    # Очищаем туры
     request.session['cart'] = {'tours': []}
-    request.session['cart'] = {'booking': []}
-    request.session.modified = True
 
+    # Очищаем бронирования
+    if 'bookings' in request.session:
+        # Получаем ID бронирований перед их удалением
+        booking_ids = request.session['bookings']
+        # Удаляем сами бронирования из базы данных
+        Booking.objects.filter(id__in=booking_ids, client=request.user).delete()
+        # Очищаем сессию
+        request.session['bookings'] = []
+
+    request.session.modified = True
+    messages.success(request, 'Корзина полностью очищена')
     return redirect('cart_page')
 
 
@@ -275,64 +285,39 @@ def contracts(request):
     contracts = Contracts.objects.filter(client=request.user)
     return render(request, 'main/contracts.html',  {'contracts': contracts})
 
-
 @login_required
 def process_payment(request):
     if request.method == "POST":
-        user = request.user
+        user = request.user  # Получаем текущего пользователя
+        cart = request.session.get("cart", {}).get("tours", [])  # Получаем список ID туров из сессии
 
-        # Получаем туры из корзины
-        cart_tours = request.session.get("cart", {}).get("tours", [])
-        tours = Tour.objects.filter(id__in=cart_tours)
-        tours_total = sum(tour.price for tour in tours) if tours else 0
+        if not cart:
+            return redirect("cart_page")  # Если корзина пустая, перенаправляем обратно
 
-        # Получаем бронирования из корзины
-        cart_bookings = request.session.get("bookings", [])
-        bookings = Booking.objects.filter(id__in=cart_bookings, client=user)
-        bookings_total = sum(booking.price for booking in bookings) if bookings else 0
+        tours = Tour.objects.filter(id__in=cart)  # Получаем объекты туров
+        total_price = sum(tour.price for tour in tours)  # Рассчитываем общую стоимость
 
-        # Проверяем, что есть что оплачивать
-        if not tours and not bookings:
-            messages.error(request, "Корзина пуста")
-            return redirect("cart_page")
+        # Создаем запись о транзакции (можно добавить проверку успешности платежа)
+        transaction = Transaction.objects.create(
+            card_number="XXXX-XXXX-XXXX-0000",  # В реальном проекте номер карты не сохраняем!
+            amount=total_price,
+            status="success"
+        )
 
-        total_amount = tours_total + bookings_total
-
-        try:
-            # Создаем транзакцию
-            transaction = Transaction.objects.create(
-                card_number="XXXX-XXXX-XXXX-0000",  # В реальном проекте используйте платежный шлюз
-                amount=total_amount,
-                status="success"
+        # Создаем договор на каждый оплаченный тур
+        for tour in tours:
+            Contracts.objects.create(
+                title=f"Договор на тур {tour.title}",
+                client=user,
+                tour=tour,
+                price=tour.price
             )
 
-            # Создаем договоры для туров
-            for tour in tours:
-                Contracts.objects.create(
-                    title=f"Договор на тур {tour.title}",
-                    client=user,
-                    tour=tour,
-                    price=tour.price,
-                    transaction=transaction
-                )
+        # Очищаем корзину после оплаты
+        request.session["cart"] = {"tours": []}
+        request.session.modified = True
 
-            # Обновляем статус бронирований
-            bookings.update(
-                status="paid",
-                transaction=transaction
-            )
-
-            # Очищаем корзину
-            request.session["cart"] = {"tours": []}
-            request.session["bookings"] = []
-            request.session.modified = True
-
-            messages.success(request, "Оплата прошла успешно!")
-            return redirect("ordercomplete_page")
-
-        except Exception as e:
-            messages.error(request, f"Ошибка при обработке платежа: {str(e)}")
-            return redirect("cart_page")
+        return redirect("ordercomplete_page")  # Перенаправляем на страницу подтверждения заказа
 
     return redirect("cart_page")
 
