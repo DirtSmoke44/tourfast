@@ -83,7 +83,6 @@ body {
     font-size: 16px;
     border-radius: 25px;
     text-decoration: none;
-    transition: background 0.3s;
 }
 
 .order-btn:hover {
@@ -111,7 +110,7 @@ body {
     font-size: 16px;
     border-radius: 25px;
     text-decoration: none;
-    transition: background 0.3s;
+
 }
 
 .booking-btn:hover {
