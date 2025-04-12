@@ -108,10 +108,21 @@ def remove_from_cart(request, tour_id):
 
 @login_required
 def clear_cart(request):
-    """Очищает корзину."""
+    """Очищает корзину (и туры, и бронирования)."""
+    # Очищаем туры
     request.session['cart'] = {'tours': []}
-    request.session.modified = True
 
+    # Очищаем бронирования
+    if 'bookings' in request.session:
+        # Получаем ID бронирований перед их удалением
+        booking_ids = request.session['bookings']
+        # Удаляем сами бронирования из базы данных
+        Booking.objects.filter(id__in=booking_ids, client=request.user).delete()
+        # Очищаем сессию
+        request.session['bookings'] = []
+
+    request.session.modified = True
+    messages.success(request, 'Корзина полностью очищена')
     return redirect('cart_page')
 
 

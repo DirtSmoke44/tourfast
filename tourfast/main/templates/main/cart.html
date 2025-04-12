@@ -21,54 +21,62 @@
 {% if tours or bookings %}
 <div class="cart-wrapper">
     <div class="cart-container">
-        <!-- Секция туров в корзине -->
-        {% if tours %}
-        <h2>Ваши туры:</h2>
-        <div class="tours-list">
-            {% for tour in tours %}
-            <div class="tour-card">
-                <div class="tour-image-container">
-                    <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="tour-image">
-                </div>
-                <div class="tour-details">
-                    <h3 class="tour-title">{{ tour.title }}</h3>
-                    <p class="tour-info">Страна: {{ tour.country.name }}</p>
-                    <p class="tour-info">Отель: {{ tour.hotel.name }}</p>
-                    <p class="tour-info">Даты: {{ tour.start_date|date:"d.m.Y" }} - {{ tour.end_date|date:"d.m.Y" }}</p>
-                    <p class="tour-price">{{ tour.price|floatformat:"-2" }} ₽</p>
-                    <form action="{% url 'remove_from_cart' tour.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="remove-btn">Удалить тур</button>
-                    </form>
+        <div class="cart-content">
+            <!-- Секция туров в корзине -->
+            {% if tours %}
+            <div class="cart-section">
+                <h2>Ваши туры:</h2>
+                <div class="items-list">
+                    {% for tour in tours %}
+                    <div class="item-card">
+                        <div class="item-image-container">
+                            <img src="{{ tour.photo.url }}" alt="{{ tour.title }}" class="item-image">
+                        </div>
+                        <div class="item-details">
+                            <h3>{{ tour.title }}</h3>
+                            <p>Страна: {{ tour.country.name }}</p>
+                            <p>Отель: {{ tour.hotel.name }}</p>
+                            <p>Даты: {{ tour.start_date|date:"d.m.Y" }} - {{ tour.end_date|date:"d.m.Y" }}</p>
+                            <p class="item-price">{{ tour.price|floatformat:"-2" }} ₽</p>
+                            <form action="{% url 'remove_from_cart' tour.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="remove-btn">Удалить</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+            {% endif %}
 
-        <!-- Секция бронирований -->
-        {% if bookings %}
-<h2>Ваши бронирования:</h2>
-<div class="bookings-list">
-    {% for booking in bookings %}
-    <div class="booking-card">
-        <img src="{{ booking.tour.photo.url }}" alt="{{ booking.tour.title }}">
-        <div class="booking-info">
-            <h3>{{ booking.tour.title }}</h3>
-            <p>Даты: {{ booking.check_in }} - {{ booking.check_out }}</p>
-            <p>Гостей: {{ booking.guests }}</p>
-            <p>Цена: {{ booking.price }} руб.</p>
-            <form action="{% url 'cancel_booking' booking.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Отменить</button>
-            </form>
+            <!-- Секция бронирований -->
+            {% if bookings %}
+            <div class="cart-section">
+                <h2>Ваши бронирования:</h2>
+                <div class="items-list">
+                    {% for booking in bookings %}
+                    <div class="item-card">
+                        <div class="item-image-container">
+                            <img src="{{ booking.tour.photo.url }}" alt="{{ booking.tour.title }}" class="item-image">
+                        </div>
+                        <div class="item-details">
+                            <h3>{{ booking.tour.title }}</h3>
+                            <p>Даты: {{ booking.check_in }} - {{ booking.check_out }}</p>
+                            <p>Гостей: {{ booking.guests }}</p>
+                            <p class="item-price">{{ booking.price|floatformat:"-2" }} ₽</p>
+                            <form action="{% url 'cancel_booking' booking.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="remove-btn">Отменить</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
         </div>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
 
-        <div class="cart-actions">
+        <div class="cart-footer">
             <form action="{% url 'tours_page' %}" method="get">
                 <button type="submit" class="add-tour-btn">Добавить тур</button>
             </form>
