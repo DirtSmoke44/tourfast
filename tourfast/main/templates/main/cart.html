@@ -18,11 +18,12 @@
 <!-- Затемнение -->
 <div class="overlay"></div>
 
-{% if tours %}
+{% if tours or bookings %}
 <div class="cart-wrapper">
     <div class="cart-container">
+        <!-- Секция туров в корзине -->
+        {% if tours %}
         <h2>Ваши туры:</h2>
-
         <div class="tours-list">
             {% for tour in tours %}
             <div class="tour-card">
@@ -33,14 +34,39 @@
                     <h3 class="tour-title">{{ tour.title }}</h3>
                     <p class="tour-info">Страна: {{ tour.country.name }}</p>
                     <p class="tour-info">Отель: {{ tour.hotel.name }}</p>
+                    <p class="tour-info">Даты: {{ tour.start_date|date:"d.m.Y" }} - {{ tour.end_date|date:"d.m.Y" }}</p>
                     <p class="tour-price">{{ tour.price|floatformat:"-2" }} ₽</p>
-                    <form action="{% url 'remove_from_cart' tour.id %}" method="get">
+                    <form action="{% url 'remove_from_cart' tour.id %}" method="post">
+                        {% csrf_token %}
                         <button type="submit" class="remove-btn">Удалить тур</button>
                     </form>
                 </div>
             </div>
             {% endfor %}
         </div>
+        {% endif %}
+
+        <!-- Секция бронирований -->
+        {% if bookings %}
+<h2>Ваши бронирования:</h2>
+<div class="bookings-list">
+    {% for booking in bookings %}
+    <div class="booking-card">
+        <img src="{{ booking.tour.photo.url }}" alt="{{ booking.tour.title }}">
+        <div class="booking-info">
+            <h3>{{ booking.tour.title }}</h3>
+            <p>Даты: {{ booking.check_in }} - {{ booking.check_out }}</p>
+            <p>Гостей: {{ booking.guests }}</p>
+            <p>Цена: {{ booking.price }} руб.</p>
+            <form action="{% url 'cancel_booking' booking.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Отменить</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 
         <div class="cart-actions">
             <form action="{% url 'tours_page' %}" method="get">
@@ -49,33 +75,31 @@
 
             <div class="cart-summary">
                 <div class="summary-row">
-                    <span>Стоимость отеля(-ей) за сутки:</span>
-                    <span class="summary-price">{{ hotel_price|floatformat:"-2" }} ₽</span>
+                    <span>Стоимость туров:</span>
+                    <span class="summary-price">{{ tours_total|floatformat:"-2" }} ₽</span>
                 </div>
                 <div class="summary-row">
-                    <span>Стоимость тура(-ов):</span>
-                    <span class="summary-price">{{ total_price|floatformat:"-2" }} ₽</span>
+                    <span>Стоимость бронирований:</span>
+                    <span class="summary-price">{{ bookings_total|floatformat:"-2" }} ₽</span>
                 </div>
                 <div class="summary-row total-row">
-                    <span>Всего:</span>
+                    <span>Общая сумма:</span>
                     <span class="summary-price total-price">{{ total_price|floatformat:"-2" }} ₽</span>
                 </div>
             </div>
 
             <div class="final-actions">
-                <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить</a>
-                <a href="{% url 'orderaccept_page' %}" class="checkout-btn">Оплатить</a>
+                <a href="{% url 'clear_cart' %}" class="clear-cart-btn">Очистить корзину</a>
+                <a href="{% url 'process_payment' %}" class="checkout-btn">Оплатить</a>
             </div>
         </div>
     </div>
 </div>
 {% else %}
-
 <div class="empty-cart">
     <p class="empty-cart-text">Корзина пуста</p>
-    <a href="{% url 'tours_page' %}" class="add-tour-btn2">Добавить тур</a>
+    <a href="{% url 'tours_page' %}" class="add-tour-btn2">Выбрать тур</a>
 </div>
-
 {% endif %}
 
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction
+from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction, Booking
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
 from django.contrib.auth.views import LoginView
@@ -11,6 +11,9 @@ from .filters import TourFilter
 from .forms import CustomTourFilterForm, UserEditForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from datetime import datetime
+from decimal import Decimal
 
 import logging
 logger = logging.getLogger(__name__)
@@ -27,14 +30,27 @@ def start(request):
 
 @login_required
 def cart_page(request):
+    # Туры в корзине
     cart = request.session.get('cart', {'tours': []})
-    print(f"Текущая корзина: {cart}")  # Отладочный вывод
     tour_ids = cart.get('tours', [])
     tours = Tour.objects.filter(id__in=tour_ids)
-    hotel_price = sum(tours.hotel.price_per_night for tours in tours)
-    total_price = sum(tours.price for tours in tours)
-    return render(request, 'main/cart.html', {'tours': tours,
-        'total_price': total_price, 'hotel_price': hotel_price})
+
+    # Бронирования в корзине
+    booking_ids = request.session.get('bookings', [])
+    bookings = Booking.objects.filter(id__in=booking_ids, client=request.user)
+
+    # Расчет общей стоимости
+    tours_total = sum(tour.price for tour in tours)
+    bookings_total = sum(booking.price for booking in bookings)
+    total_price = tours_total + bookings_total
+
+    return render(request, 'main/cart.html', {
+        'tours': tours,
+        'bookings': bookings,
+        'tours_total': tours_total,
+        'bookings_total': bookings_total,
+        'total_price': total_price,
+    })
 
 @login_required
 def add_to_cart(request, tour_id):
@@ -58,6 +74,23 @@ def add_to_cart(request, tour_id):
     return redirect('cart_page')
 
 
+@login_required
+def cancel_booking(request, booking_id):
+    if request.method == 'POST':
+        try:
+            booking = Booking.objects.get(id=booking_id, client=request.user)
+
+            # Удаляем из сессии
+            if 'bookings' in request.session and booking.id in request.session['bookings']:
+                request.session['bookings'].remove(booking.id)
+                request.session.modified = True
+
+            booking.delete()
+            messages.success(request, 'Бронирование отменено')
+        except Exception as e:
+            messages.error(request, f'Ошибка при отмене бронирования: {str(e)}')
+
+    return redirect('cart_page')
 
 @login_required
 def remove_from_cart(request, tour_id):
@@ -174,8 +207,49 @@ def orderaccept(request):
 def ordercomplete(request):
     return render(request, 'main/ordercomplete.html')
 
-def reservation(request):
-    return render(request, 'main/reservation.html')
+
+@login_required
+def create_booking(request):
+    if request.method == 'POST':
+        try:
+            tour_id = request.POST.get('tour_id')
+            start_date = request.POST.get('start_date')
+            end_date = request.POST.get('end_date')
+            guests = int(request.POST.get('guests', 1))
+
+            # Получаем тур
+            tour = Tour.objects.get(id=tour_id)
+            price = (tour.price / 100) * 30
+            # Создаем бронирование
+            booking = Booking.objects.create(
+                client=request.user,
+                tour=tour,
+                check_in=start_date,
+                check_out=end_date,
+                guests=guests,
+                price=price,
+                status='pending'
+            )
+
+            # Добавляем в корзину (сессию)
+            if 'bookings' not in request.session:
+                request.session['bookings'] = []
+
+            if booking.id not in request.session['bookings']:
+                request.session['bookings'].append(booking.id)
+                request.session.modified = True
+
+            messages.success(request, 'Тур успешно забронирован и добавлен в корзину!')
+            return redirect('cart_page')
+
+        except Exception as e:
+            messages.error(request, f'Ошибка при бронировании: {str(e)}')
+            return redirect('tours_page')
+
+    return redirect('tours_page')
+
+
+
 
 @login_required
 def editprofile(request):

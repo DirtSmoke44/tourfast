@@ -77,26 +77,19 @@ class Tour(models.Model): # Туры
     def __str__(self):
         return f"{self.title} ({self.start_date} - {self.end_date})"
 
+    def is_available_for_dates(self, start_date, end_date):
+        """Проверяет, доступен ли тур для указанных дат"""
+        overlapping_bookings = self.bookings.filter(
+            models.Q(check_in__lte=end_date) &
+            models.Q(check_out__gte=start_date) &
+            ~models.Q(status='cancelled'))
+        return not overlapping_bookings.exists()
+
     class Meta:
         verbose_name = 'Тур'
         verbose_name_plural = 'Туры'
 
-class Booking(models.Model): # Бронирование
-    client = models.ForeignKey(Clients, on_delete=models.CASCADE, related_name="bookings")
-    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name="bookings")
-    booking_date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(
-        max_length=20,
-        choices=[("pending", "Ожидание"), ("confirmed", "Подтверждено"), ("cancelled", "Отменено")],
-        default="pending"
-    )
 
-    def __str__(self):
-        return f"Бронирование {self.client.user.username} - {self.tour.title}"
-
-    class Meta:
-        verbose_name = 'Бронирование'
-        verbose_name_plural = 'Бронирования'
 
 class Contracts(models.Model):
 
@@ -112,3 +105,76 @@ class Contracts(models.Model):
     class Meta:
         verbose_name = 'Договор'
         verbose_name_plural = 'Договора'
+
+
+class Booking(models.Model):
+    client = models.ForeignKey(Buyer, on_delete=models.CASCADE, related_name="bookings")
+    tour = models.ForeignKey(Tour, on_delete=models.PROTECT, related_name="bookings")
+    booking_date = models.DateTimeField(auto_now_add=True)
+    check_in = models.DateField(null=True)  # Дата заезда
+    check_out = models.DateField(null=True)  # Дата выезда
+    guests = models.PositiveIntegerField(default=1, null=True)  # Количество гостей
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    transaction = models.ForeignKey(Transaction, on_delete=models.SET_NULL, null=True, blank=True)
+
+    STATUS_CHOICES = [
+        ('pending', 'Ожидание подтверждения'),
+        ('confirmed', 'Подтверждено'),
+        ('paid', 'Оплачено'),
+        ('cancelled', 'Отменено'),
+        ('completed', 'Завершено')
+    ]
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
+
+    # Дополнительные услуги (можно хранить как JSON или текстовое поле)
+    extras = models.JSONField(null=True, blank=True)
+
+    # Ссылка на договор (если требуется)
+    contract = models.OneToOneField(
+        Contracts,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='booking'
+    )
+
+    class Meta:
+        ordering = ['-booking_date']
+        indexes = [
+            models.Index(fields=['status']),
+            models.Index(fields=['check_in', 'check_out']),
+        ]
+        verbose_name = 'Бронирование'
+        verbose_name_plural = 'Бронирования'
+
+    def __str__(self):
+        return f"Бронирование #{self.id} - {self.tour.title} ({self.client.username})"
+
+    def save(self, *args, **kwargs):
+        # Автоматическое установление цены при создании
+        if not self.pk and not self.price:
+            self.price = self.tour.price
+        super().save(*args, **kwargs)
+
+    @property
+    def hotel(self):
+
+        return self.tour.hotel
+
+    @property
+    def country(self):
+
+        return self.tour.country
+
+    @property
+    def duration(self):
+
+        return (self.check_out - self.check_in).days
+
+    def get_total_price(self):
+
+        return self.price * self.guests * self.duration
