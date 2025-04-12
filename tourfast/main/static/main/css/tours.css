@@ -87,6 +87,8 @@ body {
 
 .order-btn:hover {
     background-color: #51c05a;
+     transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
 }
 
 .cart-icon {
@@ -110,17 +112,22 @@ body {
     font-size: 16px;
     border-radius: 25px;
     text-decoration: none;
-
+    border: none; /* Добавлено: убирает стандартную обводку */
+    outline: none; /* Добавлено: убирает outline при фокусе */
+    cursor: pointer; /* Добавлено: показывает курсор-указатель */
 }
 
 .booking-btn:hover {
     background-color: #2370A1;
+    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
 }
 
 .book-icon {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+
 }
 
 .filter-tour-container {
