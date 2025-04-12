@@ -6,6 +6,10 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/tours.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
+<script src="{% static 'main/js/mappingcountry.js' %}"></script>
+<script src="{% static 'main/js/openweathermap.js' %}"></script>
+<script src="https://api.maptiler.com/maps/basic/iframe.js?key=dZLRandmGBubMDOiBAjd"></script>
+
 {% endblock %}
 
 {% block body %}
@@ -23,13 +27,6 @@
                 {{ form.country }}
             </div>
 
-<!--            <div class="filter-section">-->
-<!--                <h3>Длительность</h3>-->
-<!--                <label for="id_duration_min">От (дней)</label>-->
-<!--                {{ form.duration_min }}-->
-<!--                <label for="id_duration_max">До (дней)</label>-->
-<!--                {{ form.duration_max }}-->
-<!--            </div>-->
 
             <div class="filter-section">
                 <h3>Цена:</h3>
@@ -39,19 +36,6 @@
                 {{ form.price_max }}
             </div>
 
-
-<!--            <div class="filter-section">-->
-<!--                <h3>Дополнительно</h3>-->
-<!--                <label><input type="checkbox"> Без скидок</label>-->
-<!--                <label><input type="checkbox"> Рассрочка</label>-->
-<!--                <label><input type="checkbox"> Со скидками</label>-->
-<!--            </div>-->
-
-<!--            <div class="filter-section">-->
-<!--                <h3>Язык тура</h3>-->
-<!--                <label><input type="checkbox">Русский</label>-->
-<!--                <label><input type="checkbox">Английский</label>-->
-<!--            </div>-->
 
             <div class="filter-section">
                 <h3>Акции:</h3>
@@ -96,6 +80,11 @@
                     <img src="{% static 'main/icons/online-booking.png' %}" alt="Book Icon" class="book-icon">
                     Забронировать
                 </button>
+                    <button onclick="openDetailsModal('{{ el.hotel.city }}', '{{ el.country.name }}', '{{ el.hotel.name }}', '{{ el.start_date }}', '{{ el.end_date }}', '{{ el.price|floatformat:"-2" }} ₽')" class="details-btn">
+
+    <img src="{% static 'main/icons/edit-info.png' %}" alt="Map Icon" class="map-icon">
+    Подробно
+</button>
                 </div>
             </div>
         {% endfor %}
@@ -131,6 +120,30 @@
     </div>
 </div>
 
+
+<!-- Модалка с информацией о городе -->
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeDetailsModal()">&times;</span>
+        <h2 id="cityInfoTitle">Город</h2>
+        <p id="cityInfo">Город: </p>
+        <iframe
+            id="cityMap"
+            src=""
+            class="modal-map"
+            width="100%"
+            height="300"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+        ></iframe>
+        <div class="modal-buttons">
+            <button class="back-btn" onclick="closeDetailsModal()">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+
 <script>
 // Открытие модального окна
 function openBookingModal(tourId) {
@@ -150,6 +163,38 @@ window.onclick = function(event) {
         closeBookingModal();
     }
 }
+
+
+function openDetailsModal(cityName, country, hotel, startDate, endDate, price) {
+    document.getElementById('cityInfoTitle').textContent = cityName;
+
+    const infoHTML = `
+        <strong>Город проведения тура:</strong> ${cityName}<br>
+        <strong>Страна:</strong> ${country}<br>
+        <strong>Отель:</strong> ${hotel}<br>
+        <strong>Дата:</strong> ${startDate} - ${endDate}<br>
+        <strong>Цена:</strong> ${price}
+    `;
+    document.getElementById('cityInfo').innerHTML = infoHTML;
+
+    document.getElementById('cityMap').src = `https://www.google.com/maps?q=${encodeURIComponent(cityName)}&output=embed`;
+    document.getElementById('detailsModal').style.display = 'block';
+}
+
+
+function closeDetailsModal() {
+    document.getElementById('detailsModal').style.display = 'none';
+}
+
+// Закрытие при клике вне окна подробностей
+window.addEventListener('click', function(event) {
+    const detailsModal = document.getElementById('detailsModal');
+    if (event.target === detailsModal) {
+        closeDetailsModal();
+    }
+});
+
+
 </script>
 
 <style>
@@ -166,13 +211,16 @@ window.onclick = function(event) {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 5% auto; /* Было 10%, теперь окно будет выше */
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
     max-width: 600px;
     border-radius: 8px;
+    max-height: 80vh; /* Добавлено ограничение по высоте, чтобы не вылазило за экран */
+    overflow-y: auto; /* Прокрутка если содержимого много */
 }
+
 
 .close {
     color: #aaa;
@@ -209,5 +257,6 @@ window.onclick = function(event) {
     background-color: #4CAF50;
     color: white;
 }
+
 </style>
 {% endblock %}
