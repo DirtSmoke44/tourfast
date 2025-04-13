@@ -12,12 +12,20 @@
 <div class="profile-background">
   <div class="profile-container">
     <div class="profile-sidebar">
-      <div class="avatar-wrapper">
-        <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="profile-avatar" />
-        <div class="avatar-overlay">
-          <span>Изменить</span>
+      <form id="avatar-form" method="post" action="{% url 'upload_avatar' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="avatar-wrapper">
+          {% if user.photo %}
+            <img src="{{ user.photo.url }}" alt="user_avatar" class="profile-avatar" />
+          {% else %}
+            <img src="{% static 'main/icons/user2.png' %}" alt="user_avatar" class="profile-avatar" />
+          {% endif %}
+          <div class="avatar-overlay">
+            <span>Изменить</span>
+          </div>
+          <input type="file" id="avatar-input" name="photo" accept="image/*" style="display: none;">
         </div>
-      </div>
+      </form>
       <h3 class="username">{{ user.username }}</h3>
       <p class="profile-status">Ваш профиль</p>
     </div>
@@ -59,5 +67,30 @@
     </div>
   </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const avatarWrapper = document.querySelector('.avatar-wrapper');
+    const avatarInput = document.getElementById('avatar-input');
+
+    // Открываем диалог выбора файла при клике на аватар
+    avatarWrapper.addEventListener('click', function() {
+        avatarInput.click();
+    });
+
+    // Отправляем форму при выборе файла
+    avatarInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            document.getElementById('avatar-form').submit();
+
+            // Показываем превью перед загрузкой
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.querySelector('.profile-avatar').src = e.target.result;
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+</script>
 
 {% endblock %}
