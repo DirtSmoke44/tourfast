@@ -11,18 +11,21 @@
 {% block body %}
 {% csrf_token %}
 
+<h1 class="catalog-header">Каталог отелей 🏨</h1>
+
+
 <!-- Контейнер для фильтров и карточек -->
 <div class="filter-tour-container">
     <!-- Блок фильтров -->
     <aside class="filter-sidebar">
         <h2>Фильтры</h2>
-        <div class="filter-section">
-            <h3>Длительность</h3>
-            <label for="duration-min">От (дней)</label>
-            <input type="number" id="duration-min" name="duration-min">
-            <label for="duration-max">До (дней)</label>
-            <input type="number" id="duration-max" name="duration-max">
-        </div>
+<!--        <div class="filter-section">-->
+<!--            <h3>Длительность</h3>-->
+<!--            <label for="duration-min">От (дней)</label>-->
+<!--            <input type="number" id="duration-min" name="duration-min">-->
+<!--            <label for="duration-max">До (дней)</label>-->
+<!--            <input type="number" id="duration-max" name="duration-max">-->
+<!--        </div>-->
 
         <div class="filter-section">
             <h3>Цена</h3>
@@ -34,6 +37,7 @@
 
         <button class="apply-filters-btn">Применить фильтры</button>
     </aside>
+
 
     <!-- Блок с карточками отелей -->
     <section class="tour-list">

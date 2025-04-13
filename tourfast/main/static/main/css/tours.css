@@ -1,8 +1,16 @@
 body {
-    background-color: #e0f7fa;
+    background-color: #B0E7DF;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+}
+
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    background-color: #B0E7DF;
 }
 
 .tour-list {
@@ -18,7 +26,7 @@ body {
 .tour-card {
     width: 290px;
     background-image: linear-gradient(to right bottom, #ffffff, #f1f4ff, #dcebff, #bfe4ff, #9bdeff);
-     border-radius: 25px;
+    border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
@@ -130,13 +138,6 @@ body {
 
 }
 
-.filter-tour-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    align-items: flex-start;
-    background-color: #e0f7fa;
-}
 
 .filter-sidebar {
     width: 250px;
@@ -287,6 +288,15 @@ body {
 .back-btn:hover {
     background-color: #e60000; /* Темнее красный при наведении */
     transform: scale(1.05); /* Немного увеличивается при наведении */
+}
+
+.catalog-header {
+    text-align: center;
+    font-size: 32px;
+    margin-left: 25px;
+    margin-top: 30px;
+    margin-bottom: -10px;
+    font-weight: bold;
 }
 
 

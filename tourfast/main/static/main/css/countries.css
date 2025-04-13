@@ -1,7 +1,7 @@
 /* Общие стили для страницы */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(to right bottom, #e7e7e7, #dbdbe4, #cbd1e2, #b8c7df, #a2bedc);
+    background-image: linear-gradient(to right top, #e9f0fb, #bacedd, #89aebd, #578f99, #257171);
     margin: 0;
     padding: 0;
 }
@@ -12,7 +12,7 @@ body {
     font-size: 32px;
     font-weight: 700;
     margin: 20px 0;
-    color: #333;
+    color: white;
 }
 
 /* Контейнер для списка стран */
