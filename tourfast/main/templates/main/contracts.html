@@ -34,10 +34,10 @@
                         <p><strong>Фамилия клиента:</strong> {{ contract.client.last_name }}</p>
                         <p><strong>Страна:</strong> {{ contract.tour.country  }}</p>
                         <p><strong>Отель:</strong> {{ contract.tour.hotel  }}</p>
-                        <p><strong>Длительность тура:</strong> {{ contract.tour.start_date}} - {{ contract.tour.end_date }}</p>
+
                         <p><strong>Стоимость за ночь:</strong> {{ contract.tour.hotel.price_per_night|floatformat:"-2" }} Рублей</p>
                         <p><strong>Статус оплаты:</strong> Подтверждён</p>
-                        <p><strong>Итого:</strong> {{ contract.tour.price|floatformat:"-2" }} Рублей</p>
+                        <p><strong>Итого:</strong> {{ contract.price|floatformat:"-2" }} Рублей</p>
                     </div>
                     <div class="contract-actions">
                         <a href="{% url 'download_contract' contract.id %}" class="contract-download">Скачать договор</a>
