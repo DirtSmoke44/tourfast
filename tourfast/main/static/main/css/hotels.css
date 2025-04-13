@@ -1,8 +1,17 @@
 body {
-    background-color: #e0f7fa; /* Мятный цвет */
+    background-color: #F9CAB9;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+
+/* Контейнер для фильтров и карточек */
+.filter-tour-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #F9CAB9;
 }
 
 /* Общие стили для списка отелей */
@@ -123,12 +132,6 @@ body {
     margin-right: 10px; /* Отступ между иконкой и текстом */
 }
 
-/* Контейнер для фильтров и карточек */
-.filter-tour-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
 
 /* Боковая панель с фильтрами */
 .filter-sidebar {
@@ -265,6 +268,17 @@ body {
     border: none;
     border-radius: 15px;
 }
+
+
+.catalog-header {
+    text-align: center;
+    font-size: 32px;
+    margin-left: 25px;
+    margin-top: 30px;
+    margin-bottom: -10px;
+    font-weight: bold;
+}
+
 
 
 
