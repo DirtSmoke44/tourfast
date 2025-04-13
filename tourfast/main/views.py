@@ -372,3 +372,12 @@ def download_contract(request, contract_id):
     response = HttpResponse(contract_text, content_type='text/plain')
     response['Content-Disposition'] = f'attachment; filename=contract_{contract.id}.txt'
     return response
+
+@login_required
+def upload_avatar(request):
+    if request.method == 'POST' and request.FILES.get('photo'):
+        user = request.user
+        user.photo = request.FILES['photo']
+        user.save()
+        messages.success(request, 'Аватар успешно обновлен!')
+    return redirect('profile_page')

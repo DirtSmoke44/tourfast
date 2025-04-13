@@ -40,7 +40,11 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'profile_page' %}">
-            <img src="{% static 'main/icons/user.png' %}" alt="profile_logo" class="profile-icon">
+           {% if user.photo %}
+            <img src="{{ user.photo.url }}" alt="profile_logo" class="profile-icon" />
+          {% else %}
+            <img src="{% static 'main/icons/user2.png' %}" alt="profile_logo" class="profile-icon" />
+          {% endif %}
           </a>
         </li>
         <li class="nav-item">
