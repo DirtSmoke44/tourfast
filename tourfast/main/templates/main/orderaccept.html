@@ -11,7 +11,7 @@
 {% block body %}
 
 <div class="payment-container">
-    <h2 class="payment-title">Оформление тура</h2>
+    <h2 class="payment-title">Оформление / бронирование тура</h2>
 
     <form action="{% url 'process_payment' %}" method="post">
         {% csrf_token %}
