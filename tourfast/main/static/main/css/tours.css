@@ -83,11 +83,12 @@ body {
     font-size: 16px;
     border-radius: 25px;
     text-decoration: none;
-    transition: background 0.3s;
 }
 
 .order-btn:hover {
     background-color: #51c05a;
+     transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
 }
 
 .cart-icon {
@@ -111,17 +112,22 @@ body {
     font-size: 16px;
     border-radius: 25px;
     text-decoration: none;
-    transition: background 0.3s;
+    border: none; /* Добавлено: убирает стандартную обводку */
+    outline: none; /* Добавлено: убирает outline при фокусе */
+    cursor: pointer; /* Добавлено: показывает курсор-указатель */
 }
 
 .booking-btn:hover {
     background-color: #2370A1;
+    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
 }
 
 .book-icon {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+
 }
 
 .filter-tour-container {
@@ -214,3 +220,74 @@ body {
         min-height: auto;
     }
 }
+
+
+
+.details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+   background-color: #54649B;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none; /* Добавлено: убирает стандартную обводку */
+    outline: none; /* Добавлено: убирает outline при фокусе */
+    cursor: pointer; /* Добавлено: показывает курсор-указатель */
+}
+
+.details-btn:hover {
+    background-color: #B284FF;
+    color: white;
+    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
+}
+
+.map-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+.modal-map {
+    width: 100%;
+    height: 300px;
+    border: none;
+    margin-top: 15px;
+}
+.modal-buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+.back-btn {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px; /* Универсальный размер кнопок */
+    border-radius: 25px; /* Закругленные углы */
+    cursor: pointer;
+    background-color: #ff4d4d; /* Красный цвет */
+    color: white;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные изменения */
+}
+
+
+.back-btn:hover {
+    background-color: #e60000; /* Темнее красный при наведении */
+    transform: scale(1.05); /* Немного увеличивается при наведении */
+}
+
+
+
