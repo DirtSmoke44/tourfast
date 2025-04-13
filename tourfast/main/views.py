@@ -285,42 +285,63 @@ def contracts(request):
     contracts = Contracts.objects.filter(client=request.user)
     return render(request, 'main/contracts.html',  {'contracts': contracts})
 
+
 @login_required
 def process_payment(request):
     if request.method == "POST":
-        user = request.user  # Получаем текущего пользователя
-        cart = request.session.get("cart", {}).get("tours", [])  # Получаем список ID туров из сессии
+        user = request.user
 
-        if not cart:
-            return redirect("cart_page")  # Если корзина пустая, перенаправляем обратно
+        # Получаем данные из сессии
+        tour_ids = request.session.get("cart", {}).get("tours", [])
+        booking_ids = request.session.get("bookings", [])
 
-        tours = Tour.objects.filter(id__in=cart)  # Получаем объекты туров
-        total_price = sum(tour.price for tour in tours)  # Рассчитываем общую стоимость
+        if not tour_ids and not booking_ids:
+            return redirect("cart_page")  # Если корзина пустая
 
-        # Создаем запись о транзакции (можно добавить проверку успешности платежа)
+        # Получаем объекты из БД
+        tours = Tour.objects.filter(id__in=tour_ids)
+        bookings = Booking.objects.filter(id__in=booking_ids, client=user)
+
+        # Рассчитываем общую стоимость
+        total_amount = sum(tour.price for tour in tours) + sum(booking.price for booking in bookings)
+
+        # Создаем транзакцию
         transaction = Transaction.objects.create(
-            card_number="XXXX-XXXX-XXXX-0000",  # В реальном проекте номер карты не сохраняем!
-            amount=total_price,
+            card_number="XXXX-XXXX-XXXX-0000",
+            amount=total_amount,
             status="success"
         )
 
-        # Создаем договор на каждый оплаченный тур
+        # Создаем договоры для бронирований (без связи через ForeignKey)
+        for booking in bookings:
+            Contracts.objects.create(
+                title=f"Договор бронирования #{booking.id}",
+                client=user,
+                tour=booking.tour,  # Связь через тур
+                price=booking.price,
+
+            )
+            # Обновляем статус бронирования через прямое присвоение
+            Booking.objects.filter(id=booking.id).update(status='paid')
+
+        # Создаем договоры для туров
         for tour in tours:
             Contracts.objects.create(
-                title=f"Договор на тур {tour.title}",
+                title=f"Договор тура #{tour.id}",
                 client=user,
                 tour=tour,
-                price=tour.price
+                price=tour.price,
+
             )
 
-        # Очищаем корзину после оплаты
+        # Очищаем корзину
         request.session["cart"] = {"tours": []}
+        request.session["bookings"] = []
         request.session.modified = True
 
-        return redirect("ordercomplete_page")  # Перенаправляем на страницу подтверждения заказа
+        return redirect("ordercomplete_page")
 
     return redirect("cart_page")
-
 
 def download_contract(request, contract_id):
     contract = get_object_or_404(Contracts, id=contract_id)
