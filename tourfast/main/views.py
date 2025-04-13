@@ -319,6 +319,7 @@ def process_payment(request):
                 client=user,
                 tour=booking.tour,  # Связь через тур
                 price=booking.price,
+                date=booking.booking_date
 
             )
             # Обновляем статус бронирования через прямое присвоение
