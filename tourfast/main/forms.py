@@ -32,3 +32,14 @@ class UserEditForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
         }
 
+
+
+class TourForm(forms.ModelForm):
+    class Meta:
+        model = Tour
+        fields = ['title', 'country', 'hotel', 'start_date', 'end_date', 'old_price', 'price', 'photo']
+        widgets = {
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'type': 'date'}),
+            'photo': forms.FileInput(),
+        }
