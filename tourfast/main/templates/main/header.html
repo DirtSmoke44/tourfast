@@ -37,6 +37,11 @@
           <li class="nav-item">
           <a class="nav-link" href="{% url 'contracts_page' %}">Договора</a>
         </li>
+        <li class="nav-item">
+          {% if request.user.is_superuser %}
+            <a class="nav-link" href="{% url 'create_tour' %}">Добавить тур</a>
+          {% endif %}
+        </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'profile_page' %}">

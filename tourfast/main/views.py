@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-
+from .forms import TourForm
 from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction, Booking
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
@@ -381,3 +381,16 @@ def upload_avatar(request):
         user.save()
         messages.success(request, 'Аватар успешно обновлен!')
     return redirect('profile_page')
+
+
+
+@login_required
+def create_tour(request):
+    if request.method == 'POST':
+        form = TourForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('tours_page')  # или другая страница после создания
+    else:
+        form = TourForm()
+    return render(request, 'main/create_tour.html', {'form': form})

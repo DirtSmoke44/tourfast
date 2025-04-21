@@ -29,6 +29,7 @@ urlpatterns = [
     path("process_payment/", views.process_payment, name="process_payment"),
     path('create-booking/', views.create_booking, name='create_booking'),
     path('cancel-booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
+    path('create-tour/', views.create_tour, name='create_tour'),
     # path('cart/remove/', views.remove_item, name='remove_item'),
     # path('create_transaction/', views.create_transaction, name='create_transaction'),
     # path('payment_result/<int:transaction_id>/', views.payment_result, name='payment_result'),

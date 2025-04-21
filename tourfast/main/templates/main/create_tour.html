@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Создание тура{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/create_tour.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="form-container">
+    <h2>Добавить новый тур</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="id_title">Название тура:</label>
+        {{ form.title }}
+
+        <label for="id_country">Страна:</label>
+        {{ form.country }}
+
+        <label for="id_hotel">Отель:</label>
+        {{ form.hotel }}
+
+        <label for="id_start_date">Дата начала:</label>
+        {{ form.start_date }}
+
+        <label for="id_end_date">Дата окончания:</label>
+        {{ form.end_date }}
+
+        <label for="id_old_price">Старая цена (если была):</label>
+        {{ form.old_price }}
+
+        <label for="id_price">Текущая цена:</label>
+        {{ form.price }}
+
+        <label for="id_photo">Фото тура:</label>
+        {{ form.photo }}
+
+        <button type="submit" class="submit-btn">Создать тур</button>
+    </form>
+</div>
+{% endblock %}
