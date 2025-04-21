@@ -282,7 +282,11 @@ def editprofile(request):
 
 @login_required
 def contracts(request):
-    contracts = Contracts.objects.filter(client=request.user)
+    if request.user.is_special:
+        # Особый пользователь видит все договора
+        contracts = Contracts.objects.all()
+    else:
+        contracts = Contracts.objects.filter(client=request.user)
     return render(request, 'main/contracts.html',  {'contracts': contracts})
 
 

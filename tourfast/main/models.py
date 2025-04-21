@@ -25,6 +25,7 @@ class Buyer(AbstractUser): # Клиенты
     date_of_birth = models.DateField('Дата рождения', null=True)
     passport_data = models.CharField('Паспортные данные', max_length=50, null=True)  # Новое поле
     photo = models.ImageField('Фото профиля', upload_to='main/profilephotos/', null=True, blank=True)
+    is_special = models.BooleanField(default=False, verbose_name='Особый пользователь')
 
 class Transaction(models.Model): # Транзакции
     card_number = models.CharField(max_length=16)
