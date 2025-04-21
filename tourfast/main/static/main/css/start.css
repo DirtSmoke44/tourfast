@@ -84,6 +84,7 @@
 
 .text-overlay .meeting-service {
     color: white;
+    margin-top: 100px;
     text-stroke: 2px black;
 }
 
@@ -104,6 +105,7 @@
 .btn.watch-all-tours {
     font-family: sans-serif;
     color: white;
+    margin-bottom: 150px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2.8px;

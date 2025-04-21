@@ -228,13 +228,15 @@ h2 {
 /* Пустая корзина */
 .empty-cart {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 250px;
+
 }
 
 .empty-cart-text {
     color: white;
     font-weight: bold;
     font-size: 54px;
+
     text-align: center;
     padding: 40px 0;
     width: 100%;

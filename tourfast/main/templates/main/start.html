@@ -1,7 +1,7 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block title %} Главная {% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block links %}
 <link rel="stylesheet" href="{% static 'main/css/start.css' %}">
@@ -44,15 +44,15 @@
 
     <!-- Заголовок -->
     <div class="text-overlay">
-        <h1 class="meeting-service">🌍tourFast это -<span class="highlight"> яркие путешествия</span> в новом формате</h1>
+        <h1 class="meeting-service">🌍tourFAST это -<span class="highlight"> яркие путешествия</span> в новом формате</h1>
     </div>
 
-    <!-- Поле поиска -->
-    <div class="search-container">
-        <input type="text" placeholder="Куда вы хотите?" class="search-input">
-        <input type="text" placeholder="На какую дату?" class="search-input">
-        <button class="search-button">Поиск</button>
-    </div>
+<!--    &lt;!&ndash; Поле поиска &ndash;&gt;-->
+<!--    <div class="search-container">-->
+<!--        <input type="text" placeholder="Куда вы хотите?" class="search-input">-->
+<!--        <input type="text" placeholder="На какую дату?" class="search-input">-->
+<!--        <button class="search-button">Поиск</button>-->
+<!--    </div>-->
 
     <!-- Кнопка "Смотреть все туры" -->
     <div class="button-container">
@@ -126,7 +126,7 @@
 
 <footer class="footer-distributed">
     <div class="footer-left">
-        <h3>Tour<span>Fast</span></h3>
+        <h3>tour<span>FAST</span></h3>
         <p class="footer-links">
             <a href="{% url 'start_page' %}" class="link-1">Главная</a>
             <a href="{% url 'tours_page' %}">Туры</a>
@@ -134,8 +134,8 @@
             <a href="{% url 'cart_page' %}">Корзина</a>
             <a href="{% url 'profile_page' %}">Профиль</a>
         </p>
-        <p class="footer-company-name">TourFast © 2025. Все права защищены.
-            <br><br>Сайт сделали: Гилячов & Ахмадеев (П-121-3К)</br></br></p>
+        <p class="footer-company-name">tourFAST © 2025. Все права защищены.
+            <br><br>Сайт сделали: Гилячов Айрат и Ахмадеев Ильнур (П-121-3К)</br></br></p>
     </div>
 
     <div class="footer-center">
@@ -155,7 +155,7 @@
 
     <div class="footer-right">
         <p class="footer-company-about">
-            <span>О компании "TourFast":</span>
+            <span>О компании "tourFAST":</span>
            Мы — туристическая компания, стремящаяся дарить клиентам незабываемые впечатления и положительные эмоции от путешествий.
             Наша команда профессионалов постоянно изучает рынок и предлагает горячие предложения, чтобы сделать ваш отдых максимально комфортным и интересным.
         </p>
