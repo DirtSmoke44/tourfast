@@ -8,6 +8,15 @@
 {% endblock %}
 
 {% block body %}
+
+
+<!-- Видеофон -->
+<video autoplay muted loop class="bg-video">
+    <source src="{% static 'main/videos/mixkit-flying-over-the-water-of-a-beach-with-many-boats-5364-full-hd.mp4' %}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
+
+
 <div class="form-container">
     <h2>Добавить новый тур</h2>
     <form method="post" enctype="multipart/form-data">
