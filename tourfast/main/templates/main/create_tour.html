@@ -48,5 +48,27 @@
 
         <button type="submit" class="submit-btn">Создать тур</button>
     </form>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const countrySelect = document.getElementById("id_country");
+    const hotelSelect = document.getElementById("id_hotel");
+
+    countrySelect.addEventListener("change", function () {
+        const countryId = this.value;
+
+        fetch(`/ajax/load-hotels/?country_id=${countryId}`)
+            .then(response => response.json())
+            .then(data => {
+                hotelSelect.innerHTML = '<option value="">Выберите отель</option>';
+                data.forEach(hotel => {
+                    const option = document.createElement("option");
+                    option.value = hotel.id;
+                    option.textContent = hotel.name;
+                    hotelSelect.appendChild(option);
+                });
+            });
+    });
+});
+</script>
 </div>
 {% endblock %}

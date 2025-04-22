@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import Tour, Country
+from .models import Tour, Country, Hotel
 from django.contrib.auth.forms import AuthenticationForm
 from main.models import Buyer
 from django import forms
@@ -43,3 +43,18 @@ class TourForm(forms.ModelForm):
             'end_date': forms.DateInput(attrs={'type': 'date'}),
             'photo': forms.FileInput(),
         }
+
+
+def __init__(self, *args, **kwargs):
+    super(TourForm, self).__init__(*args, **kwargs)
+    self.fields['old_price'].required = False
+    self.fields['hotel'].queryset = Hotel.objects.none()  # пусто при загрузке
+
+    if 'country' in self.data:
+        try:
+            country_id = int(self.data.get('country'))
+            self.fields['hotel'].queryset = Hotel.objects.filter(country_id=country_id)
+        except (ValueError, TypeError):
+            pass
+    elif self.instance.pk:
+        self.fields['hotel'].queryset = self.instance.country.hotels.all()
