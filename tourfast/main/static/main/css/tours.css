@@ -301,3 +301,28 @@ body {
 
 
 
+.delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #F23A3A;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none; /* Добавлено: убирает стандартную обводку */
+    outline: none; /* Добавлено: убирает outline при фокусе */
+    cursor: pointer; /* Добавлено: показывает курсор-указатель */
+}
+
+
+.delete-btn:hover {
+    background-color: #E10000;
+    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
+    transition: all 0.2s ease; /* Добавлено: плавный переход */
+}
