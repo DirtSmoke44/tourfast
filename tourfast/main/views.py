@@ -405,3 +405,10 @@ def load_hotels(request):
     country_id = request.GET.get('country_id')
     hotels = Hotel.objects.filter(country_id=country_id).values('id', 'name')
     return JsonResponse(list(hotels), safe=False)
+
+
+@login_required
+def delete_tour(request, tour_id):
+    tour = get_object_or_404(Tour, id=tour_id)
+    tour.delete()
+    return redirect('tours_page')  # или другая страница после удаления

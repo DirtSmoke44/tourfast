@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Permission, Group
 from django.conf import settings
+import os
 
 class Clients(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -69,6 +70,12 @@ class Tour(models.Model): # Туры
     old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True) # типа для скидки
     price = models.DecimalField(max_digits=10, decimal_places=2)
     photo = models.ImageField('Фото тура', upload_to='main/tourphotos/', null=True, blank=True)
+
+    def delete(self, *args, **kwargs):
+        # удаление файла с диска, если он существует
+        if self.photo and os.path.isfile(self.photo.path):
+            os.remove(self.photo.path)
+        super().delete(*args, **kwargs)
 
     def discount_percentage(self):
         if self.old_price and self.old_price > self.price:
@@ -179,3 +186,4 @@ class Booking(models.Model):
     def get_total_price(self):
 
         return self.price * self.guests * self.duration
+
