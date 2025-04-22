@@ -47,6 +47,42 @@
         {{ form.photo }}
 
         <button type="submit" class="submit-btn">Создать тур</button>
+        {% if form.errors %}
+  <div class="error-box">
+    <ul>
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
     </form>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const countrySelect = document.getElementById("id_country");
+    const hotelSelect = document.getElementById("id_hotel");
+
+    countrySelect.addEventListener("change", function () {
+        const countryId = this.value;
+
+        fetch(`/ajax/load-hotels/?country_id=${countryId}`)
+            .then(response => response.json())
+            .then(data => {
+                hotelSelect.innerHTML = '<option value="">Выберите отель</option>';
+                data.forEach(hotel => {
+                    const option = document.createElement("option");
+                    option.value = hotel.id;
+                    option.textContent = hotel.name;
+                    hotelSelect.appendChild(option);
+                });
+            });
+    });
+});
+</script>
 </div>
 {% endblock %}

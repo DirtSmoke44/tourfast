@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
 from decimal import Decimal
+from django.http import JsonResponse
 
 import logging
 logger = logging.getLogger(__name__)
@@ -392,9 +393,22 @@ def upload_avatar(request):
 def create_tour(request):
     if request.method == 'POST':
         form = TourForm(request.POST, request.FILES)
+
         if form.is_valid():
             form.save()
             return redirect('tours_page')  # или другая страница после создания
     else:
         form = TourForm()
     return render(request, 'main/create_tour.html', {'form': form})
+
+def load_hotels(request):
+    country_id = request.GET.get('country_id')
+    hotels = Hotel.objects.filter(country_id=country_id).values('id', 'name')
+    return JsonResponse(list(hotels), safe=False)
+
+
+@login_required
+def delete_tour(request, tour_id):
+    tour = get_object_or_404(Tour, id=tour_id)
+    tour.delete()
+    return redirect('tours_page')  # или другая страница после удаления
