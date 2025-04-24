@@ -1,3 +1,5 @@
+import os
+
 from django.http import HttpResponse
 from .forms import TourForm
 from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction, Booking
@@ -15,6 +17,13 @@ from django.contrib import messages
 from datetime import datetime
 from decimal import Decimal
 from django.http import JsonResponse
+
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.units import cm
 
 import logging
 logger = logging.getLogger(__name__)
@@ -352,36 +361,73 @@ def process_payment(request):
 
     return redirect("cart_page")
 
+def generate_contract_pdf(contract):
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=A4)
+    width, height = A4
+
+    # Путь к шрифту Arial
+    font_path = os.path.join('main', 'static', 'main', 'fonts', 'arial.ttf')
+    pdfmetrics.registerFont(TTFont('Arial', font_path))
+    p.setFont('Arial', 11)
+
+    text_object = p.beginText(2 * cm, height - 2 * cm)
+    text_object.setFont("Arial", 11)
+
+    lines = [
+        f"Ваучер №{contract.id} НА ТУРИСТИЧЕСКОЕ ОБСЛУЖИВАНИЕ",
+        "Туристическая фирма: tourFAST",
+        "Адрес: Россия, Казань, Ул. Проспекта Победы, д.68",
+        "Телефон: +7 (843) 737-33-67",
+        "Email: tourfastsupport@gmail.com",
+        "ОГРН: 1234567890123    ИНН: 9876543210",
+        "",
+        f"Клиент: {contract.client.last_name} {contract.client.username}",
+        f"Email клиента: {contract.client.email}",
+        f"Паспортные данные: {getattr(contract.client, 'passport_data', 'Не указано')}",
+        "",
+        f"Название тура: {contract.tour.title}",
+        f"Страна: {contract.tour.country}",
+        f"Отель: {contract.tour.hotel.name}",
+        f"Адрес отеля: {contract.tour.hotel.address}, {contract.tour.hotel.city}",
+        f"Даты поездки: с {contract.tour.start_date.strftime('%d.%m.%Y')} по {contract.tour.end_date.strftime('%d.%m.%Y')}",
+        f"Цена за ночь: {contract.tour.hotel.price_per_night:.2f} руб.",
+        f"Общая стоимость тура: {contract.price:.2f} руб.",
+        "",
+        f"Номер карты: {contract.transaction.card_number if contract.transaction else 'Не указано'}",
+        "Статус оплаты: Подтверждён",
+        "",
+        "Прочие условия:",
+        "- Турфирма обязуется предоставить полный комплекс туристических услуг.",
+        "- Клиент обязуется соблюдать правила проживания и законы страны пребывания.",
+        "- При отказе от тура применяются штрафные санкции.",
+        "",
+        f"Дата заключения договора: {contract.date.strftime('%d.%m.%Y')}",
+        "",
+        "Подписи сторон:",
+        "Турфирма tourFAST: _____________",
+        "Клиент: _____________",
+        "",
+        "Спасибо, что выбрали tourFAST! Желаем вам приятного отдыха!"
+    ]
+
+    for line in lines:
+        text_object.textLine(line)
+
+    p.drawText(text_object)
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+    return buffer
+
 def download_contract(request, contract_id):
     contract = get_object_or_404(Contracts, id=contract_id)
+    pdf_buffer = generate_contract_pdf(contract)
 
-    card_number = contract.transaction.card_number if contract.transaction else "Не указано"
-
-    # Формируем текст для (ваучера)
-    contract_text = f"""
-    Ваучер №{contract.id}
-    ----------------------
-    Тур: {contract.tour.title}
-    Дата оформления договора: {contract.date.strftime("%d.%m.%Y %H:%M")}
-
-    Клиент:
-    Имя: {contract.client.username}
-    Фамилия: {contract.client.last_name}
-
-    Детали тура:
-    Страна: {contract.tour.country}
-    Отель: {contract.tour.hotel}
-    Даты: {contract.tour.start_date.strftime("%d.%m.%Y")} - {contract.tour.end_date.strftime("%d.%m.%Y")}
-    Стоимость за ночь: {contract.tour.hotel.price_per_night:.2f} Рублей
-    Итого: {contract.price:.2f} Рублей
-    Номер карты оплаты: {card_number}
-    Статус оплаты: Подтверждён
-    """
-
-    # Создаём HTTP-ответ с файлом .txt
-    response = HttpResponse(contract_text, content_type='text/plain')
-    response['Content-Disposition'] = f'attachment; filename=contract_{contract.id}.txt'
+    response = HttpResponse(pdf_buffer, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename=contract_{contract.id}.pdf'
     return response
+
 
 @login_required
 def upload_avatar(request):
