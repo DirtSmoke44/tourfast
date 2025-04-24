@@ -286,9 +286,11 @@ def contracts(request):
     if request.user.is_special:
         # Особый пользователь видит все договора
         contracts = Contracts.objects.all()
+
     else:
         contracts = Contracts.objects.filter(client=request.user)
-    return render(request, 'main/contracts.html',  {'contracts': contracts})
+
+    return render(request, 'main/contracts.html',  {'contracts': contracts, })
 
 
 @login_required
@@ -299,7 +301,7 @@ def process_payment(request):
         # Получаем данные из сессии
         tour_ids = request.session.get("cart", {}).get("tours", [])
         booking_ids = request.session.get("bookings", [])
-
+        card_number = request.POST.get('card_number')
         if not tour_ids and not booking_ids:
             return redirect("cart_page")  # Если корзина пустая
 
@@ -312,7 +314,7 @@ def process_payment(request):
 
         # Создаем транзакцию
         transaction = Transaction.objects.create(
-            card_number="XXXX-XXXX-XXXX-0000",
+            card_number=card_number,
             amount=total_amount,
             status="success"
         )
@@ -324,7 +326,8 @@ def process_payment(request):
                 client=user,
                 tour=booking.tour,  # Связь через тур
                 price=booking.price,
-                date=booking.booking_date
+                date=booking.booking_date,
+                transaction=transaction
 
             )
             # Обновляем статус бронирования через прямое присвоение
@@ -337,7 +340,7 @@ def process_payment(request):
                 client=user,
                 tour=tour,
                 price=tour.price,
-
+                transaction=transaction
             )
 
         # Очищаем корзину

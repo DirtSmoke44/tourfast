@@ -34,7 +34,7 @@
                         <p><strong>Фамилия клиента:</strong> {{ contract.client.last_name }}</p>
                         <p><strong>Страна:</strong> {{ contract.tour.country  }}</p>
                         <p><strong>Отель:</strong> {{ contract.tour.hotel  }}</p>
-
+                        <p><strong>Карта:</strong> {{ contract.transaction.card_number  }}</p>
                         <p><strong>Стоимость за ночь:</strong> {{ contract.tour.hotel.price_per_night|floatformat:"-2" }} Рублей</p>
                         <p><strong>Статус оплаты:</strong> Подтверждён</p>
                         <p><strong>Итого:</strong> {{ contract.price|floatformat:"-2" }} Рублей</p>

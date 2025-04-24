@@ -28,11 +28,8 @@ class Buyer(AbstractUser): # Клиенты
     photo = models.ImageField('Фото профиля', upload_to='main/profilephotos/', null=True, blank=True)
     is_special = models.BooleanField(default=False, verbose_name='Особый пользователь')
 
-class Transaction(models.Model): # Транзакции
-    card_number = models.CharField(max_length=16)
-    amount = models.DecimalField(max_digits=100000, decimal_places=2)
-    status = models.CharField(max_length=20, default="pending")  # например, "успешно" или "ошибка"
-    created_at = models.DateTimeField(auto_now_add=True)
+
+
 
 class Country(models.Model): # Страны
     name = models.CharField(max_length=100, unique=True)
@@ -98,6 +95,13 @@ class Tour(models.Model): # Туры
         verbose_name_plural = 'Туры'
 
 
+class Transaction(models.Model):  # Транзакции
+
+    card_number = models.CharField(max_length=16)
+    amount = models.DecimalField(max_digits=100000, decimal_places=2)
+    status = models.CharField(max_length=20, default="pending")
+    created_at = models.DateTimeField(auto_now_add=True)
+
 
 class Contracts(models.Model):
 
@@ -106,6 +110,7 @@ class Contracts(models.Model):
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name="contracts")
     date = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction = models.ForeignKey(Transaction, on_delete=models.CASCADE, related_name="transaction", null=True)
 
     def str(self):
         return self.title
@@ -113,6 +118,7 @@ class Contracts(models.Model):
     class Meta:
         verbose_name = 'Договор'
         verbose_name_plural = 'Договора'
+
 
 
 class Booking(models.Model):
