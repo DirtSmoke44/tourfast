@@ -355,12 +355,14 @@ def process_payment(request):
 def download_contract(request, contract_id):
     contract = get_object_or_404(Contracts, id=contract_id)
 
-    # Формируем текст для договора
+    card_number = contract.transaction.card_number if contract.transaction else "Не указано"
+
+    # Формируем текст для (ваучера)
     contract_text = f"""
-    Договор №{contract.id}
+    Ваучер №{contract.id}
     ----------------------
     Тур: {contract.tour.title}
-    Дата оформления: {contract.date.strftime("%d.%m.%Y %H:%M")}
+    Дата оформления договора: {contract.date.strftime("%d.%m.%Y %H:%M")}
 
     Клиент:
     Имя: {contract.client.username}
@@ -371,8 +373,8 @@ def download_contract(request, contract_id):
     Отель: {contract.tour.hotel}
     Даты: {contract.tour.start_date.strftime("%d.%m.%Y")} - {contract.tour.end_date.strftime("%d.%m.%Y")}
     Стоимость за ночь: {contract.tour.hotel.price_per_night:.2f} Рублей
-    Общая стоимость: {contract.price:.2f} Рублей
-
+    Итого: {contract.price:.2f} Рублей
+    Номер карты оплаты: {card_number}
     Статус оплаты: Подтверждён
     """
 
