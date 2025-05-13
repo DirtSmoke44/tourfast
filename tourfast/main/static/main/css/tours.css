@@ -1,7 +1,7 @@
 /* === Основные стили === */
 body {
     font-family: 'Roboto', 'Verdana', sans-serif;
-    background: linear-gradient(135deg, #d0e7ff, #b0c4de, #a0d6ff);
+    background-color: #99C9EC;
     color: #333;
     margin: 0;
     padding: 0;
