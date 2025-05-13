@@ -305,14 +305,19 @@ def edittour(request, tour_id):
 
 @login_required
 def contracts(request):
-    if request.user.is_special:
-        # Особый пользователь видит все договора
-        contracts = Contracts.objects.all()
+    query = request.GET.get('search', '')
 
+    if request.user.is_special:
+        contracts = Contracts.objects.all()
+        if query:
+            contracts = contracts.filter(client__last_name__icontains=query)
     else:
         contracts = Contracts.objects.filter(client=request.user)
 
-    return render(request, 'main/contracts.html',  {'contracts': contracts, })
+    return render(request, 'main/contracts.html', {
+        'contracts': contracts,
+        'search_query': query,
+    })
 
 def load_hotels(request):
     country_id = request.GET.get('country_id')

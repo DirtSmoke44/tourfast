@@ -20,7 +20,14 @@
 <div class="overlay"></div>
 
 <div class="contracts-container">
-    <h1 class="contracts-title"></h1>
+    <h1 class="contracts-title">Ваши договоры</h1>
+
+    {% if request.user.is_special %}
+    <form method="get" class="search-form">
+        <input type="text" name="search" placeholder="Поиск по фамилии" value="{{ search_query }}">
+        <button type="submit">Найти</button>
+    </form>
+    {% endif %}
 
     {% if contracts %}
         <div class="contracts-list">
