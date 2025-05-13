@@ -1,7 +1,7 @@
 import os
 
 from django.http import HttpResponse
-from .forms import TourForm, TourEditForm
+from .forms import TourForm, TourEditForm, SubscriptionForm
 from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction, Booking
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
@@ -16,17 +16,55 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
 from decimal import Decimal
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from django.http import JsonResponse
-
+from django.views.decorators.csrf import csrf_exempt
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.units import cm
+from .forms import SubscriptionForm
 
 import logging
 logger = logging.getLogger(__name__)
+
+
+
+
+# def send_test_email(request):
+#     subject = 'Тестовое письмо'
+#     message = 'Это тестовое письмо, чтобы проверить отправку почты.'
+#     from_email = 'ahmadeev23@gmail.com'  # Используй тот же email, что в настройках
+#     recipient_list = ['ahmadeev.ilnur2018@yandex.ru']  # Email получателя
+#
+#     try:
+#         send_mail(subject, message, from_email, recipient_list)
+#         return HttpResponse("Письмо отправлено успешно!")
+#     except Exception as e:
+#         return HttpResponse(f"Ошибка при отправке письма: {str(e)}")
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            # Отправка письма с подтверждением
+            subject = 'Подтверждение подписки'
+            message = f'Спасибо за подписку на нашу рассылку, {email}!'
+            from_email = 'your_email@gmail.com'
+            recipient_list = [email]
+
+            try:
+                send_mail(subject, message, from_email, recipient_list)
+                return JsonResponse({'success': True})
+            except Exception as e:
+                return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid form data'})
+
 
 
 def logout_view(request):

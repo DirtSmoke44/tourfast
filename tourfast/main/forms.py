@@ -5,6 +5,11 @@ from main.models import Buyer
 from django import forms
 from .filters import TourFilter
 
+
+class SubscriptionForm(forms.Form):
+    email = forms.EmailField()
+
+
 class CustomTourFilterForm(forms.Form):
     country = forms.ModelChoiceField(queryset=Country.objects.all(), required=False, label="Страна")
     price_min = forms.DecimalField(required=False, min_value=0, label="Цена от")

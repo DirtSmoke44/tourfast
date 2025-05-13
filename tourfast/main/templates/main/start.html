@@ -105,11 +105,16 @@
         <div class="row">
             <div class="col-md-6">
                 <h2>Подпишитесь на рассылку</h2>
-                <p>И вы первыми узнаете о наших секретных акциях и конкурсах</p>
-                <form class="subscription-form">
-                    <input type="email" placeholder="Введите ваш email" required>
-                    <button type="submit" class="btn-subscribe">Подписаться</button>
-                </form>
+                <p>И вы первыми узнаете о новых и горящих турах!</p>
+                <form id="subscribeForm" method="post">
+    {% csrf_token %}
+    <label for="email">Введите ваш email для подписки:</label>
+    <input type="email" name="email" id="email" required>
+    <button type="submit" class="btn-subscribe">Подписаться</button>
+</form>
+
+<div id="responseMessage" style="display: none;"></div>
+
                 <p class="privacy-notice">Нажимая на кнопку, вы принимаете наше Соглашение о конфиденциальности</p>
             </div>
             <div class="col-md-6">
@@ -122,6 +127,40 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+        e.preventDefault();  // Предотвращаем перезагрузку страницы при отправке формы
+
+        var email = document.getElementById('email').value;
+
+        // Создаем объект с данными формы
+        var data = new FormData();
+        data.append('email', email);
+        data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+        // Отправка запроса через AJAX
+        fetch('{% url "subscribe" %}', {
+            method: 'POST',
+            body: data,
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Отображаем сообщение пользователю
+            document.getElementById('responseMessage').style.display = 'block';
+            if (data.success) {
+                document.getElementById('responseMessage').textContent = 'Вы успешно подписались!';
+                document.getElementById('email').value = ''; // Очистить поле ввода
+            } else {
+                document.getElementById('responseMessage').textContent = 'Произошла ошибка при подписке.';
+            }
+        })
+        .catch(error => {
+            document.getElementById('responseMessage').style.display = 'block';
+            document.getElementById('responseMessage').textContent = 'Произошла ошибка.';
+        });
+    });
+</script>
 
 
 <footer class="footer-distributed">

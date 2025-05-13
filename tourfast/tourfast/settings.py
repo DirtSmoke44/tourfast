@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+from decouple import config
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 from django.conf.global_settings import LOGIN_REDIRECT_URL
 from rest_framework.reverse import reverse_lazy
@@ -139,4 +142,16 @@ AUTH_USER_MODEL = 'main.Buyer'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Хранение сессий в базе данных
 SESSION_COOKIE_SECURE = False  # Для разработки, в продакшене должно быть True
 SESSION_SAVE_EVERY_REQUEST = True  # Сохранять сессию при каждом запросе
+
+
+# Настройки для отправки email через Gmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ahmadeev23@gmail.com'  # твой email
+EMAIL_HOST_PASSWORD = 'iqqf eioz gmhn puce'  # твой пароль приложения
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
