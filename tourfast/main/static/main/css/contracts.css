@@ -1,3 +1,4 @@
+/* Фоновое видео */
 .bg-video {
     position: fixed;
     top: 0;
@@ -5,176 +6,196 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2; /* Видео должно быть внизу */
+    z-index: -2;
 }
 
+/* Полупрозрачный тёмный слой */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Затемняем фон */
-    z-index: -1; /* Затемнение поверх видео */
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
-
-/* Основные стили для контейнера */
+/* Контейнер */
 .contracts-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
     font-family: 'Roboto', sans-serif;
+    position: relative;
+    z-index: 1;
 }
 
-/* Заголовок страницы */
+/* Заголовок */
 .contracts-title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
     color: white;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Список карточек */
+.contracts-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Карточка */
+.contract-card {
+    background: linear-gradient(145deg, #e4efff, #f0f5ff);
+    border: 2px solid #cfdfff;
+    border-radius: 30px;
+    padding: 20px 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+    width: 100%;
+    max-width: 500px;
     text-align: center;
 }
 
-/* Список договоров */
-.contracts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Карточка договора */
-.contract-card {
-    background-image: linear-gradient(to bottom, #c6f4fb, #cff0fc, #d8edfa, #dfe9f5, #e4e7ee, #e0e3ed, #dddeeb, #dad9e9, #d0d0ec, #c6c7ef, #babff3, #adb7f6);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 100%; /* Ширина карточки */
-    max-width: 1200px; /* Максимальная ширина карточки */
-    text-align: center; /* Центрирование текста */
-}
-
 .contract-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-7px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 /* Заголовок карточки */
 .contract-card-title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Детали договора */
-.contract-details {
-    font-size: 1rem;
-    color: #555;
     margin-bottom: 15px;
+    color: #2a2a2a;
 }
 
+/* Детали */
 .contract-details p {
-    margin: 5px 0;
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #444;
 }
 
-/* Кнопки действий */
+/* Кнопки */
 .contract-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    justify-content: center; /* Центрирование кнопок */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
 }
 
+/* Общие стили для кнопок */
 .contract-download,
+.contract-email,
 .contract-details-link {
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
+    color: white;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Кнопка скачать */
 .contract-download {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #1e88e5;
 }
-
 .contract-download:hover {
-    background-color: #0056b3;
+    background-color: #1565c0;
+    transform: scale(1.05);
 }
 
+/* Кнопка отправить на email */
+.contract-email {
+    background-color: #43a047;
+}
+.contract-email:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* Кнопка подробностей */
 .contract-details-link {
-    background-color: #28a745;
-    color: #fff;
+    background-color: #23C796;
 }
-
 .contract-details-link:hover {
-    background-color: #218838;
+    background-color: #00A271;
+    transform: scale(1.05);
 }
 
-/* Сообщение об отсутствии договоров */
+/* Сообщение если нет договоров */
 .no-contracts {
-    color: white; /* Белый цвет текста */
-    font-weight: bold; /* Жирный шрифт */
-    font-size: 50px; /* Большой размер шрифта */
-    text-align: center; /* Центрирование текста по горизонтали */
-    padding: 40px 0; /* Отступы сверху и снизу */
-    margin-top: 270px; /* Отступ сверху */
-    width: 100%; /* Ширина блока */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 200px;
 }
 
-
-
-/* Стили только для формы поиска */
+/* Поисковая форма */
 .search-form {
     display: flex;
+    justify-content: center;
     gap: 10px;
-    margin: 20px 0;
+    margin: 30px auto;
     max-width: 500px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .search-form input[type="text"] {
     flex-grow: 1;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
+    padding: 12px 20px;
     border-radius: 25px;
+    border: 1px solid #ccc;
     font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.search-form input[type="text"]:focus {
-    outline: none;
-    border-color: #1BBDF6;
-    box-shadow: 0 0 0 3px rgba(27, 189, 246, 0.2);
+    background-color: #fff;
 }
 
 .search-form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 25px;
-    background-color: #1BBDF6;
+    padding: 12px 25px;
+    background-color: #007bff;
     color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
     border-radius: 25px;
-    text-decoration: none;
+    font-weight: bold;
     border: none;
-    outline: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .search-form button:hover {
-    background-color: #0a9fd8;
+    background-color: #0056b3;
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .contract-card {
+        padding: 20px;
+    }
+
+    .contract-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contracts-title {
+        font-size: 2rem;
+    }
+
+    .no-contracts {
+        font-size: 1.5rem;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
 }
