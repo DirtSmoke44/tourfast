@@ -88,7 +88,7 @@
     Подробно
 </button>
                     {% if request.user.is_superuser %}
-                    <a href="{% url 'edit_tour' el.id %}" class="delete-btn" onclick="return confirm('Изменить тур?')">Изменить</a>
+                    <a href="{% url 'edit_tour' el.id %}" class="edit-btn" onclick="return confirm('Изменить тур?')">Изменить</a>
                     {% endif %}
                    {% if request.user.is_superuser %}
                     <a href="{% url 'delete_tour' el.id %}" class="delete-btn" onclick="return confirm('Удалить тур?')">Удалить</a>

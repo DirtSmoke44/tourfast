@@ -1,0 +1,153 @@
+/* Общий фон страницы */
+body {
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+    min-height: 100vh;
+
+}
+
+/* Основные стили формы */
+.form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* Стили для полей формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: -10px;
+    font-size: 16px;
+}
+
+input, select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #EA8E60;
+    outline: none;
+    box-shadow: 0 0 5px rgba(234, 142, 96, 0.3);
+}
+
+/* Стили для кнопки отправки */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 12px;
+    background-color: #EA8E60;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #F55F14;
+    transform: scale(1.02);
+}
+
+/* Стили для блока с ошибками */
+.error-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+    border-radius: 4px;
+    color: #d32f2f;
+}
+
+.error-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.error-box li {
+    margin-bottom: 5px;
+}
+
+/* Стили для текущего фото */
+.current-photo {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-photo img {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        margin: 20px 15px;
+    }
+
+    .form-container h2 {
+        font-size: 24px;
+    }
+
+    input, select {
+        padding: 10px 12px;
+    }
+}
+
+/* Стили для кнопки (как вы указали) */
+.edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #EA8E60;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #F55F14;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
