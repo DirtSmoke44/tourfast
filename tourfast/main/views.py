@@ -1,7 +1,7 @@
 import os
 
 from django.http import HttpResponse
-from .forms import TourForm
+from .forms import TourForm, TourEditForm
 from main.models import Hotel, Country, Tour, Contracts, Buyer, Transaction, Booking
 from django.views.generic import FormView, CreateView
 from rest_framework.reverse import reverse_lazy
@@ -289,6 +289,19 @@ def editprofile(request):
 
     return render(request, "main/editprofile.html")
 
+@login_required
+def edittour(request, tour_id):
+    tour = get_object_or_404(Tour, id=tour_id)
+
+    if request.method == 'POST':
+        form = TourEditForm(request.POST, request.FILES, instance=tour)
+        if form.is_valid():
+            form.save()
+            return redirect('tours_page')
+    else:
+        form = TourEditForm(instance=tour)
+
+    return render(request, "main/edittour.html", {'tour': tour, 'form': form})
 
 @login_required
 def contracts(request):
@@ -301,6 +314,10 @@ def contracts(request):
 
     return render(request, 'main/contracts.html',  {'contracts': contracts, })
 
+def load_hotels(request):
+    country_id = request.GET.get('country_id')
+    hotels = Hotel.objects.filter(country_id=country_id).values('id', 'name')
+    return JsonResponse(list(hotels), safe=False)
 
 @login_required
 def process_payment(request):

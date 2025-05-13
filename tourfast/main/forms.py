@@ -32,7 +32,29 @@ class UserEditForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
         }
 
+class TourEditForm(forms.ModelForm):
+    class Meta:
+        model = Tour
+        fields = ['title', 'country', 'hotel', 'start_date', 'end_date', 'old_price', 'price', 'photo']
+        widgets = {
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'type': 'date'}),
+            'photo': forms.FileInput(),
+        }
 
+    def init(self, args, **kwargs):
+        super(TourEditForm, self).init(args, **kwargs)
+        self.fields['old_price'].required = False
+        self.fields['hotel'].queryset = Hotel.objects.none()
+
+        if 'country' in self.data:
+            try:
+                country_id = int(self.data.get('country'))
+                self.fields['hotel'].queryset = Hotel.objects.filter(country_id=country_id)
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk and self.instance.country:
+            self.fields['hotel'].queryset = self.instance.country.hotels.all()
 
 class TourForm(forms.ModelForm):
     class Meta:
