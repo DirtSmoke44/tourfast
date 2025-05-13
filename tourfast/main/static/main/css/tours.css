@@ -1,355 +1,295 @@
+/* === Основные стили === */
 body {
-    background-color: #B0E7DF;
+    font-family: 'Roboto', 'Verdana', sans-serif;
+    background: linear-gradient(135deg, #d0e7ff, #b0c4de, #a0d6ff);
+    color: #333;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
 }
 
+/* === Заголовок каталога === */
+.catalog-header {
+    text-align: center;
+    font-size: 36px;
+    margin: 40px 0 20px;
+    color: #222;
+}
+
+/* === Основной контейнер === */
 .filter-tour-container {
     display: flex;
-    gap: 20px;
-    padding: 20px;
-    align-items: flex-start;
-    background-color: #B0E7DF;
-}
-
-.tour-list {
-    display: flex;
+    gap: 30px;
+    padding: 20px 60px;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1600px; /* Ограничиваем ширину контейнера */
-    margin: 0 auto; /* Центрируем контейнер */
-}
-
-.tour-card {
-    width: 290px;
-    background-image: linear-gradient(to right bottom, #ffffff, #f1f4ff, #dcebff, #bfe4ff, #9bdeff);
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-    padding-bottom: 10px;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
-
-.tour-card:hover {
-    transform: scale(1.05);
-}
-
-.card-img {
-    width: 90%;
-    margin: 10px auto 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.card-img img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.card-info {
-    padding: 15px;
-    text-align: center;
-    flex-grow: 1;
-}
-
-.text-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.text-body {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-.text-body strong {
-    font-weight: 700;
-}
-
-.order-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background-color: #00b270;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 25px;
-    text-decoration: none;
-}
-
-.order-btn:hover {
-    background-color: #51c05a;
-     transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
-    transition: all 0.2s ease; /* Добавлено: плавный переход */
-}
-
-.cart-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-
-.booking-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background-color: #47ABEB;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 25px;
-    text-decoration: none;
-    border: none; /* Добавлено: убирает стандартную обводку */
-    outline: none; /* Добавлено: убирает outline при фокусе */
-    cursor: pointer; /* Добавлено: показывает курсор-указатель */
-}
-
-.booking-btn:hover {
-    background-color: #2370A1;
-    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
-    transition: all 0.2s ease; /* Добавлено: плавный переход */
-}
-
-.book-icon {
-    width: 20px;
-    height: 20px;
     margin-right: 10px;
 
 }
 
-
+/* === Боковая панель фильтров === */
 .filter-sidebar {
-    width: 250px;
-    background: rgba(249, 249, 249, 0.9);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: auto;
+    flex: 1;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 25px;
+     border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+
 }
 
 .filter-sidebar h2 {
-    font-size: 24px;
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .filter-section {
     margin-bottom: 20px;
 }
 
+.filter-section label,
 .filter-section h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.filter-section label {
     display: block;
-    margin: 5px 0;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-.filter-section input[type="number"] {
+.filter-sidebar input[type="text"],
+.filter-sidebar input[type="number"],
+.filter-sidebar select {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+
 }
 
-.filter-section input[type="checkbox"] {
-    margin-right: 10px;
-}
-
+/* Кнопка фильтров */
 .apply-filters-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #29ACFF;
+    margin-top: 10px;
+    background-color: #0077cc;
     color: white;
     border: none;
+    padding: 12px;
+    width: 100%;
     border-radius: 25px;
-    font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .apply-filters-btn:hover {
-    background: #4C8DB7;
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+/* === Секция туров === */
+.tour-list {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* === Карточка тура === */
+.tour-card {
+    background-color: #E4E5EE;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+
+}
+
+.tour-card:hover {
+    transform: translateY(-3px);
+}
+
+.card-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Горизонтальное центрирование */
+    justify-content: center; /* Вертикальное центрирование */
+    text-align: center;
+    padding: 19px;
+}
+
+
+.text-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+.text-body {
+    font-size: 15px;
+    margin-bottom: 6px;
 }
 
 .old-price {
-    color: red;
-    font-weight: bold;
+    color: #888;
+    text-decoration: line-through;
+    margin-right: 8px;
 }
 
 .new-price {
-    color: green;
-    font-size: 20px;
     font-weight: bold;
-    margin-left: 5px;
-    padding-top: 10px;
+    color: #259F41;
+    font-size: 22px;
+    margin-left: 3px;
+    display: inline-block;
 }
 
-@media (max-width: 768px) {
-    .filter-tour-container {
-        flex-direction: column;
-    }
-
-    .filter-sidebar {
-        width: 100%;
-    }
-
-    .tour-card {
-        min-height: auto;
-    }
+.discount-label {
+    background-color: #ffcccb;
+    color: #a30000;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
 }
 
+/* === Кнопки действий === */
+.order-btn,
+.booking-btn,
+.details-btn,
+.edit-btn,
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 6px 6px 0 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
 
+.order-btn:hover,
+.booking-btn:hover,
+.details-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.1);
+}
 
-.details-btn {
+.booking-btn {
+    margin-left: 23px;
+}
+
+.order-btn {
+    font-weight: bold;
+    width: 80%; /* на всю ширину родителя */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-   background-color: #54649B;
+    margin-left: 32px;
+    background-color: #4CAF50;
+    font-size: 19px;
     color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
+    padding: 12px 0;
+    border: none;
     border-radius: 25px;
     text-decoration: none;
-    border: none; /* Добавлено: убирает стандартную обводку */
-    outline: none; /* Добавлено: убирает outline при фокусе */
-    cursor: pointer; /* Добавлено: показывает курсор-указатель */
+    margin-bottom: 10px;
 }
 
-.details-btn:hover {
-    background-color: #B284FF;
-    color: white;
-    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
-    transition: all 0.2s ease; /* Добавлено: плавный переход */
+.order-btn:hover {
+    background-color: #45a049;
+     transform: scale(1.1);
 }
 
-.map-icon {
-    width: 20px;
+.cart-icon {
+    margin-right: 8px;
     height: 20px;
 }
 
-
-
-
-
-
-
-.modal-map {
-    width: 100%;
-    height: 300px;
-    border: none;
-    margin-top: 15px;
-}
-.modal-buttons {
-    margin-top: 20px;
-    text-align: right;
-}
-.back-btn {
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px 20px; /* Универсальный размер кнопок */
-    border-radius: 25px; /* Закругленные углы */
-    cursor: pointer;
-    background-color: #ff4d4d; /* Красный цвет */
-    color: white;
-    text-decoration: none;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные изменения */
-}
-
-
-.back-btn:hover {
-    background-color: #e60000; /* Темнее красный при наведении */
-    transform: scale(1.05); /* Немного увеличивается при наведении */
-}
-
-.catalog-header {
-    text-align: center;
-    font-size: 32px;
-    margin-left: 25px;
-    margin-top: 30px;
-    margin-bottom: -10px;
-    font-weight: bold;
-}
-
-
-
-.delete-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background-color: #F23A3A;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 25px;
-    text-decoration: none;
-    border: none; /* Добавлено: убирает стандартную обводку */
-    outline: none; /* Добавлено: убирает outline при фокусе */
-    cursor: pointer; /* Добавлено: показывает курсор-указатель */
-}
-
-
-.delete-btn:hover {
-    background-color: #E10000;
-    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
-    transition: all 0.2s ease; /* Добавлено: плавный переход */
-}
-
+/* Сохраняем цвета без изменений */
+.order-btn { background-color: #28a745; color: white; }
+.booking-btn { background-color: #17a2b8; color: white; }
+.details-btn { background-color: #ffc107; color: #222; }
+.edit-btn { background-color: #007bff; color: white; }
+.delete-btn { background-color: #dc3545; color: white; }
 
 .edit-btn {
+margin-left: 70px;
+}
+
+.details-btn{
+color: black;
+}
+
+
+/* Иконки */
+.cart-icon,
+.book-icon,
+.map-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+
+
+.card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.card-buttons .btn {
+    flex: 1 1 calc(33.33% - 10px); /* 3 кнопки в ряд, учитывая gap */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    margin: 15px auto;
-    padding: 10px;
-    background-color: #EA8E60;
-    color: white;
+    padding: 8px 10px;
+    font-size: 14px;
     font-weight: bold;
-    text-align: center;
-    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-buttons .btn:hover {
+    transform: scale(1.1);
+}
+
+
+.back-btn{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: white;
+    background-color: #dc3545;
     border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    margin-right: 250px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
     text-decoration: none;
-    border: none; /* Добавлено: убирает стандартную обводку */
-    outline: none; /* Добавлено: убирает outline при фокусе */
-    cursor: pointer; /* Добавлено: показывает курсор-указатель */
+    transition: transform 0.2s;
 }
 
-
-.edit-btn:hover {
-    background-color: #F55F14;
-    transform: scale(1.02); /* Добавлено: небольшой эффект при наведении */
-    transition: all 0.2s ease; /* Добавлено: плавный переход */
+.back-btn:hover {
+    background-color: #C01B1B;
+     transform: scale(1.1);
 }
+/* === Остальные стили остаются без изменений === */
