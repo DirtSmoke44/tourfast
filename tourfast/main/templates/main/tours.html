@@ -73,7 +73,7 @@
         <strong class="new-price">{{ el.price|floatformat:"-2" }} ₽</strong>
     {% endif %}
 </p>
-
+{% if request.user.is_authenticated %}
                     <a href="{% url 'add_to_cart' el.id %}" class="order-btn">
     <img src="{% static 'main/icons/shopping-bag.png' %}" alt="Cart Icon" class="cart-icon">
     Оформить
@@ -92,6 +92,7 @@
                     {% endif %}
                    {% if request.user.is_superuser %}
                     <a href="{% url 'delete_tour' el.id %}" class="delete-btn" onclick="return confirm('Удалить тур?')">Удалить</a>
+                    {% endif %}
                     {% endif %}
                 </div>
             </div>
