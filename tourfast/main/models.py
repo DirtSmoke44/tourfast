@@ -28,9 +28,6 @@ class Buyer(AbstractUser): # Клиенты
     photo = models.ImageField('Фото профиля', upload_to='main/profilephotos/', null=True, blank=True)
     is_special = models.BooleanField(default=False, verbose_name='Особый пользователь')
 
-
-
-
 class Country(models.Model): # Страны
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(max_length=1000, unique=True, null=True)
@@ -118,7 +115,6 @@ class Contracts(models.Model):
     class Meta:
         verbose_name = 'Договор'
         verbose_name_plural = 'Договора'
-
 
 
 class Booking(models.Model):

@@ -270,8 +270,6 @@ def create_booking(request):
     return redirect('tours_page')
 
 
-
-
 @login_required
 def editprofile(request):
     user = request.user  # Получаем текущего пользователя
@@ -428,7 +426,6 @@ def download_contract(request, contract_id):
     response['Content-Disposition'] = f'attachment; filename=contract_{contract.id}.pdf'
     return response
 
-
 @login_required
 def upload_avatar(request):
     if request.method == 'POST' and request.FILES.get('photo'):
@@ -437,7 +434,6 @@ def upload_avatar(request):
         user.save()
         messages.success(request, 'Аватар успешно обновлен!')
     return redirect('profile_page')
-
 
 
 @login_required
@@ -456,7 +452,6 @@ def load_hotels(request):
     country_id = request.GET.get('country_id')
     hotels = Hotel.objects.filter(country_id=country_id).values('id', 'name')
     return JsonResponse(list(hotels), safe=False)
-
 
 @login_required
 def delete_tour(request, tour_id):
