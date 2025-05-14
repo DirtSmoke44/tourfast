@@ -35,6 +35,7 @@ urlpatterns = [
     path('tours/edit/<int:tour_id>/', views.edittour, name='edit_tour'),
     path('ajax/load-hotels/', views.load_hotels, name='ajax_load_hotels'),
     path('subscribe/', views.subscribe, name='subscribe'),
+    path('contracts/confirm/<int:contract_id>/', views.confirm_payment, name='confirm_payment'),
     # path('send-test-email/', views.send_test_email, name='send_test_email'),
     # path('cart/remove/', views.remove_item, name='remove_item'),
     # path('create_transaction/', views.create_transaction, name='create_transaction'),

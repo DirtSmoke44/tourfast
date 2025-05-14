@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import Tour, Country, Hotel
+from .models import Tour, Country, Hotel, Contracts
 from django.contrib.auth.forms import AuthenticationForm
 from main.models import Buyer
 from django import forms
@@ -17,6 +17,11 @@ class CustomTourFilterForm(forms.Form):
     duration_min = forms.IntegerField(required=False, min_value=0, label="Мин. длительность")
     duration_max = forms.IntegerField(required=False, min_value=0, label="Макс. длительность")
     hot_tours = forms.BooleanField(required=False, label="Горящие туры")
+
+class CustomContractsFilterForm(forms.Form):
+    tour = forms.ModelChoiceField(queryset=Tour.objects.all(), required=False, label="Тур")
+
+
 
 class RegisterForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):

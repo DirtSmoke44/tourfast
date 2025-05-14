@@ -18,7 +18,22 @@
 
 <!-- Затемнение -->
 <div class="overlay"></div>
+<div class="filter-tour-container">
+    <!-- Блок фильтров -->
+    <form method="get">
+        {% csrf_token %}
+        <aside class="filter-sidebar">
+            <h2>Фильтры</h2>
 
+            <div class="filter-section">
+                <label for="id_tour">Выберите тур:</label>
+                {{ form.tour }}
+            </div>
+
+
+            <button class="apply-filters-btn">Применить фильтры</button>
+        </aside>
+    </form>
 <div class="contracts-container">
     <h1 class="contracts-title">Ваучеры:</h1>
 
@@ -42,7 +57,19 @@
                         <p><strong>Страна:</strong> {{ contract.tour.country  }}</p>
                         <p><strong>Отель:</strong> {{ contract.tour.hotel  }}</p>
                         <p><strong>Стоимость за ночь:</strong> {{ contract.tour.hotel.price_per_night|floatformat:"-2" }} Рублей</p>
-                        <p><strong>Статус оплаты:</strong> Подтверждён</p>
+                        <p><strong>Статус оплаты:</strong>
+    {% if contract.payment_confirmed %}
+        Подтверждена
+    {% else %}
+        Ожидает подтверждения
+        {% if request.user.is_staff %}
+            <form action="{% url 'confirm_payment' contract.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="confirm-btn">Подтвердить</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</p>
                         <p><strong>Номер карты оплаты:</strong> {{ contract.transaction.card_number  }}</p>
                         <p><strong>Итого:</strong> {{ contract.price|floatformat:"-2" }} Рублей</p>
                     </div>

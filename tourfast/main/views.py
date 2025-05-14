@@ -9,8 +9,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import logout
-from .filters import TourFilter
-from .forms import CustomTourFilterForm, UserEditForm
+from .filters import TourFilter, ContractsFilter
+from .forms import CustomTourFilterForm, UserEditForm, CustomContractsFilterForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -27,7 +27,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.units import cm
 from .forms import SubscriptionForm
-
+from django.contrib.admin.views.decorators import staff_member_required
 import logging
 logger = logging.getLogger(__name__)
 
@@ -342,18 +342,30 @@ def edittour(request, tour_id):
 @login_required
 def contracts(request):
     query = request.GET.get('search', '')
+    contracts = Contracts.objects.all() if request.user.is_special else Contracts.objects.filter(client=request.user)
 
-    if request.user.is_special:
-        contracts = Contracts.objects.all()
-        if query:
-            contracts = contracts.filter(client__last_name__icontains=query)
-    else:
-        contracts = Contracts.objects.filter(client=request.user)
+    # Поиск по фамилии (только для особых пользователей)
+    if request.user.is_special and query:
+        contracts = contracts.filter(client__last_name__icontains=query)
+
+    # Применение формы фильтрации
+    form = CustomContractsFilterForm(request.GET or None)
+    if form.is_valid():
+        if form.cleaned_data.get('tour'):
+            contracts = contracts.filter(tour=form.cleaned_data['tour'])
 
     return render(request, 'main/contracts.html', {
         'contracts': contracts,
-        'search_query': query,
+        'form': form,
+        'search_query': query
     })
+
+@staff_member_required  # доступ только менеджерам/админам
+def confirm_payment(request, contract_id):
+    contract = get_object_or_404(Contracts, id=contract_id)
+    contract.payment_confirmed = True
+    contract.save()
+    return redirect('contracts_page')  # перенаправление на список ваучеров
 
 def load_hotels(request):
     country_id = request.GET.get('country_id')
