@@ -108,6 +108,8 @@ class Contracts(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     transaction = models.ForeignKey(Transaction, on_delete=models.CASCADE, related_name="transaction", null=True)
+    payment_confirmed = models.BooleanField(default=False)
+    is_booking = models.BooleanField(default=False, verbose_name="Бронирование")  # True — бронирование, False — оформленный тур
 
     def str(self):
         return self.title

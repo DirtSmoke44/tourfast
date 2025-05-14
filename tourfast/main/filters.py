@@ -1,5 +1,5 @@
 import django_filters
-from .models import Tour
+from .models import Tour, Contracts
 
 class TourFilter(django_filters.FilterSet):
     price_min = django_filters.NumberFilter(field_name="price", lookup_expr='gte', label="Цена от")
@@ -21,3 +21,11 @@ class TourFilter(django_filters.FilterSet):
         #         model = Tour
         #         fields = ['country', 'price_min', 'price_max', 'duration_min', 'duration_max', 'hot_tours']
 
+class ContractsFilter(django_filters.FilterSet):
+
+    tour = django_filters.ModelChoiceFilter(queryset=Contracts.objects.values_list('tour__title', flat=True).distinct(), label="Страна")
+
+
+    class Meta:
+        model = Contracts
+        fields = ['tour']
