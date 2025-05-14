@@ -67,9 +67,9 @@
                         <p><strong>Стоимость за ночь:</strong> {{ contract.tour.hotel.price_per_night|floatformat:"-2" }} Рублей</p>
                         <p><strong>Статус оплаты:</strong>
     {% if contract.payment_confirmed %}
-        Подтверждена
+        <span class="status-confirmed">Подтверждён</span>
     {% else %}
-        Ожидает подтверждения
+        <span class="status-pending">Ожидает подтверждения</span>
         {% if request.user.is_staff %}
             <form action="{% url 'confirm_payment' contract.id %}" method="post" style="display:inline;">
                 {% csrf_token %}

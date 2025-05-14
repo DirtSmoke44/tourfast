@@ -327,3 +327,14 @@
     font-family: 'Arial', sans-serif; /* можешь изменить под свой стиль */
 }
 
+
+.status-confirmed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
+
