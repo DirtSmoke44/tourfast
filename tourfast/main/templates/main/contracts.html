@@ -21,19 +21,18 @@
 <div class="filter-tour-container">
     <!-- Блок фильтров -->
     <form method="get">
-        {% csrf_token %}
-        <aside class="filter-sidebar">
-            <h2>Фильтры</h2>
+    {% csrf_token %}
+    <aside class="filter-sidebar">
+        <h2>Фильтры</h2>
 
-            <div class="filter-section">
-                <label for="id_tour">Выберите тур:</label>
-                {{ form.tour }}
-            </div>
+        <div class="filter-section">
+            <label for="id_tour">Выберите тур:</label>
+            {{ form.tour }}
+        </div>
 
-
-            <button class="apply-filters-btn">Применить фильтры</button>
-        </aside>
-    </form>
+        <button class="apply-filters-btn">Применить фильтры</button>
+    </aside>
+</form>
 <div class="contracts-container">
     <h1 class="contracts-title">Ваучеры:</h1>
 

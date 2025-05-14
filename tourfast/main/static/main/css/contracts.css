@@ -199,3 +199,125 @@
         width: 100%;
     }
 }
+
+
+
+
+/* Обертка секции */
+.filter-tour-container {
+    display: flex;
+    gap: 40px;
+    padding: 40px 20px;
+    align-items: flex-start;
+}
+
+/* Секция фильтров */
+.filter-sidebar {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    border-radius: 25px;
+    width: 327px;
+    height: 250px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    position: sticky; /* можно также использовать fixed */
+    top: 100px;
+    z-index: 1;
+}
+
+/* Текст и лейблы */
+.filter-sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    color: #000;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+    color: #000;
+}
+
+/* Выпадающие элементы */
+.filter-sidebar select,
+.filter-sidebar input {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* === Кнопка "Применить фильтры" — стиль как у "Скачать ваучер" === */
+.apply-filters-btn {
+    background-color: #1e88e5;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    margin-left: 45px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.apply-filters-btn:hover {
+    background-color: #1565c0;
+    transform: scale(1.05);
+}
+
+/* === Кнопка "Подтвердить" === */
+.confirm-btn {
+    background-color: #FFEB3B;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #fdd835;
+    transform: scale(1.05);
+}
+
+/* === Кнопка "Удалить ваучер" — как confirm-btn, но красная === */
+.contract-delete {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 18px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contract-delete:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}
+
+
