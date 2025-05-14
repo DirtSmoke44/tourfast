@@ -25,6 +25,7 @@
     max-width: 1200px;
     margin: 0 auto;
     margin-left: 85px;
+     text-align: center;
     padding: 40px 20px;
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -136,7 +137,8 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 200px;
+    margin-left: 75px;
+    margin-top: 250px;
 }
 
 /* Поисковая форма */

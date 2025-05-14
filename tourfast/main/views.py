@@ -447,12 +447,16 @@ def generate_contract_pdf(contract):
 
     lines = [
         f"Ваучер №{contract.id} НА ТУРИСТИЧЕСКОЕ ОБСЛУЖИВАНИЕ",
-        "Туристическая фирма: tourFAST",
+        "",
+        "«ООО Туристическая фирма «tourFAST»",
+        "",
+        "Данные организации:",
         "Адрес: Россия, Казань, Ул. Проспекта Победы, д.68",
         "Телефон: +7 (843) 737-33-67",
         "Email: tourfastsupport@gmail.com",
         "ОГРН: 1234567890123    ИНН: 9876543210",
         "",
+        "Данные клиента:",
         f"Клиент: {contract.client.last_name} {contract.client.username}",
         f"Email клиента: {contract.client.email}",
         f"Паспортные данные: {getattr(contract.client, 'passport_data', 'Не указано')}",
@@ -476,7 +480,8 @@ def generate_contract_pdf(contract):
         f"Дата заключения договора: {contract.date.strftime('%d.%m.%Y')}",
         "",
         "Подписи сторон:",
-        "Турфирма tourFAST: _____________",
+        "",
+        "Туристическая фирма tourFAST: _____________",
         "Клиент: _____________",
         "",
         "Спасибо, что выбрали tourFAST! Желаем вам приятного отдыха!"
