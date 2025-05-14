@@ -49,11 +49,15 @@
                 <div class="contract-card">
                     <h2 class="contract-card-title">Ваучер №{{ contract.id }}</h2>
                     <div class="contract-details">
-                        {% if contract.is_booking %}
-                        <p><strong>Забронированный тур</strong></p>
-                        {% else %}
-                        <p><strong>Оформленный тур</strong></p>
-                        {% endif %}
+                        <p>
+    <span class="tour-type">
+        {% if contract.is_booking %}
+            Забронированный тур
+        {% else %}
+            Оформленный тур
+        {% endif %}
+    </span>
+</p>
                         <p><strong>{{ contract.tour.title }}</strong></p>
                         <p><strong>Дата оформления договора:</strong> {{ contract.date|date:"d.m.Y H:i" }}</p>
                         <p><strong>Имя клиента:</strong> {{ contract.client.username }}</p>

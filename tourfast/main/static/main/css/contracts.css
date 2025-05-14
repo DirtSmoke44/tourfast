@@ -24,6 +24,7 @@
 .contracts-container {
     max-width: 1200px;
     margin: 0 auto;
+    margin-left: 85px;
     padding: 40px 20px;
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -201,13 +202,11 @@
 }
 
 
-
-
 /* Обертка секции */
 .filter-tour-container {
     display: flex;
-    gap: 40px;
-    padding: 40px 20px;
+    gap: -20px;
+    padding: 20px 20px;
     align-items: flex-start;
 }
 
@@ -320,4 +319,11 @@
     transform: scale(1.05);
 }
 
+
+.tour-type {
+    font-weight: 700;       /* жирный */
+    font-size: 1.3rem;      /* увеличенный размер */
+    color: #1a1a1a;         /* тёмный текст, можно заменить */
+    font-family: 'Arial', sans-serif; /* можешь изменить под свой стиль */
+}
 
