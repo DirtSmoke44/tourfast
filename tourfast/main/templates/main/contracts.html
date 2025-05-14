@@ -50,6 +50,11 @@
                 <div class="contract-card">
                     <h2 class="contract-card-title">Ваучер №{{ contract.id }}</h2>
                     <div class="contract-details">
+                        {% if contract.is_booking %}
+                        <p><strong>Забронированный тур</strong></p>
+                        {% else %}
+                        <p><strong>Оформленный тур</strong></p>
+                        {% endif %}
                         <p><strong>{{ contract.tour.title }}</strong></p>
                         <p><strong>Дата оформления договора:</strong> {{ contract.date|date:"d.m.Y H:i" }}</p>
                         <p><strong>Имя клиента:</strong> {{ contract.client.username }}</p>
@@ -74,6 +79,9 @@
                         <p><strong>Итого:</strong> {{ contract.price|floatformat:"-2" }} Рублей</p>
                     </div>
                     <div class="contract-actions">
+                        {% if request.user.is_staff %}
+                        <a href="{% url 'delete_contracts' contract.id %}" class="contract-delete">Удалить ваучер</a>
+                        {% endif %}
                         <a href="{% url 'download_contract' contract.id %}" class="contract-download">Скачать ваучер</a>
                         <a href="#" class="contract-details-link">Отправить ваучер на почту</a>
                     </div>

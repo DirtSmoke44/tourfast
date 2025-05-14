@@ -406,7 +406,8 @@ def process_payment(request):
                 tour=booking.tour,  # Связь через тур
                 price=booking.price,
                 date=booking.booking_date,
-                transaction=transaction
+                transaction=transaction,
+                is_booking=True,
 
             )
             # Обновляем статус бронирования через прямое присвоение
@@ -530,3 +531,9 @@ def delete_tour(request, tour_id):
     tour = get_object_or_404(Tour, id=tour_id)
     tour.delete()
     return redirect('tours_page')  # или другая страница после удаления
+
+@staff_member_required
+def delete_contract(request, contract_id):
+    contracts = get_object_or_404(Contracts, id=contract_id)
+    contracts.delete()
+    return redirect('contracts_page')  # или другая страница после удаления
