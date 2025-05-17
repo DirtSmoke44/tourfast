@@ -29,7 +29,11 @@
           <a class="nav-link" href="{% url 'countries_page' %}">Страны</a>
         </li>
         <li class="nav-item">
+          {% if request.user.is_authenticated %}
           <a class="nav-link" href="{% url 'tours_page' %}">Туры</a>
+           {% else %}
+          <a class="nav-link" href="{% url 'login_page' %}">Туры</a>
+            {% endif %}
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'hotels_page' %}">Отели</a>
