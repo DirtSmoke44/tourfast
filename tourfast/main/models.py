@@ -121,7 +121,7 @@ class Contracts(models.Model):
 
 class Booking(models.Model):
     client = models.ForeignKey(Buyer, on_delete=models.CASCADE, related_name="bookings")
-    tour = models.ForeignKey(Tour, on_delete=models.PROTECT, related_name="bookings")
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, related_name="bookings")
     booking_date = models.DateTimeField(auto_now_add=True)
     check_in = models.DateField(null=True)  # Дата заезда
     check_out = models.DateField(null=True)  # Дата выезда
